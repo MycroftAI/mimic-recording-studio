@@ -1,0 +1,491 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Mobile Styles */
+
+@media only screen and (max-width: 400px) {
+  .page {
+    margin: 0 5% 0 5%;
+  }
+}
+
+/* Tablet Styles */
+
+@media only screen and (min-width: 401px) and (max-width: 960px) {
+  .page {
+    margin: 0 10% 0 10%;
+  }
+}
+
+/* Desktop Styles */
+
+@media only screen and (min-width: 961px) {
+  .page {
+    margin: 0 15% 0 15%;
+  }
+}
+
+body {
+  text-align: left;
+  font-family: "Roboto";
+  font-size: 16px;
+  line-height: 1.5;
+  color: #2c3e50;
+  /* margin-right: 2em;
+		margin-left: 2em; */
+	margin-bottom: 100px;
+}
+
+a {
+  text-decoration: none;
+  /* color: #22a7f0; */
+	/* max-width: 150px; */
+}
+
+h1 {
+  display: block;
+  text-align: left;
+  padding: 0px 0px 20px 0px;
+  /* margin: 0 0; */
+  color: #22a7f0;
+  /* font-variant: small-caps; */
+  font-size: 2.5em;
+  font-weight: 900;
+  line-height: 1.2;
+}
+
+h2 {
+  color: #22a7f0;
+  padding: 2px 0px 10px 0px;
+  font-size: 1em;
+  font-variant: small-caps;
+  /*	text-transform: uppercase; */
+  font-weight: 500;
+	/* display: inline; */
+}
+
+p {
+  padding: 0px 0px 16px 0px;
+}
+
+i {
+  /* display: inline; */
+  color: #BDC3C7;
+  /* padding-right: 10px; */
+	font-size: 2.1em;
+}
+
+hr {
+  margin: 1em 0 1em 0;
+  /* background-color: #ff0000; */
+  border-top: 1px solid #f1f3f4;
+}
+
+.topnav {
+  height: 64px;
+  background-color: #22a7f0;
+  margin-bottom: 34px;
+  color: white;
+  font-weight: 400;
+  font-size: 18px;
+  padding: 17px 20px;
+}
+
+.logo {
+  margin-right: 10px;
+  /* margin-top: 10px; */
+}
+
+.top-container {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+
+.instructions {
+  /* max-width: 100%; */
+  margin: 20px 0px 40px 0px;
+  padding: 40px 50px 40px 50px;
+  background-color: #f1f3f4;
+  border-radius: 6px;
+  /* line-height: 2; */
+}
+
+.instructions2 {
+  /* max-width: 100%; */
+  margin: 0px 30px 40px 0px;
+  padding: 40px 50px 40px 50px;
+  background-color: #f1f3f4;
+  border-radius: 6px;
+  /* width: 45%; */
+  /* min-width: 340px; */
+  /* line-height: 2; */
+  /* display: inline-block; */
+  flex: 1;
+}
+
+.session-info {
+  margin: 0px 0px 40px 0px;
+  padding: 40px 50px 30px 50px;
+  /* width: 45%; */
+  /* min-width: 340px; */
+  border-radius: 6px;
+  border: 4px solid;
+  border-color: #f1f3f4;
+  /* background-color: lightgrey; */
+  flex: 1;
+}
+
+.top-info {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+
+.btn-restart {
+  display: inline;
+  margin: 0.8em 0 0 0;
+  /* padding: 0 0; */
+}
+
+.small-caps {
+  font-variant: small-caps;
+}
+
+.persona-desc li {
+  margin-bottom: 16px;
+  margin-left: 20px;
+}
+
+.hints li {
+  /* margin-bottom: 16px; */
+  margin-left: 20px;
+}
+
+.li-title {
+	color: #22a7f0;
+	font-weight: 700;
+}
+
+/* header/copyright link */
+
+/*
+.link {
+  text-decoration: none;
+  color: #55acee;
+  border-bottom: 2px dotted #55acee;
+  transition: 0.3s;
+  -webkit-transition: 0.3s;
+  -moz-transition: 0.3s;
+  -o-transition: 0.3s;
+  cursor: url(http://cur.cursors-4u.net/symbols/sym-1/sym46.cur), auto;
+}
+
+.link:hover {
+  color: #2ecc71;
+  border-bottom: 2px dotted #2ecc71;
+}
+*/
+
+/* start da css for da buttons */
+
+.btn_PageIntro {
+	max-width: 150px;
+}
+
+.btn {
+  border-radius: 4px;
+  padding: 0.75em 1.75em;
+  font-size: 1em;
+  /* text-decoration: none; */
+  color: #2c3e50;
+  font-weight: 500;
+  font-variant: small-caps;
+  /* height: 2.7em; */
+	background-color: #FD9E66;
+	max-width: 150px;
+	text-align: center;
+}
+
+.btn-next {
+  border-radius: 4px;
+  /* margin: 10px 0; */
+  padding: 0.75em 1.75em;
+  font-size: 1em;
+  /* text-decoration: none; */
+  color: #fff;
+  font-weight: 500;
+  font-variant: small-caps;
+  /* height: 2.7em; */
+  background-color: #22a7f0;
+  max-width: 150px;
+  text-align: center;
+  /* margin-left: 10px; */
+}
+
+.btn:hover {
+background-color: #FD8E4C;
+}
+
+.btn:active {
+background-color: #FD7E33;
+}
+
+.btn-next:hover {
+background-color: #009BF0;
+}
+
+.btn-next:active {
+background-color: #0094E5;
+}
+
+/*
+.ctls {
+  width: 200px;
+}
+*/
+
+
+/*
+.dark_blue {
+  background-color: #fd9e66;
+}
+*/
+
+.blue {
+  background-color: #55acee;
+  box-shadow: 0px 5px 0px 0px #3c93d5;
+}
+
+.blue:hover {
+  background-color: #6fc6ff;
+}
+
+.green {
+  background-color: #2ecc71;
+  box-shadow: 0px 5px 0px 0px #15b358;
+}
+
+.green:hover {
+  background-color: #48e68b;
+}
+
+.red {
+  background-color: #e74c3c;
+  box-shadow: 0px 5px 0px 0px #ce3323;
+}
+
+.red:hover {
+  background-color: #ff6656;
+}
+
+.purple {
+  background-color: #9b59b6;
+  box-shadow: 0px 5px 0px 0px #82409d;
+}
+
+.purple:hover {
+  background-color: #b573d0;
+}
+
+.orange {
+  background-color: #e67e22;
+  box-shadow: 0px 5px 0px 0px #cd6509;
+}
+
+.orange:hover {
+  background-color: #ff983c;
+}
+
+.yellow {
+  background-color: #f1c40f;
+  box-shadow: 0px 5px 0px 0px #d8ab00;
+}
+
+.yellow:hover {
+  background-color: #ffde29;
+}
+
+.highlight {
+  color: #22a7f0;
+}
+
+/* Box around the "Let's Go" and "Next" buttons */
+
+/*
+.btnBox {
+  background-color: red;
+}
+*/
+
+/* For buttons */
+
+.disabled {
+  background-color: red;
+  pointer-events: none;
+}
+
+ /* #hints {
+  margin-left: 30px;
+  color: whitesmoke;
+  font-size: 0.9em;
+  font-variant: small-caps;
+}
+
+#hints ul li {
+  margin-left: 20px;
+  color: whitesmoke;
+  font-size: 0.9em;
+} */
+
+#yourname {
+  font-size: 1em;
+  padding: 16px;
+  width: 320px;
+  border: 0px;
+  border-radius: 4px;
+  /* text-align: center; */
+  background-color: #f1f3f4;
+  /* display: block; */
+	margin-bottom: 16px;
+	color: #2C3E50;
+}
+
+input::placeholder {
+  color: #6C7A89;
+  font-size: 1em;
+}
+
+#phraseXofY {
+  color: maroon;
+  font-size: 1.5em;
+  margin-right: 50px;
+  /* float: left; */
+}
+
+#newSession {
+  /* float: right; */
+  display: block;
+}
+
+#phraseBox {
+  width: 100%;
+  margin: 10px 0 30px 0;
+  text-align: center;
+}
+
+#phrase {
+  background-color: #222222;
+  color: #FD9E66; /* orange */
+  font-size: 2em;
+  /* margin-right: 60px; */
+  padding: 100px;
+  border-bottom: 1px solid grey;
+  border-top-left-radius: 6px;
+  border-top-right-radius: 6px;
+}
+
+#instructions {
+  color: gray;
+  font-size: 0.75em;
+  float: right;
+  width: 20vw;
+}
+
+/* Holds recording widgets */
+
+#container {
+  /* padding: 0;
+  margin: 0; */
+  width: 100%;
+  /* height: 100%; */
+}
+
+
+#analyser,
+#wavedisplay {
+  width: 100%;
+  height: 100px;
+  margin-bottom: 1.75em;
+  margin-top: -30px;
+}
+
+/* Meter/Waveform widgets */
+
+canvas {
+  display: inline-block;
+  background: #222222;
+  /* height: 100%; */
+  /* padding: 0px;
+  margin: 0; */
+  border-bottom-left-radius: 6px;
+  border-bottom-right-radius: 6px;
+}
+
+/* #table_viz {
+  padding-left: 50px;
+  padding-right: 20px;
+} */
+
+/*
+#viz {
+  justify-content: space-around;
+  align-items: center;
+  padding: 0;
+  margin: 0;
+  width: 100%;
+  height: 100%;
+}
+*/
+
+
+#controls {
+  text-align: center;
+  padding-top: 0;
+  padding-bottom: 27px;
+  /* margin: 10px; */
+  /* margin-top: 2vh; */
+  /* background-color: red; */
+}
+
+
+.recordBox {
+  margin-bottom: 20px;
+}
+
+#record {
+  height: 70px;
+  /* width: 20px; */
+  padding: 0;
+  margin-bottom: -28px;
+  margin-right: 10px;
+  margin-left: 7px;
+  box-sizing: border-box;
+  background: url(microphone.svg) no-repeat;
+}
+
+#record:hover {
+  cursor: pointer;
+  cursor: hand;
+}
+
+#record.recording {
+  background: url(microphone.svg) no-repeat;
+}
+
+.ibutton {
+  font-size: 0.7em;
+  color: #2c3e50;
+  margin-right: 8px;
+  /* margin-bottom: 40px; */
+}
+
+.ibutton-next {
+  font-size: 0.9em;
+  color: #fff;
+  margin-right: 8px;
+  /* margin-bottom: 40px; */
+}
