@@ -105,6 +105,12 @@ hr {
   flex-wrap: wrap;
 }
 
+.key-icon {
+  height: 20px;
+  position: relative; 
+  bottom: -5px;
+}
+
 .instructions {
   /* max-width: 100%; */
   margin: 20px 0px 40px 0px;
@@ -207,7 +213,7 @@ hr {
   /* height: 2.7em; */
 	background-color: #FD9E66;
 	max-width: 150px;
-	text-align: center;
+  text-align: center;
 }
 
 .btn-next {
@@ -223,7 +229,11 @@ hr {
   background-color: #22a7f0;
   max-width: 150px;
   text-align: center;
-  /* margin-left: 10px; */
+  margin-left: 10px;
+}
+
+.btn-play {
+  margin-right: 10px;
 }
 
 .btn:hover {
@@ -420,7 +430,7 @@ input::placeholder {
   width: 100%;
   height: 128px;
   margin-bottom: 1.75em;
-  margin-top: -30px;
+  margin-top: -32px;
 }
 
 /* Meter/Waveform widgets */
@@ -474,7 +484,7 @@ canvas {
   margin-right: 10px;
   margin-left: 7px;
   box-sizing: border-box;
-  background: url(microphone.svg) no-repeat;
+  /* background: url(microphone.svg) no-repeat; */
 }
 
 #record:hover {
@@ -482,9 +492,9 @@ canvas {
   cursor: hand;
 }
 
-#record.recording {
+/* #record.recording {
   background: url(microphone.svg) no-repeat;
-}
+} */
 
 .ibutton {
   font-size: 0.7em;

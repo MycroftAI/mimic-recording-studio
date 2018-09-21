@@ -9,6 +9,16 @@ class Wave extends Component {
             waveColor: waveColor ? waveColor : "#FD9E66"
         });
         this.loadWaveForm(blob)
+        this.wavesurfer.on("finish", () => {
+            this.wavesurfer.pause()
+            this.props.onFinish()
+        });
+    }
+
+    componentDidUpdate(){
+        if(this.props.play){
+            this.wavesurfer.play();
+        }
     }
 
     render() {
