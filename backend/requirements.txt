@@ -1,2 +1,4 @@
 flask
 flask-cors
+peewee
+scipy

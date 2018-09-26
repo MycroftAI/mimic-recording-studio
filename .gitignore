@@ -21,3 +21,9 @@ npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
 
+
+# my ignores
+*.json
+db/
+prompts/
+audio_files/
