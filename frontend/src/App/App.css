@@ -176,6 +176,36 @@ hr {
 	font-weight: 700;
 }
 
+.metrics-container {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+
+.total-hours {
+  margin: 0px 30px 40px 0px;
+  padding: 40px 50px 40px 50px;
+  background-color: #f1f3f4;
+  border-radius: 6px;
+  flex: 1;
+}
+
+.speech-rate {
+  margin: 0px 0px 40px 0px;
+  padding: 40px 50px 40px 50px;
+  background-color: #f1f3f4;
+  border-radius: 6px;
+  flex: 1;
+}
+
+/* .feedback {
+  margin: 0px 0px 40px 0px;
+  padding: 40px 50px 40px 50px;
+  background-color: #f1f3f4;
+  border-radius: 6px;
+  flex: 1;
+} */
+
 /* header/copyright link */
 
 /*
@@ -230,10 +260,12 @@ hr {
   max-width: 150px;
   text-align: center;
   margin-left: 10px;
+  cursor: pointer;
 }
 
 .btn-play {
   margin-right: 10px;
+  cursor: pointer;
 }
 
 .btn:hover {
@@ -393,9 +425,40 @@ input::placeholder {
   font-size: 2em;
   /* margin-right: 60px; */
   padding: 100px;
-  border-bottom: 1px solid grey;
+  /* border-bottom: 1px solid grey; */
   border-top-left-radius: 6px;
   border-top-right-radius: 6px;
+  position: relative;
+}
+
+.feedback-ball-red {
+  background-color: red;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  position: absolute;
+  top: 10px;
+  right: 10px;
+}
+
+.feedback-ball-green {
+  background-color: green;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  position: absolute;
+  top: 10px;
+  right: 10px;
+}
+
+.feedback-ball-grey {
+  background-color: grey;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  position: absolute;
+  top: 10px;
+  right: 10px;
 }
 
 #instructions {

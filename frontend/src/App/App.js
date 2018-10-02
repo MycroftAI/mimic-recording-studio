@@ -3,11 +3,18 @@ import "./App.css";
 import Header from "./Header";
 import Intro from "./Intro";
 import Record from "./Record";
+import { getUUID, createUUID } from "./api/localstorage";
 
 import { BrowserRouter as Router, Route } from "react-router-dom";
 
 
 class App extends Component {
+  componentDidMount(){
+    if (!getUUID()){
+      createUUID()
+    }
+  }
+
   render() {
     return (
       <Router onUpdate={() => window.scrollTo(0, 0)}>

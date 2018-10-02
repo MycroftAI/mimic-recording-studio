@@ -27,3 +27,6 @@ yarn-error.log*
 db/
 prompts/
 audio_files/
+tmp/
+.vscode
+logs

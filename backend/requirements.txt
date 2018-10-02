@@ -1,4 +1,5 @@
 flask
 flask-cors
 peewee
-scipy
+pydub
+gunicorn

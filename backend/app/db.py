@@ -1,14 +1,16 @@
-import json
+"""The Data layer. Has anything to do with creating,
+    storing, getting, udpating, data
+"""
+
 import os
-import sqlite3
 import datetime
-import csv
-import hashlib
-from scipy.io import wavfile
 from .protocol import response
+from .file_system import PromptsFS
+from .audio import Audio
 from peewee import (
     Model, SqliteDatabase, CharField, IntegerField,
-    DateTimeField, ForeignKeyField, DoesNotExist
+    DateTimeField, ForeignKeyField, DoesNotExist, FloatField,
+    AutoField
 )
 
 
@@ -23,30 +25,18 @@ mimic_studio_db_path = os.path.join(
     "mimicstudio.db"
 )
 
-prompts_dir = prompts_path = os.path.join(
-    os.path.dirname(os.path.abspath(__file__)),
-    "../prompts/"
-)
-os.makedirs(prompts_dir, exist_ok=True)
-prompts_path = os.path.join(
-    prompts_dir,
-    "../prompts/english_prompts.csv"
-)
-
-audio_dir = os.path.join(
-    os.path.dirname(os.path.abspath(__file__)),
-    "../audio_files/"
-)
-os.makedirs(audio_dir, exist_ok=True)
-
 # setting up and db
 mimic_studio_db = SqliteDatabase(mimic_studio_db_path)
 
 
 class UserModel(Model):
     uuid = CharField(primary_key=True)
+    mycroft_uuid = CharField(default="")
     user_name = CharField()
     prompt_num = IntegerField(default=0)
+    total_time_spoken = FloatField(default=0.0)
+    len_char_spoken = IntegerField(default=0)
+    # TODO: language support, change this from default
     language = CharField(default='english')
     created_date = DateTimeField(default=datetime.datetime.now)
 
@@ -61,9 +51,10 @@ class UserModel(Model):
             return False
 
 
+# TODO: use this for language support
 class AudioModel(Model):
-    audio_id = CharField(primary_key=True)
-    audio_path = CharField()
+    id = AutoField()
+    audio_id = CharField()
     prompt = CharField()
     language = CharField()
     user = ForeignKeyField(UserModel, backref="user")
@@ -72,44 +63,24 @@ class AudioModel(Model):
     class Meta:
         database = mimic_studio_db
 
-    @staticmethod
-    def get_audio_path(uuid):
-        return os.path.join(audio_dir, uuid)
-
-    @staticmethod
-    def create_file_name(prompt: str):
-        return hashlib.md5(prompt.encode("utf-8")).hexdigest()
-
-
-# Just a simple csv json reader for now
-# TODO: store prompts in a database
-class PromptModel:
-    def __init__(self):
-        self.data = []
-        with open(prompts_path, 'r') as f:
-            prompts = csv.reader(f, delimiter="\t")
-            for p in prompts:
-                self.data.append(p[2])
-
-    def get(self, prompt_number):
-        try:
-            return self.data[prompt_number]
-        except IndexError as e:
-            # TODO: loggin
-            print(e)
-            return None
+# TODO: need to have prompt model to
+# support multiple prompts
+# class PromptMpdel(Model):
+#     id = AutoField()
+#     language = Cha
 
 
 # connecting to dbs
 mimic_studio_db.connect()
 mimic_studio_db.create_tables([UserModel, AudioModel])
 
+prompt_fs = PromptsFS()
+
 
 class DB:
     """DB layer"""
     UserModel = UserModel
     AudioModel = AudioModel
-    PromptModel = PromptModel()
 
     @staticmethod
     def save_user(user: dict) -> response:
@@ -128,6 +99,8 @@ class DB:
             data = {
                 "user_name": user.user_name,
                 "prompt_num": user.prompt_num,
+                "total_time_spoken": user.total_time_spoken,
+                "len_char_spoken": user.len_char_spoken,
                 "language": user.language,
             }
             return response(True, data=data)
@@ -139,38 +112,47 @@ class DB:
             )
 
     @staticmethod
-    def add_prompt_counter(uuid: str) -> response:
+    def update_user_metrics(uuid: str, time: float, char_len: int) -> response:
         try:
             query = UserModel \
-                .update(prompt_num=UserModel.prompt_num + 1) \
+                .update(
+                    prompt_num=UserModel.prompt_num + 1,
+                    total_time_spoken=UserModel.total_time_spoken + time,
+                    len_char_spoken=UserModel.len_char_spoken + char_len
+                ) \
                 .where(uuid == uuid)
             query.execute()
             return response(True)
         except Exception as e:
             print(e)
-            return response(False)
+            response(False)
 
     @staticmethod
-    def save_audio(audio: bytes, uuid: str, prompt: str) -> response:
-        user_audio_dir = AudioModel.get_audio_path(uuid)
-        file_name = AudioModel.create_file_name(prompt)
-        path = os.path.join(user_audio_dir, file_name)
-        os.makedirs(user_audio_dir, exist_ok=True)
+    def save_audio(audio_id: str, prompt: str,
+                   language: str, uuid: str) -> response:
         try:
-            # wavfile.write(path, rate=22000, data=audio)
-            with open(path + ".wav", 'wb+') as f:
-                f.write(audio)
-            with open(path + ".txt", 'w+') as f:
-                f.write(prompt)
-            return response(True)
+            user = DB.UserModel.get(UserModel.uuid == uuid)
+            if user:
+                DB.AudioModel.create(
+                    audio_id=audio_id,
+                    prompt=prompt,
+                    language=language,
+                    user=user
+                )
+                return response(True)
+            else:
+                return response(
+                    False,
+                    message="user %s does not exist" % uuid
+                )
         except Exception as e:
-            # TODO: log Exception
             print(e)
-            return response(False)
+            return response(False, message="Exception thrown, check logs")
 
+    # TODO: should we add prompt in database?
     @staticmethod
     def get_prompt(prompt_num: int) -> response:
-        prompt = DB.PromptModel.get(prompt_num)
+        prompt = prompt_fs.get(prompt_num)
         if prompt:
             data = {
                 "prompt": prompt

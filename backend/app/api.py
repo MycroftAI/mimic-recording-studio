@@ -1,5 +1,9 @@
+import os
 from .db import DB
 from .protocol import response
+from .file_system import AudioFS, temp_path
+from .audio import Audio
+import random
 
 
 class UserAPI:
@@ -28,19 +32,51 @@ class AudioAPI:
     """API that to save, get, and extract all audio as zip"""
 
     def save_audio(self, audio: bytes, uuid: str, prompt: str):
-        res = DB.save_audio(audio, uuid, prompt)
-        if res.success:
-            res = DB.add_prompt_counter(uuid)
-            if res.success:
-                return response(True)
+        user_audio_dir = AudioFS.get_audio_path(uuid)
+        os.makedirs(user_audio_dir, exist_ok=True)
+        wav_file_id = AudioFS.create_file_name(prompt)
+        path = os.path.join(user_audio_dir, wav_file_id)
 
-        return response(False)
+        try:
+            # save wav file. This step is needed before trimming.
+            AudioFS.save_audio(path, audio)
+            AudioFS.save_meta_data(user_audio_dir, uuid, wav_file_id, prompt)
+
+            # trim silence and save
+            trimmed_sound = Audio.trim_silence(path)
+            Audio.save_audio(path, trimmed_sound)
+
+            res = DB.save_audio(wav_file_id, prompt, 'english', uuid)
+            if res.success:
+                audio_len = Audio.get_audio_len(trimmed_sound)
+                char_len = len(prompt)
+                res = DB.update_user_metrics(uuid, audio_len, char_len)
+                if res.success:
+                    return response(True)
+            return response(False)
+        except Exception as e:
+            # TODO: log Exception
+            print(e)
+            return response(False)
+
+    def get_audio_len(self, audio: bytes):
+        try:
+            name = random.getrandbits(64)  # get random num
+            path = os.path.join(temp_path, str(name))
+            AudioFS.save_audio(path, audio)
+            trimmed_sound = Audio.trim_silence(path)
+            audio_len = Audio.get_audio_len(trimmed_sound)
+            os.remove(path + ".wav")
+            return response(True, data={"audio_len": audio_len})
+        except Exception as e:
+            print(e)
+            return response(False)
 
     def extract_all_audio(self):
         pass
 
 
-# TOOD: add language support
+# TODO: add language support
 class PromptAPI:
     """API to get prompts"""
 
