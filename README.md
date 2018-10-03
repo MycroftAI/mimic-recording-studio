@@ -1,6 +1,8 @@
 # Mimic Recording Studio
 
-Welcome to the Mimic Recording Studio.
+Mycroft's open source Mimic technologies are Text-to-Speech engines, which take a piece of written text and convert it into spoken audio. The latest generation of this technology uses machine learning techniques to create a model, which can speak a specific language, sounding like the voice on which it was trained.
+
+The Mimic Recording Studio simplifies the collection of training data from individuals, each of which can be used to produce a distinct voice for Mimic.
 
 ![demo](demo.gif)
 
