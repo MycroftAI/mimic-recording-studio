@@ -5,6 +5,7 @@ import csv
 import hashlib
 import subprocess
 from subprocess import DEVNULL
+from .protocol import response
 
 prompts_dir = prompts_path = os.path.join(
     os.path.dirname(os.path.abspath(__file__)),
@@ -13,7 +14,7 @@ prompts_dir = prompts_path = os.path.join(
 os.makedirs(prompts_dir, exist_ok=True)
 prompts_path = os.path.join(
     prompts_dir,
-    "../prompts/english_prompts.csv"
+    "../prompts/english_prompts_v2.csv"
 )
 
 audio_dir = os.path.join(
@@ -75,11 +76,15 @@ class PromptsFS:
         with open(prompts_path, 'r') as f:
             prompts = csv.reader(f, delimiter="\t")
             for p in prompts:
-                self.data.append(p[2])
+                self.data.append(p[0])
 
-    def get(self, prompt_number: int) -> str:
+    def get(self, prompt_number: int) -> response:
         try:
-            return self.data[prompt_number]
+            d = {
+                "prompt": self.data[prompt_number],
+                "total_prompt": len(self.data)
+            }
+            return response(True, data=d)
         except IndexError as e:
             # TODO: loggin
             print(e)

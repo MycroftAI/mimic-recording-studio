@@ -1,5 +1,5 @@
 {
-  "name": "rebuild_new_recording_studio",
+  "name": "mimic-recording-studio",
   "version": "0.1.0",
   "private": true,
   "devDependencies": {

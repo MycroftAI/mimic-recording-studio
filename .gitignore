@@ -25,8 +25,9 @@ yarn-error.log*
 # my ignores
 *.json
 db/
-prompts/
 audio_files/
 tmp/
 .vscode
 logs
+__pycache__
+build/

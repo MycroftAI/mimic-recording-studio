@@ -63,7 +63,7 @@ h2 {
   font-size: 1em;
   font-variant: small-caps;
   /*	text-transform: uppercase; */
-  font-weight: 500;
+  font-weight: 700;
 	/* display: inline; */
 }
 
@@ -432,33 +432,57 @@ input::placeholder {
 }
 
 .feedback-ball-red {
-  background-color: red;
-  width: 30px;
+  background-color: rgb(228, 63, 70);
+  width: 100px;
   height: 30px;
-  border-radius: 50%;
+  border-radius: 5px;
   position: absolute;
   top: 10px;
   right: 10px;
+  font-size: large;
+  color: white;
 }
 
 .feedback-ball-green {
-  background-color: green;
-  width: 30px;
+  background-color: rgb(37, 162, 78);
+  width: 100px;
   height: 30px;
-  border-radius: 50%;
+  border-radius: 5px;
   position: absolute;
   top: 10px;
   right: 10px;
+  font-size: large;
+  color: white;
 }
 
-.feedback-ball-grey {
+/* .feedback-ball-grey {
   background-color: grey;
-  width: 30px;
+  width: 100px;
   height: 30px;
-  border-radius: 50%;
+  border-radius: 5px;
   position: absolute;
   top: 10px;
   right: 10px;
+} */
+
+.feedback-ball-red-t {
+  background-color: rgb(228, 63, 70);
+  width: 100px;
+  height: 30px;
+  border-radius: 5px;
+  font-size: large;
+  color: white;
+  text-align: center;
+}
+
+.feedback-ball-green-t {
+  background-color: rgb(37, 162, 78);
+  width: 100px;
+  height: 30px;
+  border-radius: 5px;
+  font-size: large;
+  color: white;
+  text-align: center;
 }
 
 #instructions {
@@ -466,6 +490,14 @@ input::placeholder {
   font-size: 0.75em;
   float: right;
   width: 20vw;
+}
+
+.grid-layout {
+  display: grid;
+  grid-template-columns: auto auto auto;
+  align-items: center;
+  justify-items: center;
+  margin: 2em 0 2em 0;
 }
 
 /* Holds recording widgets */
@@ -571,4 +603,14 @@ canvas {
   color: #fff;
   margin-right: 8px;
   /* margin-bottom: 40px; */
+}
+
+/* Tutorial Page */
+.tutorial {
+  /* max-width: 100%; */
+  margin: 20px 0px 40px 0px;
+  padding: 40px 50px 40px 50px;
+  background-color: #f1f3f4;
+  border-radius: 6px;
+  /* line-height: 2; */
 }

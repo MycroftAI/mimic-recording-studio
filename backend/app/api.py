@@ -1,7 +1,7 @@
 import os
 from .db import DB
 from .protocol import response
-from .file_system import AudioFS, temp_path
+from .file_system import AudioFS, PromptsFS, temp_path
 from .audio import Audio
 import random
 
@@ -80,6 +80,8 @@ class AudioAPI:
 class PromptAPI:
     """API to get prompts"""
 
+    prompt_fs = PromptsFS()
+
     def __init__(self):
         self.user_api = UserAPI()
 
@@ -87,7 +89,8 @@ class PromptAPI:
         user = self.user_api.get_user(uuid)
         if user.success:
             prompt_num = user.data["prompt_num"]
-            res = DB.get_prompt(prompt_num)
+            # res = DB.get_prompt(prompt_num)
+            res = PromptAPI.prompt_fs.get(prompt_num)
             if res.success:
                 return response(True, data=res.data)
 

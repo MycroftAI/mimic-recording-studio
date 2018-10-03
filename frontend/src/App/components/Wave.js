@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import WaveSurfer from "wavesurfer.js";
+import PropTypes from 'prop-types';
 
 class Wave extends Component {
     componentDidMount() {
@@ -34,6 +35,14 @@ class Wave extends Component {
     loadWaveForm = blob => {
         this.wavesurfer.loadBlob(blob);
     };
+}
+
+Wave.propTypes = {
+    className: PropTypes.string,
+    waveColor: PropTypes.string,
+    blob: PropTypes.blob,
+    play: PropTypes.bool,
+    onFinish: PropTypes.func
 }
 
 export default Wave;

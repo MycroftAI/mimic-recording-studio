@@ -1,6 +1,8 @@
 import React, { Component } from "react";
 import { ReactMic as Visualizer } from "react-mic";
 import Recorder from "./components/Recorder";
+import PhraseBox from "./components/PhraseBox";
+import Metrics from "./components/Metrics";
 import hark from "hark";
 import Wave from "./components/Wave";
 
@@ -9,13 +11,7 @@ import spacebarSVG from "./assets/space.svg";
 import PSVG from "./assets/P.svg";
 import rightSVG from "./assets/right.svg";
 
-import {
-  postAudio,
-  getPrompt,
-  getUser,
-  createUser,
-  getAudioLen
-} from "./api";
+import { postAudio, getPrompt, getUser, createUser, getAudioLen } from "./api";
 import { getUUID, getName } from "./api/localstorage";
 
 class Record extends Component {
@@ -25,7 +21,7 @@ class Record extends Component {
     this.state = {
       userCreated: false,
       shouldRecord: false,
-      displayWave: false,
+      displayWav: false,
       blob: undefined,
       play: false,
       prompt: "...error loading prompt...",
@@ -36,8 +32,8 @@ class Record extends Component {
       audioLen: 0
     };
 
-    this.uuid = getUUID()
-    this.name = getName()
+    this.uuid = getUUID();
+    this.name = getName();
   }
 
   componentDidMount() {
@@ -53,33 +49,25 @@ class Record extends Component {
     return (
       <div id="PageRecord">
         <h1>Mimic Recording Studio</h1>
-        <TopContainer
-          userName={this.name}
-          promptNum={this.state.promptNum}
-        />
+        <TopContainer userName={this.name} promptNum={this.state.promptNum} route={this.props.history.push}/>
         <Metrics
           totalTime={this.state.totalTime}
-          totalChar={this.state.totalCharLen}
+          totalCharLen={this.state.totalCharLen}
           promptNum={this.state.promptNum}
+          totalPrompt={this.state.totalPrompt}
         />
-        <div id="phraseBox">
-          {/* <div className="recordBox">
-						<p>Click
-							<img id="record" src={microphoneSVG} alt="" onClick={this.recordHandler} />
-							and say this phrase:
-						</p>
-					</div> */}
-          <div id="phrase">
-            {this.renderFeedback()}
-            {this.state.prompt}
-          </div>
-        </div>
-
+        <PhraseBox
+          prompt={this.state.prompt}
+          promptNum={this.state.promptNum}
+          audioLen={this.state.audioLen}
+          totalCharLen={this.state.totalCharLen}
+          totalTime={this.state.totalTime}
+        />
         <div id="container ">
           {this.state.displayWav ? this.renderWave() : this.renderVisualizer()}
           <Recorder
             command={this.state.shouldRecord ? "start" : "stop"}
-            onStart={() => this.shouldDisplayWave(false)}
+            onStart={() => this.shoulddisplayWav(false)}
             onStop={this.processBlob}
             gotStream={this.silenceDetection}
           />
@@ -105,7 +93,8 @@ class Record extends Component {
       .then(res => {
         if (res.success) {
           this.setState({
-            prompt: res.data.prompt
+            prompt: res.data.prompt,
+            totalPrompt: res.data.total_prompt
           });
         }
       });
@@ -125,43 +114,28 @@ class Record extends Component {
           });
           this.requestPrompts(this.uuid);
         } else {
-          if (this.uuid){
+          if (this.uuid) {
             createUser(this.uuid, this.name)
               .then(res => res.json())
               .then(res => {
                 if (res.success) {
-                  this.setState({userCreated: true})
+                  this.setState({ userCreated: true });
                   this.requestPrompts(this.uuid);
                 } else {
-                  alert("sorry there is in error creating user")
+                  alert("sorry there is in error creating user");
                 }
-              })
+              });
           } else {
-            alert("sorry there is in error creating user")
+            alert("sorry there is in error creating user");
           }
         }
       });
   };
 
-  renderFeedback = () => {
-    if (this.state.promptNum < 10 || this.state.audioLen === 0) {
-      return <div className="feedback-ball-grey"></div>
-    }
-    else {
-      const speechRate = this.state.prompt.length / this.state.audioLen
-      const avgSpeechRate = (this.state.totalCharLen / this.state.totalTime).toFixed(1)
-      if ((avgSpeechRate * 0.9) < speechRate && speechRate < (avgSpeechRate * 1.1)) {
-        return <div className="feedback-ball-green"></div>
-      } else {
-        return <div className="feedback-ball-red"></div>
-      }
-    }
-  }
-
   renderWave = () => (
     <Wave
       className="wavedisplay"
-      waveColor={"#FD9E66"}
+      waveColor="#FD9E66"
       blob={this.state.blob}
       play={this.state.play}
       onFinish={this.stopWav}
@@ -180,17 +154,18 @@ class Record extends Component {
   processBlob = blob => {
     getAudioLen(this.uuid, blob)
       .then(res => res.json())
-      .then(res => this.setState({
-        audioLen: res.data.audio_len
-      }))
-
+      .then(res =>
+        this.setState({
+          audioLen: res.data.audio_len
+        })
+      );
     this.setState({
       blob: blob
     });
-    this.shouldDisplayWave(true);
+    this.shoulddisplayWav(true);
   };
 
-  shouldDisplayWave = bool => this.setState({ displayWav: bool });
+  shoulddisplayWav = bool => this.setState({ displayWav: bool });
 
   playWav = () => this.setState({ play: true });
 
@@ -218,12 +193,14 @@ class Record extends Component {
   };
 
   recordHandler = () => {
-    this.setState((state, props) => {
-      return {
-        shouldRecord: !state.shouldRecord,
-        play: false
-      };
-    });
+    setTimeout(() => {
+      this.setState((state, props) => {
+        return {
+          shouldRecord: !state.shouldRecord,
+          play: false
+        };
+      });
+    }, 200);
   };
 
   onNext = () => {
@@ -235,7 +212,10 @@ class Record extends Component {
             this.setState({ displayWav: false });
             this.requestPrompts(this.uuid);
             this.requestUserDetails(this.uuid);
-            this.setState({ blob: undefined });
+            this.setState({
+              blob: undefined,
+              audioLen: 0
+            });
           } else {
             alert("There was an error in saving that audio");
           }
@@ -245,7 +225,10 @@ class Record extends Component {
   };
 
   silenceDetection = stream => {
-    const options = {};
+    const options = {
+      interval: "150",
+      threshold: -80
+    };
     const speechEvents = hark(stream, options);
 
     speechEvents.on("stopped_speaking", () => {
@@ -262,7 +245,7 @@ class TopContainer extends Component {
       <div className="top-container">
         <div className="instructions2">
           <i className="fas fa-info-circle" />
-          <h2>hints</h2>
+          <h2>HINTS</h2>
           <ul className="hints">
             <li>
               <img src={spacebarSVG} className="key-icon" alt="space" /> will
@@ -282,11 +265,11 @@ class TopContainer extends Component {
         <div className="session-info">
           <div className="top-info">
             <div>
-              Recorder:&nbsp;
+              <h2>RECORDER</h2>
+              &nbsp;
               <span id="sessionName">{this.props.userName}</span>
             </div>
-            <div className="btn-restart">
-            </div>
+            <div className="btn-restart" />
           </div>
           <hr />
           <p>
@@ -297,27 +280,14 @@ class TopContainer extends Component {
             . If you accidentally deviate from the script or are unsure, please
             record the prompt again.
           </p>
+          <button className="btn" onClick={this.handleClick}>Tutorial</button>
         </div>
       </div>
     );
   }
-}
-
-class Metrics extends Component {
-  render() {
-    return (
-      <div className="metrics-container">
-        <div className="total-hours">
-          <h4>Progress</h4>
-          <div>Phrase: {this.props.promptNum} / 23320</div>
-          <div>Time Recorded: {Math.round(this.props.totalTime)} seconds</div>
-        </div>
-        <div className="speech-rate">
-          <h4>Speech Rate</h4>
-          <div>Average: {(this.props.totalChar / this.props.totalTime).toFixed(1)} characters per seconds</div>
-        </div>
-      </div>
-    );
+  
+  handleClick = () => {
+    this.props.route("/tutorial")
   }
 }
 

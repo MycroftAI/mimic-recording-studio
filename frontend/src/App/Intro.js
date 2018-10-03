@@ -22,7 +22,7 @@ class Intro extends Component {
     return (
       <div className="App">
         <div id="PageIntro">
-          <h2 style={{ color: "#FD9E66" }}>mimic training studio</h2>
+          <h2 style={{ color: "#FD9E66" }}>Mimic Recording Studio</h2>
           <h1>Help us build the voice(s) of Mycroft!</h1>
           <p>
             Mycroft's open source Mimic technologies are Text-to-Speech engines,
@@ -32,7 +32,7 @@ class Intro extends Component {
             sounding like the voice on which it was trained.
           </p>
           <p>
-            This website simplifies the collection of training data from
+            The Mimic Recording Studio simplifies the collection of training data from
             individuals, each of which can be used to produce a distinct voice
             for Mimic.
           </p>
@@ -87,11 +87,11 @@ class Intro extends Component {
           {getName() ? this.renderWelcomeBackMsg() : this.renderInput()}
           <div className="btn_PageIntro">
             <button
-            //   to="/record"
               id="btn_PageIntro"
+              className="btn"
               onClick={this.handleTrainMimicBtn}
             >
-              <div className="btn">train mimic</div>
+            Record
             </button>
           </div>
         </div>
@@ -102,7 +102,7 @@ class Intro extends Component {
   renderInput = () => {
     return (
       <div>
-        <p>To get started, enter your name and hit the Train Mimic button.</p>
+        <p>To get started, enter your name and hit the Record button.</p>
         <input
           type="text"
           id="yourname"

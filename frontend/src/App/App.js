@@ -3,6 +3,7 @@ import "./App.css";
 import Header from "./Header";
 import Intro from "./Intro";
 import Record from "./Record";
+import Tutorial from "./Tutorial";
 import { getUUID, createUUID } from "./api/localstorage";
 
 import { BrowserRouter as Router, Route } from "react-router-dom";
@@ -23,6 +24,7 @@ class App extends Component {
           <div className="page">
             <Route exact path="/" component={Intro} />
             <Route path="/record" component={Record} />
+            <Route path="/tutorial" component={Tutorial} />
           </div>
         </div>
       </Router>

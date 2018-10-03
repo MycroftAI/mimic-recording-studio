@@ -5,7 +5,6 @@
 import os
 import datetime
 from .protocol import response
-from .file_system import PromptsFS
 from .audio import Audio
 from peewee import (
     Model, SqliteDatabase, CharField, IntegerField,
@@ -73,8 +72,6 @@ class AudioModel(Model):
 # connecting to dbs
 mimic_studio_db.connect()
 mimic_studio_db.create_tables([UserModel, AudioModel])
-
-prompt_fs = PromptsFS()
 
 
 class DB:
@@ -149,14 +146,14 @@ class DB:
             print(e)
             return response(False, message="Exception thrown, check logs")
 
-    # TODO: should we add prompt in database?
-    @staticmethod
-    def get_prompt(prompt_num: int) -> response:
-        prompt = prompt_fs.get(prompt_num)
-        if prompt:
-            data = {
-                "prompt": prompt
-            }
-            return response(True, data=data)
-        else:
-            return response(False)
+    # # TODO: should we add prompt in database?
+    # @staticmethod
+    # def get_prompt(prompt_num: int) -> response:
+    #     prompt = prompt_fs.get(prompt_num)
+    #     if prompt:
+    #         data = {
+    #             "prompt": prompt
+    #         }
+    #         return response(True, data=data)
+    #     else:
+    #         return response(False)
