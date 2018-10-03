@@ -8,6 +8,10 @@ services:
      - "5000:5000"
     volumes: 
      - ./backend/:/src
+    environment:
+    - CORPUS=english_corpus.csv
+    - APIPORT=5000
+    - WEBWORKERS=1
   frontend:
     container_name: mrs-frontend
     build:

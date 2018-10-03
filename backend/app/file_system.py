@@ -4,8 +4,11 @@ import os
 import csv
 import hashlib
 import subprocess
+import os
 from subprocess import DEVNULL
 from .protocol import response
+
+corpus_name = os.environ["CORPUS"]
 
 prompts_dir = prompts_path = os.path.join(
     os.path.dirname(os.path.abspath(__file__)),
@@ -14,7 +17,8 @@ prompts_dir = prompts_path = os.path.join(
 os.makedirs(prompts_dir, exist_ok=True)
 prompts_path = os.path.join(
     prompts_dir,
-    "../prompts/english_prompts_v2.csv"
+    "../prompts",
+    corpus_name
 )
 
 audio_dir = os.path.join(
