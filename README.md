@@ -20,10 +20,10 @@ Why docker? To make this super easy to set up and run cross platforms.
 * `git clone https://github.com/MycroftAI/mimic-recording-studio.git`
 * `cd mimic-recording-studio`
 * `docker-compose up` to build and run
-  * Alternatively, you can build and run seperately. `docker-compose build`, `docker-compose up`
+  * Alternatively, you can build and run separately. `docker-compose build`, `docker-compose up`
 * In browser, go to `http://localhost:3000`
 
-**Note**
+**Note:**
 First `docker-compose up` will take a while as this command will also build the docker containers. Subsequent `docker-compose up` should be quicker to boot.
 
 ## Data
@@ -40,16 +40,20 @@ Can also be found in `backend/audio_file/{uuid}/`. This file maps the wav file n
 
 ### Corpus
 
-Right now, we have an english corpus, `english_corpus.csv` made available which can be found in `backend/prompt/`. To use your own corpus follow these steps.
+For now, we have an english corpus, `english_corpus.csv` made available which can be found in `backend/prompt/`. To use your own corpus follow these steps.
 
-1. create a csv file in the same format as `english_corpus.csv` using tabs (`\t`) as the delimitter.
-2. change the `CORPUS` environment variable in `docker-compose.yml` to your corpus name.
+1. create a csv file in the same format as `english_corpus.csv` using tabs (`\t`) as the delimiter.
+2. add your corpus to the `backend/prompt` directory.
+3. change the `CORPUS` environment variable in `docker-compose.yml` to your corpus name.
+
+**IMPORTANT:**
+For now, this requires you to reset the sqlite database to use the new corpus. If you've recorded on another corpus and would like to save that data, you can simply rename your sqlite db found in `backend/db/` to another name. The backend will detect that `mimicstudio.db` is not there and create a new one for you. You may continue recording data for your new corpus.
 
 ## Technologies
 
 ### Frontend
 
-The web UI is built using javascript and [React](https://reactjs.org/) and [create-react-app](https://github.com/facebook/create-react-app) as a scaffolding tool.
+The web UI is built using javascript and [React](https://reactjs.org/) and [create-react-app](https://github.com/facebook/create-react-app) as a scaffolding tool. Refer to [CRA.md](/frontend/CRA.md) to find out more on how to use create-react-app.
 
 #### Functions
 
