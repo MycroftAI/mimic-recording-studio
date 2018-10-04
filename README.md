@@ -35,6 +35,7 @@ First `docker-compose up` will take a while as this command will also build the 
 Audios can be found in the `backend/audio_file/{uuid}/` directory. The backend automatically trims the beginning and ending silence for all wav files using [ffmpeg](https://www.ffmpeg.org/).
 
 #### {uuid}-metadata.txt
+
 Can also be found in `backend/audio_file/{uuid}/`. This file maps the wav file name to the phrase spoken. This along with the wav files are what you needed to get started on training [Mimic 2](https://github.com/MycroftAI/mimic2).
 
 ### Corpus

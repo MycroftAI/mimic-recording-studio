@@ -54,7 +54,6 @@ class Audio(MethodView):
         uuid = request.args.get('uuid')
         prompt = request.args.get('prompt')
         get_len = request.args.get('get_len')
-        print("got it")
         if uuid and prompt:
             return self.save_audio(uuid, prompt, data)
         elif uuid and get_len:
