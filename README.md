@@ -54,7 +54,7 @@ The web UI is built using javascript and [React](https://reactjs.org/) and [crea
 #### Functions
 
 * Record and play audio
-* Display audio visualization
+* Generate audio visualization
 * Calculate and display metrics
 
 ### Backend
@@ -66,6 +66,7 @@ The web service is built using python, [Flask](http://flask.pocoo.org/) as the b
 * Process audio
 * Serves corpus and metrics data
 * Record info in database
+* Record data to the file system
 
 ### Docker
 
