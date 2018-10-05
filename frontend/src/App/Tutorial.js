@@ -55,8 +55,8 @@ class Tutorial extends Component {
               </p>
               <div className="grid-layout">
                 <div className="feedback-ball-green-t">Good Pace</div>
-                <div className="feedback-ball-red-t">To Slow</div>
-                <div className="feedback-ball-red-t">To Fast</div>
+                <div className="feedback-ball-red-t">Too Slow</div>
+                <div className="feedback-ball-red-t">Too Fast</div>
               </div>
               <p><b>The indicator is determined using your average speech rate. The indicator will only start appearing after 100 recorded samples.
               </b>
