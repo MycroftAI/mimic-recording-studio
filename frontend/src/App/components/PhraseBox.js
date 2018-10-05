@@ -25,9 +25,9 @@ class PhraseBox extends Component {
             if (this.determinePace(avgSpeechRate, speechRate)) {
                 return <div className="feedback-ball-green">Good Pace</div>;
             } else if (speechRate < avgSpeechRate) {
-                return <div className="feedback-ball-red">To Slow</div>;
+                return <div className="feedback-ball-red">Too Slow</div>;
             } else {
-                return <div className="feedback-ball-red">To Fast</div>;
+                return <div className="feedback-ball-red">Too Fast</div>;
             }
         }
     };
