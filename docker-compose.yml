@@ -1,0 +1,22 @@
+version: '3'
+services:
+  backend:
+    container_name: mrs-backend
+    build:
+      context: ./backend/
+    ports:
+     - "5000:5000"
+    volumes: 
+     - ./backend/:/src
+    environment:
+    - CORPUS=english_corpus.csv
+    - APIPORT=5000
+    - WEBWORKERS=1
+  frontend:
+    container_name: mrs-frontend
+    build:
+      context: ./frontend/
+    ports:
+     - "3000:3000"
+    volumes:
+     - ./frontend/:/src

@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="308px" height="113px" viewBox="0 0 308 113" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 51.3 (57544) - http://www.bohemiancoding.com/sketch -->
+    <title>space</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Artboard" transform="translate(-214.000000, -411.000000)">
+            <g id="space" transform="translate(214.000000, 411.000000)">
+                <rect id="Rectangle" stroke="#979797" stroke-width="7" x="3.5" y="3.5" width="301" height="106" rx="8"></rect>
+                <text id="Space" font-family="HelveticaNeue-Bold, Helvetica Neue" font-size="64" font-weight="bold" letter-spacing="0.04666667" fill="#979797">
+                    <tspan x="58.4593333" y="80">Space</tspan>
+                </text>
+            </g>
+        </g>
+    </g>
+</svg>
