@@ -15,7 +15,7 @@ The Mimic Recording Studio simplifies the collection of training data from indiv
 
 Why docker? To make this super easy to set up and run cross platforms.
 
-### Build and Run
+### Build & Run
 
 * `git clone https://github.com/MycroftAI/mimic-recording-studio.git`
 * `cd mimic-recording-studio`
@@ -25,6 +25,37 @@ Why docker? To make this super easy to set up and run cross platforms.
 
 **Note:**
 First `docker-compose up` will take a while as this command will also build the docker containers. Subsequent `docker-compose up` should be quicker to boot.
+
+## Manual Build and Start
+
+Windows machine may need to default to this process. There is a known issue with windows and docker toolbox when trying to run the frontend container.
+
+### Frontend
+
+#### Dependencies
+
+* [node & npm](https://nodejs.org/en/)
+* [create-react-app](https://github.com/facebook/create-react-app)
+* [yarn](https://yarnpkg.com/en/) - optional for faster build, install, and start
+
+#### Build & Run
+
+* `cd frontend/`
+* `npm install`, alternatively `yarn install`
+* `npm start`, alternatively `yarn start`
+
+### Backend
+
+#### Dependencies
+
+* python 3.5 +
+* [ffmpeg](https://www.ffmpeg.org/)
+
+#### Build & Run
+
+* `cd backend/`
+* `pip install -r requirements.txt`
+* `python run.py`
 
 ## Data
 
