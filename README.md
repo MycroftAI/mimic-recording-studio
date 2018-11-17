@@ -35,6 +35,7 @@ Why docker? To make this super easy to set up and run cross platforms.
 * `git clone https://github.com/MycroftAI/mimic-recording-studio.git`
 * `cd mimic-recording-studio`
 * `docker-compose up` to build and run
+
   Alternatively, you can build and run separately. `docker-compose build` then `docker-compose up`
 * In browser, go to `http://localhost:3000`
 
