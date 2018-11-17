@@ -28,6 +28,7 @@ individuals, each of which can be used to produce a distinct voice for Mimic.
 #### Install Dependencies
 * [Docker](https://docs.docker.com/) (community edition is fine)
 * [Docker Compose](https://docs.docker.com/compose/install/)
+
 Why docker? To make this super easy to set up and run cross platforms.
 
 #### Build and Run
