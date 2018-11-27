@@ -4,6 +4,8 @@ import PropTypes from 'prop-types';
 
 class Wave extends Component {
     componentDidMount() {
+        document.addEventListener("keydown", this.handleKeyDown, false);
+
         const { waveColor, blob } = this.props;
         this.wavesurfer = WaveSurfer.create({
             container: "#waveform",
@@ -18,7 +20,17 @@ class Wave extends Component {
 
     componentDidUpdate() {
         if (this.props.play) {
+            console.log("play")
             this.wavesurfer.play();
+        } else {
+            console.log("pausing")
+            this.wavesurfer.pause();
+        }
+    }
+
+    handleKeyDown = (event) => {
+        if (event.keyCode === 27) {
+            this.wavesurfer.pause()
         }
     }
 

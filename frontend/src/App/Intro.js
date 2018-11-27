@@ -20,7 +20,7 @@ class Intro extends Component {
 
   render() {
     return (
-      <div className="App">
+      <div className="page-intro">
         <div id="PageIntro">
           <h2 style={{ color: "#FD9E66" }}>Mimic Recording Studio</h2>
           <h1>Help us build the voice(s) of Mycroft!</h1>

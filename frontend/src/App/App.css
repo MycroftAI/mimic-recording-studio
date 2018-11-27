@@ -28,6 +28,10 @@
   }
 }
 
+.page {
+  margin-top: 20px;
+}
+
 body {
   text-align: left;
   font-family: "Roboto";
@@ -36,7 +40,7 @@ body {
   color: #2c3e50;
   /* margin-right: 2em;
 		margin-left: 2em; */
-	margin-bottom: 100px;
+	/* margin-bottom: 100px; */
 }
 
 a {
@@ -83,11 +87,13 @@ hr {
   /* background-color: #ff0000; */
   border-top: 1px solid #f1f3f4;
 }
+.page-intro {
+  margin-bottom: 20px;
+}
 
 .topnav {
   height: 64px;
   background-color: #22a7f0;
-  margin-bottom: 34px;
   color: white;
   font-weight: 400;
   font-size: 18px;
@@ -99,10 +105,32 @@ hr {
   /* margin-top: 10px; */
 }
 
-.top-container {
+.top-container {  
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  position: absolute;
+  top: 64px;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  padding: 100px 150px 100px 150px;
+  background-color: rgba(0, 0, 0, 0.8);
+  z-index: 100;
+}
+
+.top-container-info {
   display: flex;
   justify-content: space-between;
   flex-wrap: wrap;
+  padding: 50px 50px 0 50px;
+  background-color: white;
+  border-radius: 5px;
+}
+
+.info-btn {
+  margin: 20px 20px 0px 20px;
+  height: 50px;
 }
 
 .key-icon {
@@ -180,19 +208,20 @@ hr {
   display: flex;
   justify-content: space-between;
   flex-wrap: wrap;
+  padding-bottom: 10px;
 }
 
 .total-hours {
-  margin: 0px 30px 40px 0px;
-  padding: 40px 50px 40px 50px;
+  margin: 0px 30px 0px 0px;
+  padding: 20px 50px 20px 50px;
   background-color: #f1f3f4;
   border-radius: 6px;
   flex: 1;
 }
 
 .speech-rate {
-  margin: 0px 0px 40px 0px;
-  padding: 40px 50px 40px 50px;
+  margin: 0px 0px 0px 0px;
+  padding: 20px 50px 20px 50px;
   background-color: #f1f3f4;
   border-radius: 6px;
   flex: 1;
@@ -266,6 +295,12 @@ hr {
 .btn-play {
   margin-right: 10px;
   cursor: pointer;
+}
+
+.btn-disabled {
+  cursor: initial !important;
+  background-color: #D3D3D3 !important;
+  color: #2c3e50 !important;
 }
 
 .btn:hover {
@@ -433,8 +468,9 @@ input::placeholder {
 
 .feedback-ball-red {
   background-color: rgb(228, 63, 70);
-  width: 100px;
-  height: 30px;
+  /* width: 100px; */
+  /* height: 30px; */
+  padding: 0px 5px 0px 5px;
   border-radius: 5px;
   position: absolute;
   top: 10px;
@@ -445,7 +481,8 @@ input::placeholder {
 
 .feedback-ball-green {
   background-color: rgb(37, 162, 78);
-  width: 100px;
+  /* width: 100px; */
+  padding: 0px 5px 0px 5px;
   height: 30px;
   border-radius: 5px;
   position: absolute;
@@ -467,7 +504,8 @@ input::placeholder {
 
 .feedback-ball-red-t {
   background-color: rgb(228, 63, 70);
-  width: 100px;
+  /* width: 100px; */
+  padding: 0px 5px 0px 5px;
   height: 30px;
   border-radius: 5px;
   font-size: large;
@@ -477,7 +515,8 @@ input::placeholder {
 
 .feedback-ball-green-t {
   background-color: rgb(37, 162, 78);
-  width: 100px;
+  /* width: 100px; */
+  padding: 0px 5px 0px 5px;
   height: 30px;
   border-radius: 5px;
   font-size: large;
@@ -509,6 +548,10 @@ input::placeholder {
   /* height: 100%; */
 }
 
+.wave-container {
+  background-color: #222222;
+  width: 100%;
+}
 
 #analyser,
 #wavedisplay {
@@ -519,12 +562,11 @@ input::placeholder {
 }
 
 #waveform {
-  margin-bottom: 35px;
+  /* margin-bottom: 35px; */
 }
 .wavedisplay {
   width: 100%;
   height: 128px;
-  margin-bottom: 1.75em;
   margin-top: -32px;
 }
 
@@ -559,9 +601,8 @@ canvas {
 
 #controls {
   text-align: center;
-  padding-top: 0;
   padding-bottom: 27px;
-  /* margin: 10px; */
+  margin-top: 28px;
   /* margin-top: 2vh; */
   /* background-color: red; */
 }
@@ -613,4 +654,16 @@ canvas {
   background-color: #f1f3f4;
   border-radius: 6px;
   /* line-height: 2; */
+}
+
+.indicator-container {
+  background-color: #222222;
+  border-bottom-left-radius: 6px;
+  border-bottom-right-radius: 6px;
+  margin-top: -12px;
+  height: 5vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
 }

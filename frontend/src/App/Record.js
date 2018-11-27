@@ -24,12 +24,13 @@ class Record extends Component {
       displayWav: false,
       blob: undefined,
       play: false,
-      prompt: "...error loading prompt...",
+      prompt: "*error loading prompt... is the backend running?*",
       language: "",
       promptNum: 0,
       totalTime: 0,
       totalCharLen: 0,
-      audioLen: 0
+      audioLen: 0,
+      showPopup: true
     };
 
     this.uuid = getUUID();
@@ -49,7 +50,12 @@ class Record extends Component {
     return (
       <div id="PageRecord">
         <h1>Mimic Recording Studio</h1>
-        <TopContainer userName={this.name} promptNum={this.state.promptNum} route={this.props.history.push}/>
+        <TopContainer
+          userName={this.name}
+          route={this.props.history.push}
+          show={this.state.showPopup}
+          dismiss={this.dismissPopup}
+        />
         <Metrics
           totalTime={this.state.totalTime}
           totalCharLen={this.state.totalCharLen}
@@ -63,7 +69,7 @@ class Record extends Component {
           totalCharLen={this.state.totalCharLen}
           totalTime={this.state.totalTime}
         />
-        <div id="container ">
+        <div className="wave-container" id="container">
           {this.state.displayWav ? this.renderWave() : this.renderVisualizer()}
           <Recorder
             command={this.state.shouldRecord ? "start" : "stop"}
@@ -72,20 +78,46 @@ class Record extends Component {
             gotStream={this.silenceDetection}
           />
         </div>
-
+        <div className="indicator-container">
+          {this.state.shouldRecord
+            ? "Read Now [Esc] to cancel"
+            : "[Spacebar] to Start Recording [R] to review [->] for next"}
+        </div>
         <div id="controls">
-          <a id="btn_Play" className="btn btn-play" onClick={this.playWav}>
+          <a
+            id="btn_Play"
+            className={`btn btn-play ${
+              this.state.shouldRecord ? "btn-disabled" : ""
+            } `}
+            onClick={this.state.shouldRecord ? () => null : this.playWav}
+          >
             <i className="fas fa-play ibutton" />
-            play
+            Review
           </a>
-          <a id="btn_Next" className="btn-next" onClick={this.onNext}>
+          <a
+            id="btn_Next"
+            className={`btn-next ${
+              this.state.shouldRecord
+                ? "btn-disabled"
+                : this.state.blob === undefined
+                ? "btn-disabled"
+                : null
+            }`}
+            onClick={this.state.shouldRecord ? () => null : this.onNext}
+          >
             <i className="fas fa-forward ibutton-next" />
-            next
+            Next
           </a>
         </div>
       </div>
     );
   }
+
+  dismissPopup = () => {
+    this.setState({
+      showPopup: false
+    });
+  };
 
   requestPrompts = uuid => {
     getPrompt(uuid)
@@ -180,9 +212,25 @@ class Record extends Component {
       }
     }
 
-    // play wav
-    if (event.keyCode === 80) {
+    // esc key code
+    if (event.keyCode === 27) {
       event.preventDefault();
+
+      // resets all states
+      this.setState({
+        shouldRecord: false,
+        displayWav: false,
+        blob: undefined,
+        promptNum: 0,
+        totalTime: 0,
+        totalCharLen: 0,
+        audioLen: 0,
+        play: false
+      });
+    }
+
+    // play wav
+    if (event.keyCode === 82) {
       this.playWav();
     }
 
@@ -196,11 +244,11 @@ class Record extends Component {
     setTimeout(() => {
       this.setState((state, props) => {
         return {
-          shouldRecord: !state.shouldRecord,
+          shouldRecord: true,
           play: false
         };
       });
-    }, 200);
+    }, 500);
   };
 
   onNext = () => {
@@ -241,54 +289,65 @@ class Record extends Component {
 
 class TopContainer extends Component {
   render() {
+    return this.props.show ? this.renderContainer() : null;
+  }
+
+  renderContainer = () => {
     return (
       <div className="top-container">
-        <div className="instructions2">
-          <i className="fas fa-info-circle" />
-          <h2>HINTS</h2>
-          <ul className="hints">
-            <li>
-              <img src={spacebarSVG} className="key-icon" alt="space" /> will
-              start recording
-            </li>
-            <li>Recording will auto-stop after you speak</li>
-            <li>
-              <img src={PSVG} className="key-icon" alt="p" /> will play recorded
-              audio
-            </li>
-            <li>
-              <img src={rightSVG} className="key-icon" alt="->" /> will go to
-              next prompt
-            </li>
-          </ul>
-        </div>
-        <div className="session-info">
-          <div className="top-info">
-            <div>
-              <h2>RECORDER</h2>
-              &nbsp;
-              <span id="sessionName">{this.props.userName}</span>
-            </div>
-            <div className="btn-restart" />
+        <div className="top-container-info">
+          <div className="instructions2">
+            <i className="fas fa-info-circle" />
+            <h2>HINTS</h2>
+            <ul className="hints">
+              <li>
+                <img src={spacebarSVG} className="key-icon" alt="space" /> will
+                start recording
+              </li>
+              <li>Recording will auto-stop after you speak</li>
+              <li>
+                <img src={PSVG} className="key-icon" alt="p" /> will play
+                recorded audio
+              </li>
+              <li>
+                <img src={rightSVG} className="key-icon" alt="->" /> will go to
+                next prompt
+              </li>
+            </ul>
           </div>
-          <hr />
-          <p>
-            It is very important that the recorded words{" "}
-            <span className="highlight">
-              match the text in the script exactly
-            </span>
-            . If you accidentally deviate from the script or are unsure, please
-            record the prompt again.
-          </p>
-          <button className="btn" onClick={this.handleClick}>Tutorial</button>
+          <div className="session-info">
+            <div className="top-info">
+              <div>
+                <h2>RECORDER</h2>
+                &nbsp;
+                <span id="sessionName">{this.props.userName}</span>
+              </div>
+              <div className="btn-restart" />
+            </div>
+            <hr />
+            <p>
+              It is very important that the recorded words{" "}
+              <span className="highlight">
+                match the text in the script exactly
+              </span>
+              . If you accidentally deviate from the script or are unsure,
+              please record the prompt again.
+            </p>
+          </div>
         </div>
+        <button className="btn info-btn" onClick={this.handleClick}>
+          Tutorial
+        </button>
+        <button className="btn info-btn" onClick={this.props.dismiss}>
+          Continue
+        </button>
       </div>
     );
-  }
-  
+  };
+
   handleClick = () => {
-    this.props.route("/tutorial")
-  }
+    this.props.route("/tutorial");
+  };
 }
 
 export default Record;
