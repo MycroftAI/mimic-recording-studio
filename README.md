@@ -35,15 +35,13 @@ Why docker? To make this super easy to set up and run cross platforms.
 
 * `git clone https://github.com/MycroftAI/mimic-recording-studio.git`
 * `cd mimic-recording-studio`
-* `docker-compose up` to build and run
+* `docker-compose up` to build and run (_Note: You may need to use `sudo docker-compose up` depending on your distribution_)
 
   Alternatively, you can build and run separately. `docker-compose build` then `docker-compose up`
-* In browser, go to `http://localhost:3000`
+* In your browser, go to `http://localhost:3000`
 
 **Note:**
-The first execution of `docker-compose up` will take a while as this command
-will also build the docker containers. Subsequent executions of `docker-compose up`
-should be quicker to boot.
+The first execution of `docker-compose up` will take a while as this command will also build the docker containers. Subsequent executions of `docker-compose up` should be quicker to boot.
 
 ### Manual Install, Build and Start
 
@@ -106,9 +104,9 @@ can be found in `backend/prompt/`. To use your own corpus follow these steps.
    corpus name.
 
 **IMPORTANT:**
-For now, you must reset the sqlite database to use a new corpus. If you've
+For now, you must reset the `sqlite` database to use a new corpus. If you've
 recorded on another corpus and would like to save that data, you can simply
-rename your sqlite db found in `backend/db/` to another name. The backend will
+rename your `sqlite` db found in `backend/db/` to another name. The backend will
 detect that `mimicstudio.db` is not there and create a new one for you. You may
 continue recording data for your new corpus.
 
@@ -148,14 +146,11 @@ Docker is used to containerize both applications. By default, the frontend uses
 network port `3000` while the backend uses networking port `5000`. You can
 configure these in the `docker-compose.yml` file.
 
-
+_NOTE: If you are running `docker-registry`, this runs by default on port `5000`, so you will need to change which port you use._
 
 # Recording Tips
 
-Creating a voice requires an achievable, but significant effort. An individual
-will need to record 15,000 - 20,000 phrases.  In order to get the best possible
-Mimic voice, the recordings need to be clean and consistent.  To  that end,
-follow these recommendations:
+Creating a voice requires an achievable, but significant effort. An individual will need to record 15,000 - 20,000 phrases.  In order to get the best possible Mimic voice, the recordings need to be clean and consistent. To  that end, follow these recommendations:
 
 * Record in a quiet environment with noise-dampening material.
   If your ears can hear outside noise, so can the microphone. For best results,
@@ -172,8 +167,13 @@ follow these recommendations:
 * Avoid vocal fatigue.
   Record a maximum of 4 hours a day, taking a break every half hour.
 
-  
-  
 # Contributions
 
 PR's are gladly accepted!
+
+# Where to get support and assistance
+
+You can get help and support with Mimic Recording Studio at; 
+
+* The [Mycroft Forum](https://community.mycroft.ai)
+* In [Mycroft Chat](https://chat.mycroft.ai)
