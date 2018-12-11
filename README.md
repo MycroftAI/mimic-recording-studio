@@ -102,6 +102,14 @@ can be found in `backend/prompt/`. To use your own corpus follow these steps.
 2. Add your corpus to the `backend/prompt` directory.
 3. Change the `CORPUS` environment variable in `docker-compose.yml` to your
    corpus name.
+   
+#### Corpora in other languages
+
+If you wish to develop a corpus in a language other than English, then Mimic Recording Studio can be used to produce voice recordings for TTS voices in additional languages. If you are building a corpus in a language other than English, we encourage you to choose phrases which: 
+
+* occur in natural, everyday speech in the target language
+* have a variety of string lengths
+* cover a wide variety of _phonemes_ (basic sounds)
 
 **IMPORTANT:**
 For now, you must reset the `sqlite` database to use a new corpus. If you've
@@ -109,8 +117,6 @@ recorded on another corpus and would like to save that data, you can simply
 rename your `sqlite` db found in `backend/db/` to another name. The backend will
 detect that `mimicstudio.db` is not there and create a new one for you. You may
 continue recording data for your new corpus.
-
-
 
 ## Technologies
 
@@ -166,6 +172,10 @@ Creating a voice requires an achievable, but significant effort. An individual w
   is always the same distance from the mic.
 * Avoid vocal fatigue.
   Record a maximum of 4 hours a day, taking a break every half hour.
+  
+# Providing your recording to Mycroft for training
+
+We welcome your voice donations to Mycroft for use in Text-to-Speech applications. If you would like to provide your voice recordings, you _must_ license them to us under the Creative Commons [CC0 Public Domain license](https://creativecommons.org/share-your-work/public-domain/cc0/) so that we can utilise them in TTS voices - which are derivative works. If you're ready to donate your voice recordings, email us at hello@mycroft.ai. 
 
 # Contributions
 
