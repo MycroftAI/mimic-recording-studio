@@ -2,6 +2,37 @@
 
 ![demo](demo.gif)
 
+- [Mimic Recording Studio](#mimic-recording-studio)
+  * [Software Quick Start](#software-quick-start)
+    + [Windows self-hosted Quick Start](#windows-self-hosted-quick-start)
+    + [Linux/Mac self-hosted Quick Start](#linux-mac-self-hosted-quick-start)
+      - [Install Dependencies](#install-dependencies)
+      - [Build and Run](#build-and-run)
+    + [Manual Install, Build and Start](#manual-install--build-and-start)
+      - [Backend](#backend)
+        * [Dependencies](#dependencies)
+        * [Build & Run](#build---run)
+      - [Frontend](#frontend)
+        * [Dependencies](#dependencies-1)
+        * [Build & Run](#build---run-1)
+    + [Coming soon!](#coming-soon-)
+  * [Data](#data)
+    + [Audio Recordings](#audio-recordings)
+      - [WAV files](#wav-files)
+      - [{uuid}-metadata.txt](#-uuid--metadatatxt)
+    + [Corpus](#corpus)
+      - [Corpora in other languages](#corpora-in-other-languages)
+  * [Technologies](#technologies)
+    + [Frontend](#frontend-1)
+      - [Functions](#functions)
+    + [Backend](#backend-1)
+      - [Functions](#functions-1)
+    + [Docker](#docker)
+- [Recording Tips](#recording-tips)
+- [Providing your recording to Mycroft for training](#providing-your-recording-to-mycroft-for-training)
+- [Contributions](#contributions)
+- [Where to get support and assistance](#where-to-get-support-and-assistance)
+
 The [Mycroft](https://mycroft.ai) open source Mimic technologies are
 Text-to-Speech engines which take a piece of written text and convert it into
 spoken audio. The latest generation of this technology,
