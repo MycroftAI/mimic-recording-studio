@@ -1,6 +1,0 @@
-Collecting PyHamcrest
-  Downloading https://files.pythonhosted.org/packages/9a/d5/d37fd731b7d0e91afcc84577edeccf4638b4f9b82f5ffe2f8b62e2ddc609/PyHamcrest-1.9.0-py2.py3-none-any.whl (52kB)
-Requirement already satisfied: setuptools in /home/andreas/anaconda3/lib/python3.6/site-packages (from PyHamcrest) (39.1.0)
-Requirement already satisfied: six in /home/andreas/anaconda3/lib/python3.6/site-packages (from PyHamcrest) (1.11.0)
-Installing collected packages: PyHamcrest
-Successfully installed PyHamcrest-1.9.0

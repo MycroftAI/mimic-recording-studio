@@ -17,6 +17,6 @@ services:
     build:
       context: ./frontend/
     ports:
-     - "3002:3002"
+     - "3000:3000"
     volumes:
      - ./frontend/:/src
