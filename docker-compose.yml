@@ -9,7 +9,7 @@ services:
     volumes: 
      - ./backend/:/src
     environment:
-    - CORPUS=english_corpus.csv
+    - CORPUS=german_corpus.csv
     - APIPORT=5000
     - WEBWORKERS=1
   frontend:
