@@ -142,6 +142,19 @@ If you wish to develop a corpus in a language other than English, then Mimic Rec
 * have a variety of string lengths
 * cover a wide variety of _phonemes_ (basic sounds)
 
+there is a file generator that generates any sentences from wikipedia. just call the command. 
+* 'python3 backend/corpus_file_gen.py'
+to run. you are always asked about the wiki language 'en'.
+
+if you have only a simple text file without line length and tab you can only check the file.
+* 'python3 backend/corpus_file_gen.py --prepare_file 3 --file english_corpus.csv'
+if you have already started a file, the generator will expand the file 35K.
+* 'python3 backend/corpus_file_gen.py --prepare_file 1 --file english_corpus.csv'
+or --help for help.
+
+This is a very simple generator.
+You should always check the file and delite false records. We are working on a solution to change numbers into words
+
 **IMPORTANT:**
 For now, you must reset the `sqlite` database to use a new corpus. If you've
 recorded on another corpus and would like to save that data, you can simply
