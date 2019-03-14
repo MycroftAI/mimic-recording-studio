@@ -4,3 +4,5 @@ peewee
 pydub
 gunicorn
 wikipedia
+zipfile
+urllib2

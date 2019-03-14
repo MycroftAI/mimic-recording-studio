@@ -15,11 +15,15 @@
 import re
 import argparse
 import wikipedia as wiki
+from format import pronounce_number, nice_date, nice_time
+from parse import extract_number, normalize
+from mycroft.util.lang.format_de import nice_response_de
+import requests
 
 
 class Name:
     def __init__(self):
-       # print("importing args: ")
+        # print("importing args: ")
         lang = "en"
         lang = input("select language for wiki. for example 'en' ")
         parser = argparse.ArgumentParser()
@@ -29,15 +33,24 @@ class Name:
         parser.add_argument(
             '--file', default=lang+".csv",
             help='file path')
+        parser.add_argument(
+            '--disable_downloader', default="False",
+            help='disable poodle and mozilla voice downloader')
+        parser.add_argument(
+            '--disable_num_worker', default="False",
+            help='disable transalate 1 to one')
 
         args = parser.parse_args()
-      #  print("args: ""\n"+str(args))
+        #  print("args: ""\n"+str(args))
 
         if args.prepare_file is "3":
-            self.check_file(args)
+            self.check_file(args, lang)
         else:
             num_lines = 0
-            while (num_lines < 35000): # edit to set the length of the file
+            if args.disable_downloader is "False":
+                self.poodle_loader(lang, args)
+                self.voice_web_loader(lang, args)
+            while (num_lines < 35000):  # edit to set the length of the file
                 random_art = self.lookup(lang, wiki.random(pages=1))
                 if random_art is None:
                     continue
@@ -45,7 +58,7 @@ class Name:
                     sentence = self.edit_sentences(random_art)
                     num_lines = self.writing_sentence(sentence, args)
             if args.prepare_file is "1":
-                self.check_file(args)
+                self.check_file(args, lang)
         # print("sentence: " "\n"+ str(sentence))
 
 
@@ -68,7 +81,7 @@ class Name:
             # is all we ever need.
             lines = 10
             summary = wiki.summary(results[0], lines)
-          #  print("summary 1: ""\n"+str(summary))
+          #  print("summary 1: "+"\n"+str(summary))
 
             # Now clean up the text and for speaking.  Remove words between
             # parenthesis and brackets.  Wikipedia often includes birthdates
@@ -82,12 +95,18 @@ class Name:
 
 
     def edit_sentences(self, random_art):
-       # print("before processing: ""\n"+str(random_art))
+       # print("before processing: "+"\n"+str(random_art))
         random_art = random_art.replace('\n', '')
+        random_art = random_art.replace('  ', ' ')
         # sentences are detected and extracted #8 and 200 is the length of the sentences
         receive = re.findall(r"[\s\w,„“:-]{14,200}[a-z][?!.]", random_art)
-      #  print("receive: " "\n"+ str(receive))
+        #print("receive: "+"\n"+ str(receive))
         result = "\n".join(receive)
+        x = 0
+        # Replace Whitespace and punctuation mark at begin and end
+        while (x < 2):
+            result = re.sub(r'(^ *| *$|^[,„“:-]*|^[\S]{,1} )', '', result, flags=re.M)
+            x = x + 1
         return result
 
 
@@ -100,19 +119,58 @@ class Name:
         return num_lines
 
 
-    def check_file(self, args):
-        print ("check file")
+    def num_worker(self, line, lang, args):
+        if args.disable_num_worker is "False":
+            num = ""
+            number = ""
+            print(num)
+            num = extract_number(line, short_scale=True, ordinals=False, lang=lang)
+            if not num == False:
+                number = pronounce_number(num, lang=lang, places=2, short_scale=True,
+                             scientific=False)
+                line = line.replace(str(num)[:2], number)
+                # print("line after"+"\n"+line)
+                # print(num)
+        return line
+
+    def poodle_loader(self, lang, args):
+        data = requests.get("https://translate.mycroft.ai/export/?path=/"+lang+"/mycroft-skills/")
+        data.encoding = 'utf-8'
+        #print(data.encoding)
+        sentence = "\n".join(re.findall(r'(msgstr ".*")', data.text)).replace("msgstr", "")
+        sentence = re.sub(r'["\d]', '', sentence).replace('\n \n','\n').replace('\n \n','\n')
+        sentence = sentence.replace('\n \n','\n').replace('\n \n','\n').replace('\n \n','\n')
+        self.writing_sentence(sentence, args)
+        #print(sentence)
+
+    def voice_web_loader(self, lang, args):
+        url = "https://raw.githubusercontent.com/mozilla/voice-web/master/server/data/"+lang+"/sentence-collector.txt"
+        data = requests.get(url)
+        data.encoding = 'utf-8'
+        print(data.text)
+        sentence = data.text
+        self.writing_sentence(sentence, args)
+        #print(sentence)
+
+
+
+    def check_file(self, args, lang):
+        print("check file")
+        # self.poodle_loader(lang, args)
+        # self.voice_web_loader(lang, args)
         fobj_in = open("prompts"+"/"+args.file)
-        fobj_out = open("prompts"+"/"+"corpus_"+args.file,"w")
+        fobj_out = open("prompts"+"/"+"corpus_"+args.file, "w")
         i = 1
         for line in fobj_in:
             line = line.replace('\n', '')
             line = line.replace('  ', ' ')
             # Replace Whitespace and punctuation mark at begin and end, recalculate length
             x = 0
+            # print("line bevor"+"\n"+line)
             while (x < 2):
-                line = re.sub(r'(^ *| ?\t[0-9]+|^[,„“:-]*de)', '', line)
+                line = re.sub(r'(^ *| ?\t[0-9]+|^[,„“:-]*)', '', line)
                 x = x + 1
+            line = self.num_worker(line, lang, args)
             print("line "+str(i)+" "+line+"\t"+str(len(line)))
             fobj_out.write(str(line)+"\t"+str(len(line))+"\n")
             i = i + 1
