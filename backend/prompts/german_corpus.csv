@@ -6901,3 +6901,13 @@ Deine Aufgabe ist es, die Schaulustigen abzulenken.	51
 Wollen wir nicht doch jemanden nach dem Weg fragen?	51
 Ach, ist das öde.	17
 Ich habe diesen Ansatz noch nie gesehen.	40
+Die IBM Power-Architektur  ist eine Familie von 64-Bit-Prozessoren von IBM und Nachfolger der Großrechner- und Midrange-Prozessoren in Bipolar und CMOS-Bauweise.
+IBM wechselte mit dieser Prozessorarchitektur von 31- bzw.
+ 32-Bit-Prozessoren auf 64-Bit-Adressierung.
+ Diese Prozessoren wurden und werden in den IBM-Serverbaureihen AS6000, später iSeries, pSeries und Z Systems eingesetzt.
+ iSeries und pSeries wurden durch die POWER-Prozessoren in der Hardware vereinheitlicht.
+Z Systems besitzen einen CISC-Befehlssatz, der aber auf den Power-Prozessoren durch Microcode aus dem Power-Befehlssatz  nachgebildet wird.
+ Dieses Vorgehen ist bei CPU-Herstellern nicht unüblich, auch x86-CISC-Prozessoren arbeiten intern einen RISC-artigen Microcode ab.
+ Die Hardware-Basis für die Prozessoren in den Z Systems und IBM Power-Prozessoren ist damit identisch.
+Der Zweig der PowerPC-Prozessoren für Workstations wurde ebenfalls von der POWER-Plattform abgewandelt.
+ Ab der Generation POWER8 werden zusätzlich sogenannte Linux basierte OpenPOWER-Serversysteme gebaut, die ebenfalls diese Prozessoren enthalten.

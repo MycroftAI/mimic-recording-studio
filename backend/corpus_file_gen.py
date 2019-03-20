@@ -16,7 +16,7 @@ import re
 import argparse
 import wikipedia as wiki
 from format import pronounce_number, nice_date, nice_time
-from parse import extract_number, normalize
+from parse import extract_numbers, normalize
 from mycroft.util.lang.format_de import nice_response_de
 import requests
 
@@ -51,11 +51,11 @@ class Name:
                 self.poodle_loader(lang, args)
                 self.voice_web_loader(lang, args)
             while (num_lines < 35000):  # edit to set the length of the file
-                random_art = self.lookup(lang, wiki.random(pages=1))
-                if random_art is None:
+                summary = self.lookup(lang, wiki.random(pages=1))
+                if summary is None:
                     continue
                 else:
-                    sentence = self.edit_sentences(random_art)
+                    sentence = self.edit_sentences(summary)
                     num_lines = self.writing_sentence(sentence, args)
             if args.prepare_file is "1":
                 self.check_file(args, lang)
@@ -94,12 +94,12 @@ class Name:
             print("Error: {0}".format(e))
 
 
-    def edit_sentences(self, random_art):
-       # print("before processing: "+"\n"+str(random_art))
-        random_art = random_art.replace('\n', '')
-        random_art = random_art.replace('  ', ' ')
+    def edit_sentences(self, summary):
+       # print("before processing: "+"\n"+str(summary))
+        summary = summary.replace('\n', '')
+        summary = summary.replace('  ', ' ')
         # sentences are detected and extracted #8 and 200 is the length of the sentences
-        receive = re.findall(r"[\s\w,„“:-]{14,200}[a-z][?!.]", random_art)
+        receive = re.findall(r"[\s\w,„“':-]{14,200}[a-z][?!.]", summary)
         #print("receive: "+"\n"+ str(receive))
         result = "\n".join(receive)
         x = 0
@@ -108,6 +108,15 @@ class Name:
             result = re.sub(r'(^ *| *$|^[,„“:-]*|^[\S]{,1} )', '', result, flags=re.M)
             x = x + 1
         return result
+
+
+    def filter_sentence(self, sentence, args):
+        sentence = re.sub(r'(\|\s?\w+)','', sentence, flags=re.M) # select one for poodle (emty|full)
+        sentence = re.sub(r'[()%]|(^\\.+)*|(^#+\s?.*)', '', sentence, flags=re.M) # for poodle
+        sentence = re.sub(r'(#+\s?.*)|(^[,.: ]*)', '', sentence, flags=re.M)
+        sentence = sentence.replace('|', ' ').replace('  ', ' ')
+
+        return sentence
 
 
     def writing_sentence(self, sentence, args):
@@ -123,12 +132,15 @@ class Name:
         if args.disable_num_worker is "False":
             num = ""
             number = ""
-            print(num)
-            num = extract_number(line, short_scale=True, ordinals=False, lang=lang)
-            if not num == False:
-                number = pronounce_number(num, lang=lang, places=2, short_scale=True,
-                             scientific=False)
-                line = line.replace(str(num)[:2], number)
+            num = extract_numbers(line, short_scale=True, ordinals=False,
+                        lang=lang)
+            print("nummer: "+str(num))
+            num = " ".join(num)
+            print("nummer: "+(num))
+            if not num is False:
+            #    number = pronounce_number(num, lang=lang, places=2, short_scale=True,
+            #                 scientific=False)
+                line = line.replace(str(num), number)
                 # print("line after"+"\n"+line)
                 # print(num)
         return line
@@ -138,8 +150,10 @@ class Name:
         data.encoding = 'utf-8'
         #print(data.encoding)
         sentence = "\n".join(re.findall(r'(msgstr ".*")', data.text)).replace("msgstr", "")
-        sentence = re.sub(r'["\d]', '', sentence).replace('\n \n','\n').replace('\n \n','\n')
+        sentence = re.sub(r'["\d]|{\n.*}\n', '', sentence).replace('\n \n','\n').replace('\n \n','\n')
         sentence = sentence.replace('\n \n','\n').replace('\n \n','\n').replace('\n \n','\n')
+        summary = sentence
+        sentence = self.filter_sentence(sentence, args) # filter data
         self.writing_sentence(sentence, args)
         #print(sentence)
 
@@ -149,6 +163,7 @@ class Name:
         data.encoding = 'utf-8'
         print(data.text)
         sentence = data.text
+        sentence = self.filter_sentence(sentence, args) # filter data
         self.writing_sentence(sentence, args)
         #print(sentence)
 
@@ -170,7 +185,10 @@ class Name:
             while (x < 2):
                 line = re.sub(r'(^ *| ?\t[0-9]+|^[,„“:-]*)', '', line)
                 x = x + 1
+            line = self.filter_sentence(line, args) # filter data
             line = self.num_worker(line, lang, args)
+            if len(line) <= 1: #delete sentense with one or zero word
+                continue
             print("line "+str(i)+" "+line+"\t"+str(len(line)))
             fobj_out.write(str(line)+"\t"+str(len(line))+"\n")
             i = i + 1

@@ -1,0 +1,2677 @@
+ 
+ Zählen
+ hoch
+ runter
+ Hallo
+ Grüße
+ Hi
+ Welt
+ Erde
+ Der Zähler ist jetzt bei {{count}}
+ Wir sind jetzt bei {{count}}
+ Hallo
+ Hallo zurück
+ OK
+ Automatische Lautstärke aktiviert
+ Ich habe die automatische Lautstärke aktiviert
+ Aktiviere (die|) automatische Lautstärke
+ Setze (die|) automatische Lautstärke auf aktiv
+ Schalte (die|) automatische Lautstärke (an|ein)
+ Stelle (die|) automatische Lautstärke (auf) (an|ein)
+ (Die|) Automatische Lautstärke ist deaktiviert
+ Ich habe (die|) automatische Lautstärke nun deaktiviert
+ Deaktiviere (die|) automatische Lautstärke
+ Stelle (die|) automatische Lautstärke auf inaktiv
+ Schalte (die|) automatische Lautstärke aus
+ Stelle (die|) automatische Lautstärke (auf) aus
+ Ich habe (die|) automatische Lautstärke nun zurückgesetzt
+ Deaktiviere (die|) automatische Lautstärkemessung
+ Lösche (die|) automatische Lautstärkemessung
+ Setze (die|) automatische Lautstärkemessung zurück
+ Hier sind die Gute Nacht Geschichten aus meiner Bibliothek. {{stories}}
+ Liste die Gute-Nacht-Geschichten auf
+ Welche Geschichten hast du
+ Welche Gute Nacht Geschichten hast du
+ Okay, lass mich sehen, ob ich diese Geschichte habe.
+ erzähl mir {title}
+ lies mir {title} vor
+ lies mir {title} vor
+ Erzähl mir {title}
+ Okay, sicher. Hier ist eine große Auswahl aus meiner Bibliothek.
+ Kein Problem, mach es dir bequem während ich eine Geschichte auswähle.
+ Erzähl mir eine Geschichte
+ Erzähl mir eine Gute Nacht Geschichte
+ Erzähl mir ein Märchen
+ Erzähl uns eine Geschichte
+ Erzähl mir eine gute Geschichte
+ Rotkäppchen
+ Goldlöckchen und die drei Bären
+ Hänsel und Gretel
+ Das Samtkaninchen
+ Rumpelstilzchen
+ Des Königs neue Kleider
+ Die Prinzessin auf der Erbse
+ Die Wichtelmänner
+ Die drei Ziegenböcke namens Gruff
+ Peter Hase
+ Es ward die Nacht vor Weihnachten
+ aktiviere
+ starte
+ rufe
+ Auslöser
+ Szene
+ Automatisierung
+ Skript
+ reduziere
+ herunter
+ wo
+ orte|Ort
+ erhöhe
+ herauf
+ heller machen|heller|hell|herauf
+ trüb|trüber|dunkel|dunkler|tiefer|herab
+ Licht
+ Lichter
+ Lampe
+ Lampen
+ Glühbirne
+ Glühbirnen
+ LED
+ einschalten
+ schalte
+ schalte
+ Zustand
+ Status
+ Sensor
+ De­tek­tor
+ Wert
+ lies
+ (wie|was) ist (der|die|das) aktuelle
+ was ist aktuell
+ sage mir (den|die|das) aktuelle(n|)
+ sage mir aktuelle(s|n|)
+ setze
+ drehe
+ schalte = if its a verb; Schalter = if its substantif
+ (Aktiviere|Löse|Rufe) (?P<Entity>.*) (|aus|auf)
+ Automation {{dev_name}} ausgelöst.
+ {{dev_name}} ausgelöst.
+ {{dev_name}} wurde ausgelöst.
+ {{dev_name}} wurde aktiviert.
+ {{dev_name}} aktiviert.
+ bitte wähle ein Hel­lig­keitslevel zwischen  und .
+ wie hell? du kannst eine Einstellung zwischen  und  wählen.
+ Kann {{dev_name}} nicht dimmen. Es ist nicht dimmbar.
+ Kann {{dev_name}} nicht dimmen. Es ist aus.
+ Kann {{dev_name}} nicht dimmen. Bitte schalte es vorher an.
+ Ich habe {{dev_name}} auf {{brightness}} Prozent gedimmt.
+ Ich habe {{dev_name}} gedimmt.
+ Setze die Helligkeit von {{dev_name}} auf {{brightness}} Prozent.
+ Helligkeit von {{dev_name}} wurde auf {{brightness}} Prozent erhöht.
+ Helligkeit von {{dev_name}} erhöht.
+ {{dev_name}} ist bereits am {{action}}.
+ Keine Änderungen an {{dev_name}} vorgenommen.
+ {{dev_name}} ausgeschaltet.
+ {{dev_name}} ausgeschaltet.
+ {{dev_name}} ist nun aus.
+ {{dev_name}} ist eingeschaltet.
+ {{dev_name}} wurde angeschaltet.
+ {{dev_name}} eingeschaltet.
+ {{dev_name}} ist umgeschaltet.
+ {{dev_name}} wurde umgeschaltet.
+ Entschuldigung, ich kann das Home Assistant-Objekt nicht finden 
+ Objekt 
+ Entschuldigung, Objekt 
+ Entschuldigung, ich war nicht in der Lage, es zu finden 
+ Der Home Assistant Server ist anscheinend offline.
+ Konnte den Home Assistant-Server nicht erreichen.
+ Der Home Assistant Server antwortete nicht.
+ Ich weiß nicht, was du von mir willst.
+ Konnte nicht herausfinden, wie man mit dem Home Assistenten spricht.
+ Ich habe leider nicht verstanden, was du gefragt hast.
+ Im Moment ist {{dev_name}} bei {{value}} {{unit}}.
+ {{dev_name}} hat den Wert: {{value}} {{unit}}.
+ {{dev_name}} hat zur Zeit den Wert {{value}} {{unit}}.
+ {{dev_name}} ist bei {{value}} {{unit}}.
+ Der letzte bekannte Aufenthaltsort von {{dev_name}} ist {{location}}.
+ {{dev_name}} ist bei {{location}}.
+ {{dev_name}} wurde in {{location}} entdeckt.
+ (?P<Value>?%|[-][-]?%?)(\\D|$)
+ (in )?(welchem|welchen) (Status|Zustand|Wert) (ist|hat) (?P<Entity>.*)
+ lies (aus )?(den )?(?P<Entity>.*) (Status|Zustand|Wert|Sensor)
+ (Status|Zustand|Wert|Sensor) (?P<Entity>.*)
+ ((drehe|schalte) )?(?P<Action>an|aus|um) (?P<Entity>.*)
+ ((drehe|schalte) )?(?P<Entity>.*) (?P<Action>an|aus)
+ (wo ist|(was ist (der )?)?Standort von) (?P<Entity>.*)
+ (?P<Entity>.*) Standort
+ füge (?P<taskName>.+) hinzu
+ {{taskName}} wurde zur {{listName}} Liste hinzugefügt
+ füge (?P<taskName>.+) zu (meiner )?(?P<listName>.+) list$ hinzu
+ füge (?P<taskName>.+) zu Liste (?P<listName>.+)$ hinzu
+ füge
+ Ich habe {{taskName}} von der Liste {{listName}} wieder entfernt
+ {taskName}, sonst noch etwas?
+ Ok, die Aufgaben sind zu der Liste {{listName}} hinzugefügt
+ authentifiziere (?P<authenticateWord>.+) erinnere mich an die Milch$
+ authentifiziere mit
+ vervollständige (?P<taskName>.+)$
+ Vervollständige (?P<taskName>.+) auf (meiner )?(?P<listName>.+) Liste$
+ Vervollständige (?P<taskName>.+) auf Liste (?P<listName>.+)$
+ vervollständige
+ willst du es vervollständigen
+ was ist an
+ Was ist zu tun
+ finde (?P<taskName>.+)
+ Ich habe {{taskName}} auf der liste {{listName}} gefunden
+ Finde (?P<taskName>.+) auf (meiner )?(?P<listName>.+) Liste$
+ Finde (?P<taskName>.+) auf der Liste (?P<listName>.+)$
+ finde
+ Fehler in {{functionName}} in Linie {{lineNumber}}
+ Hol dir ein Token für (?P<appName>.+)$
+ Hole Token
+ Entschuldigung, ich konnte keine Liste die {{listName}} heißt finden
+ {
+   \AddTask\: [\füge (?P<taskName>.+) hinzu\],
+   \AddTaskToList\: [
+     \Füge (?P<taskName>.+) zur Liste (?P<listName>.+)$ hinzu\],
+   \FindTask\: [\finde (?P<taskName>.+)\],
+   \FindTaskOnList\: [
+     \finde (?P<taskName>.+) auf der Liste (?P<listName>.+)$\],
+   \CompleteTask\: [\erledige (?!(alle))(?P<taskName>.+)\],
+   \CompleteTaskOnList\: [
+   \CompleteList\ : [
+   \CompleteAll\: [\erledige alle Aufgabe(n)?\],
+   \CompleteTaskInContext\: [\erledige (es|Aufgabe)$\],
+   \ReadList\: [\Lese (meine|die) (?P<listName>.+) Liste$\,
+                \Lese die Liste (?P<listName>.+)$\],
+   \Lese\: [\Lese( es| die Liste| meine Liste)?$\],
+   \Fällig\ : [\(was ist) fällig am (?P<dueDate>.+)$\]
+ }
+ Ok, ich werde es vergessen
+ nein
+ tu nicht
+ Ich weiß nicht über welche Aufgabe wir reden
+ Es sind keine Aufgaben auf der {{listName}} Liste
+ Liste {{listName}} hat keine {{nofTask}} auf ihr
+ Lese (Meiner )?(?P<listName>.+) Liste$
+ lese liste (?P<listName>.+)$
+ lies
+ Liste {{listName}} hat {{nofTask}} Aufgabe auf sich
+ Rückgängig
+ zurückkehren
+ zurückrollen
+ wiederherstellen
+ die am {{dueDate}} fällig sind
+ bestätige
+ ja
+ ich mache
+ Gehirn
+ Erinnerung
+ Wissen
+ alles
+ vergiss
+ setze zurück
+ Lösche Wissensdatenbank
+ vergesse alles
+ Okay, ich werde nun meine Erinnerung zurücksetzen
+ Erinnerungslöschung begonnen
+ nochmal
+ Zutat
+ Zutaten
+ was wird für (ein|einen) {drink} benötigt
+ was (brauche|brauchst) (ich|du) für (ein|einen) {drink}
+ was sind die (Zutaten|Zutat) (von|für) (ein|einen) {drink}
+ Entschuldigung, ich konnte den gefragten Drink nicht finden
+ Ich fürchte, ich konnte das nicht finden
+ wie (mache|mische|mixe) (ich) (ein|einen|eine|) {drink}
+ sag (mir|uns) wie man (ein|einen) {drink} (macht|mixt)
+ Gib (mir|uns) Anweisungen für (ein|eine|einen|) {drink}
+ wie man (ein|einen) {drink} (macht|mixt)
+ (Wie|Was) ist das Rezept für (ein|eine|einen) {drink}
+ was sind
+ sag mir
+ was war
+ was waren
+ Du benötigst {ingredients} und {final_ingredient}
+ Du benötigst {ingredients} und {final_ingredient}
+ Die erforderlichen Zutaten sind: {ingredients} und {final_ingredient}
+ Zähle bis {number}
+ Ich verstehe nicht. 
+ Mir fehlt etwas.
+ Sag das bitte noch mal?
+ Entschuldigung. Ich habe das nicht gehört.
+ Zähle bis {number}. ich beginne jetzt!
+ Erledigt!
+ Fertig!
+ Countdown von {number}
+ Zähle von {number} herunter
+ Zähle von {number} rückwärts
+ Zähle von {number} rückwärts
+ Zähle von {number} rückwärts
+ Von {number} zähle herunter
+ Von {number} zähle rückwärts
+ Ich zähle von {number} herunter. Ich starte jetzt!
+ Zerteile
+ Randomisiere
+ Bruchstück-Typ (?P<FragmentType>\\w*)
+ Maximum
+ Minimum
+ Zufälligkeit
+ zerschneide sage (?P<Say>.*)
+ sage zufällig (?P<Say>.*)
+ Setze
+ (Konfiguration|Einstellung)
+ Setze (Konfiguration|Einstellung)
+ Den {{frag_type}} Fragment-Typ ausgewählt.
+ Maximale Stückgröße auf {{max}} gesetzt.
+ Minimale Stückgröße auf {{min}} gesetzt.
+ Zufälligkeit auf {{rand}} Prozent gesetzt.
+ (.* (?P<Choice>.*) oder (?P<dummy>.*))
+ zwischen ((?P<Choice>.*) und (?P<dummy>.*))
+ (.* (?P<dummy>.*) oder (?P<Choice>.*))
+ zwischen ((?P<dummy>.*) und (?P<Choice>.*))
+ Entscheide
+ Was soll ich tragen
+ Was soll ich essen
+ Spiel
+ Ergebnis
+ Orioles
+ Red Sox
+ Yankees
+ Rays
+ Blue Jays
+ White Sox
+ Indians
+ Tigers
+ Royals
+ Twins
+ Astros
+ Angels
+ Athletics
+ Mariners
+ Rangers
+ Braves
+ Marlins
+ Mets
+ Phillies
+ Nationals
+ Cubs
+ Reds
+ Brewers
+ Pirates
+ Cardinals
+ D-backs
+ Rockies
+ Dodgers
+ Padres
+ Giants
+ in die Zwischenablage kopieren
+ kopieren
+ in Zwischenablage schneiden
+ ausschneiden
+ löschen
+ Einfügen aus der Zwischenablage
+ einfügen
+ Bildschirmauflösung
+ alles auswählen
+ (tippe) (?P<Text>.*)
+ tippe
+ Bewege die Maus zu {{x}} und {{y}}
+ bewege maus zu {x} und {y} 
+ runter 
+ halte die {key} Taste
+ Halte die {key} taste gedrückt
+ a
+ b
+ c
+ d
+ e
+ f
+ g
+ h
+ i
+ j
+ k
+ l
+ m
+ n
+ o
+ p
+ q
+ r
+ s
+ t
+ u
+ v
+ w
+ x
+ y
+ z
+ unten
+ oben
+ links
+ rechts
+ {{key}} halten
+ Den {{key}}-Knopf gedrückt halten
+ Drücke {{key}}
+ Drücke nun {{key}} für dich.
+ {{key}} loslassen
+ Den {{key}}-Knopf loslassen
+ viel
+ etwas
+ Drücke den {key} Knopf 
+ Lass den {key}-Knopf los
+ Lass den {key}-Knopf los
+ Deine Bildschirmauflösung ist {{x}} bei {{y}}
+ Die Auflösung deines aktiven Displays ist {{x}} zu {{y}}
+ Scrolle {smallscroll} nach {down}
+ Scrolle {largescroll} nach {down}
+ Scrolle {medscroll} nach {down}
+ Scrolle {smallscroll} nach {up}
+ Scrolle {largescroll} nach {up}
+ Scrolle {medscroll} nach {up}
+ bisschen
+ Ich (tippe|schreibe) das nun für dich
+ Ich schreibe deine Bitte
+ #
+ ##
+ ###
+ ####
+ #####
+ Würfel
+ Würfel
+ (?P<DiceType>d[-]+)
+ Erzeuge eine zufällige Zahl von {low} bis {high}
+ Erzeuge eine zufällige Zahl zwischen {low} und {high}
+ Nenne mir eine Zahl von {low} und {high}
+ Nenne mir eine Zahl zwischen {low} und {high}
+ würfel
+ Das Ergebnis ist {result}.
+ Deine Zahlen sind {result}
+ Du musst einen Bereich angeben
+ Ich brauche einen Bereich, um das zu tun
+ Sag mir, in welchem Bereich die Zahlen liegen sollen
+ Deine Zahl ist {result}
+ prüfe meine E-Mail.
+ Prüfe meine Post.
+ Habe ich neue Post?
+ Habe ich neue E-Mails?
+ Habe ich irgendwelche neuen E-Mails?
+ Nummer {message_num} ist von {sender}. Der Betreff ist {subject}.
+ Möchtest du mehr hören?
+ Willst du mehr von deinen E-Mails hören?
+ Willst du mehr hören?
+ In Ordnung.
+ Es gibt keine neuen E-Mails.
+ Da ist keine neue E-Mail.
+ Es gibt keine neue Post.
+ Es gibt keine neue Mail.
+ Es gibt keine neue E-Mail für dich.
+ Es gibt keine neue Mail für dich.
+ Du hast keine neue Mail.
+ Du hast keine neue E-Mail.
+ Spiele {media} mix
+ spiele {media} von Emby
+ spiele {media} von mb
+ Setze Geschichte fort
+ Erzähle Geschichte weiter
+ Setze Märchen fort
+ Erzähle Märchen weiter
+ Setze Märchen fort
+ Fahre mit dem Märchen fort
+ Fahre mit dem Märchen fort
+ Erzähl (mir) eine (gute) Geschichte
+ Lies (mir) eine (gute) Geschichte vor
+ Erzähl (mir) ein (gutes) Märchen
+ Lies (mir) ein (gutes) Märchen vor
+ {story} ist eine gute Geschichte. Lass uns anfangen... 
+ Ja, {story} ist eine gute Geschichte. Sie geht so...
+ Ist es diese(s|)?
+ Könnte es das sein?
+ Soll ich dir diese(s|) erzählen?
+ Willst du das hören?
+ lass mich sehen. Kenne ich {story}
+ nun, Ich muss überlegen, ob ich mich an {story} erinnere
+ Ich kann die Geschichte {story} erzählen.
+ Ich erinnere mich an (die|den|das) {story}.
+ {title} von {author}
+ Gehirn
+ Gedächtnis
+ bedenke|beachte|denke an
+ alles
+ vergiß
+ Setze zurück
+ Wissensdatenbank zurücksetzen
+ Vergesse alles
+ Okay, ich setze jetzt meinen Speicher zurück
+ (Gehirnlöschung|Gedächtnislöschung) gestartet
+ Falback Person
+ was
+ wer
+ wann
+ wie
+ wo
+ Entschuldigung, ich weiß die Antwort darauf nicht
+ Ich habe die Antwort darauf nicht
+ Ich weiß nicht
+ Keine Ahnung
+ Okay.
+ Alles klar.
+ Nur einen Moment, ich lade den {{skill_name}} Skill herunter.
+ Einen Moment, Ich lade den {{skill_name}} Skill herunter.
+ Okay, lass mich den {{skill_name}} Skill herunterladen.
+ Warte einen Moment, während ich den {{skill_name}} Skill herunterlade.
+ Okay, ich lade den {{skill_name}} Skill herunter.
+ Entschuldige, ich kann dir dabei nicht helfen.
+ Ich bin mir nicht sicher wie ich dir dabei helfen kann.
+ Ich verstehe das nicht, aber ich lerne jeden Tag neue Dinge.
+ Ich bin mir nicht sicher wie ich das beantworten soll.
+ was ist
+ was wird
+ was tat
+ was tut
+ was tust
+ wo ist
+ wo wird
+ wo tatest
+ woher kommt
+ wo tatest
+ wann ist
+ wann wird
+ wann hat
+ wann tut
+ wann tun
+ Es tut mir leid, ich verstehe nicht.
+ Ich weiß nicht, was das bedeutet.
+ Entschuldigung, dass habe ich nicht verstanden.
+ Entschuldigung, ich verstehe nicht.
+ Ich verstehe nicht.
+ Ich bin nicht sicher, ob ich dich verstanden habe.
+ Möglicherweise musst du das anders sagen.
+ Bitte formuliere deinen Befehl um.
+ Ich weiß nicht, wer das ist.
+ Ich bin nicht sicher, wer das ist.
+ wer ist
+ wer wird
+ wer hat
+ wer macht
+ wer macht
+ Ich weiß es nicht.
+ Ich bin mir nicht ganz sicher.
+ Ich bin mir nicht sicher.
+ Ich bin mir nicht sicher, aber ich gebe mein Bestes, zu lernen.
+ wieso ist
+ warum wird
+ warum (hast|hat|hattest)
+ warum tut
+ warum machst
+ sage
+ geben
+ was
+ E-Mail
+ senden
+ Quelle
+ Quellen
+ Detail
+ Details
+ Quellen für: '{{query}}'
+ (,|\\.) (?P<Definition>.*) (,|\\.) (.*)
+ Ich konnte keine Wolfram Alpha-Abfragen zum Senden finden.
+ Tut mir leid, {{phrase}} verstehe ich nicht
+ lösche
+ verlasse das mysteriöse Königreich von Zork
+ verlasse nun Zork
+ Beende Zork
+ Es gibt keinen aktuellen Spielstand
+ Es existiert kein Speicherstand
+ spiele
+ gehe zu
+ gehe zu
+ speichern
+ Speicherstand
+ gespeichert
+ gespeicherter Spielstatus gelöscht
+ Der Speicherstand wurde entfernt
+ zork
+ Briefkasten
+ weißes Haus
+ aktiviere
+ feuere
+ (rufe an|anrufen)
+ (löse aus|auslösen)
+ Szene
+ Automatisierung
+ Skript
+ Setze die {entity} Temperatur auf {temperature}
+ reduziere
+ herunter
+ wo ist
+ orte|Ort
+ wo
+ erhöhe
+ hoch
+ erhelle|heller|hell|hoch
+ dimme|dunkler|dunkel|niedriger|herunter
+ mache an|erleuchte
+ Lichter
+ Lampe
+ Lampen
+ Glühbirne
+ Glühbirnen
+ L.E.D.
+ (schalte an|anschalten|schalte ein|einschalten)
+ (schalte aus|ausschalten)
+ (schalte um|umschalten)
+ (gib an|angeben)
+ Status
+ Sensor
+ Detektor|Anzeiger
+ Wert
+ (lies|lies vor|vorlesen)
+ what ist (der|die|das) aktuelle
+ was ist aktuell
+ erzähl|sag mir (der|die|das) (aktuelle|aktuellen)
+ Sag mit (den|die|das) (aktuelle|aktuellen)
+ Gib mir den Wert von
+ Was ist der Wert des Thermostats
+ setze
+ drehe
+ wechsle
+ (aktiviere|feuere|löse|rufe) (?P<Entity>.*) (aus|an)
+ (setze) (?P<Entity>.*) Thermostat auf (?P<temp>[-]*)
+ ausgelöste Automation {{dev_name}}.
+ habe {{dev_name}} ausgelöst.
+ {{dev_name}} wurde ausgelöst.
+ {{dev_name}} wurde aktiviert.
+ habe {{dev_name}} aktiviert.
+ Bitte gib eine Helligkeitsstufe zwischen  und  an.
+ wie hell? du kannst eine Stufe zwischen  und  wählen.
+ Kann {{dev_name}} nicht dimmen. Es ist nicht dimmbar.
+ Kann {{dev_name}} nicht dimmen. Es ist ausgeschaltet.
+ Kann {{dev_name}} nicht dimmen. Bitte schalte es vorher an.
+ Habe {{dev_name}} zu {{brightness}} Prozent gedimmt.
+ Habe {{dev_name}} gedimmt.
+ Setze die Helligkeit von {{dev_name}} auf {{brightness}} Prozent.
+ Helligkeit von {{dev_name}} auf {{brightness}} Prozent erhöht.
+ Helligkeit von {{dev_name}} erhöht.
+ {{dev_name}} führt bereits die Aktion {{action}} aus.
+ {{dev_name}} wurde nicht verändert.
+ {{dev_name}} abgedreht.
+ {dev_name}} wurde ausgeschaltet.
+ {{dev_name}} ist jetzt ausgeschaltet.
+ {{dev_name}} angeschaltet.
+ {{dev_name}} wurde eingeschalten.
+ Habe {{dev_name}} eingeschalten.
+ {{dev_name}} umgeschaltet.
+ {{dev_name}} wurde umgeschalten.
+ Gerät \{{dev_name}}\ ist nicht auffindbar.
+ Entschuldigung, das Objekt \{{dev_name}}\ wurde nicht gefunden.
+ Entschuldigung, ich konnte \{{dev_name}}\ nicht finden.
+ Der Home Assistant Server scheint offline zu sein.
+ Ich kann den Home Assistant Server nicht erreichen.
+ Der Home Assistent Server hat nicht geantwortet.
+ Ich verstehe nicht was du von mir willst.
+ Ich verstehe nicht, was du gefragt hast.
+ {{dev_name}} ist aktuell {{value}} {{unit}}.
+ {{dev_name}} hat den Status: {{value}} {{unit}}.
+ {{dev_name}} ist im Moment {{value}} {{unit}}.
+ {{dev_name}} ist {{value}} {{unit}}.
+ Ich habe erfolgreich {{dev_name}} auf {{value}} {{unit}} gesetzt.
+ Der letzte bekannte Ort von {{dev_name}} ist {{location}}.
+ {{dev_name}} ist bei {{location}}.
+ {{dev_name}} wurde bei {{location}} gefunden.
+ (?P<Value>?%|[-][-]?%?)(\\D|$)
+ lies (den )?((Status|Zustand|Wert|Sensor) (von )?)?(?P<Entity>.*)
+ lies (den )?(?P<Entity>.*) (Status|Zustand|Wert|Sensor)
+ (Status|Zustand|Wert|Sensor) (?P<Entity>.*)
+ gib mir den Wert von (?P<Entity>.*)
+ was ist der Wert vom Thermostat (?P<Entity>.*)
+ Setze die {entity} auf {temp} Grad
+ Setze die {entity} Temperatur auf {temp} Grad
+ Setze die {entity} Temperatur auf {temp} Grad
+ Setze die Helligkeit von {{entity}} auf {{brightnessvalue}} Prozent
+ ((drehe|schalte) )?(?P<Action>an|aus|um) (?P<Entity>.*)
+ ((schalte) )?(?P<Entity>.*) (?P<Action>an|aus)
+ (?P<Entity>.*) (Standort|Lage|Position)
+ alle
+ Der aktuelle Status von {{name}} ist {{value}}.
+ Der Status von {{name}} ist derzeit {{value}}.
+ {{name}} ist in im Moment {{value}}.
+ Entschuldigung, es gab ein Problem mit HomeSeer, {{exception}}.
+ Es tut mir leid, aber es gab ein Problem mit HomeSeer, {{exception}}.
+ erhalte (Status|Bedingung) (?:von)?(?P<StatusDetail>.+)
+ {{setting}}e (den|die|das) {{name}}.
+ (?P<LockSetting>(entsperren|sperren)) (?P<LockDetail>.+)
+ (?P<Percentage>\\d+)
+ Laufendes Ereignis {{event}}.
+ Starte {{event}} Ereignis.
+ Ok, starte event {{event}}.
+ Ereignis ausführen (?P<EventDetail>.+)
+ aktiviere (?P<EventDetail>.+) Ereignis
+ Setze {{name}} auf {{percent}}%.
+ Ändere {{name}} zu {{percent}}%.
+ Setze alle {{name}} auf {{percent}}%.
+ Ändere alle {{name}} zu {{percent}}%.
+ Setze (?:of )?(?:all )?(?P<SetDetail>.+) auf
+ Die Einstellung aller {{name}} zu {{setting}} ändern.
+ Alle {{name}} auf {{setting}} stellen.
+ (Den|Die|Das) {{name}} auf {{setting}} stellen.
+ Ok, ich stelle nun (den|die|das) {{name}} auf {{setting}}.
+ schalte (?P<ToggleSetting>(aus|an)) (?:all )?(?P<ToggleSingleDetail>.+)
+ Über {{toponym}} dem {{latitude}} Breiten- und {{longitude}} Längengrad
+ Wo ist die Internationale Raumstation
+ Orte die ISS
+ Wo ist die ISS
+ Hier hast Du ein Leckerli
+ Braves Hundchen
+ Gib dem Hund ein Leckerli
+ Wuff
+ Jetzt ein Leckerli
+ Witz
+ klopf klopf
+ rechne 
+ durchsuche den Computer nach
+ suche das 
+ durchsuche Computer nach
+ suche Datei
+ suche Dateinamen
+ durschuche den computer nach
+ suche System
+ System
+ Systemsuche
+ Systemsuchdatei
+ finde Datei
+ Letzten anzeigen 
+ zeige neueste Dateien an
+ zeige neueste Dokumente an
+ neueste Dokumente
+ neueste Dateien
+ Deine neuesten Dateien anzeigen
+ Ich führe eine lokale Suche nach {{ Query }} durch
+ Lach wie Alexa
+ kannst du lachen
+ böses (Lachen|Gelächter)
+ lach
+ Lachen
+ Gelächter
+ Gelächter
+ lach zufällig
+ löse zufälliges (Lachen|Gelächter) aus
+ zufälliges (Lachen|Gelächter)
+ abbrechen
+ brich ab
+ stop
+ Lachen hat aufgehört
+ ich werde nicht wieder lachen
+ ich lache nicht
+ Helligkeit
+ Lichtstärke
+ Setze {{name}} auf {{color}}.
+ abdunkeln
+ dämpfen
+ verblassen
+ dimmen
+ schwärzen
+ reduzieren
+ herunter
+ {{name}} {{change}}.
+ Kann {{name}} nicht {{action}}, weil es eine Gruppe ist.
+ Kann {{name}} nicht {{action}}, weil es eine Gruppe ist.
+ erhellen
+ erhellen
+ beleuchten
+ verstärken
+ erhöhen
+ (hoch|herauf)
+ (aus|ab)
+ deaktivieren
+ an
+ aktivieren
+ .*?(?P<Percent>\\d+%)
+ Sättigung
+ Intensität
+ Setze {{param}} auf {{value}}.
+ Wechsle {{param}} zu {{value}}.
+ Setze {{name}} {{param}} auf {{value}}.
+ Wechsle {{status}} {{name}}.
+ Wechsle {{name}} {{status}}.
+ Mache {{name}} mehr {{temperature}}.
+ Temperatur
+ Wärme
+ Farbtemperatur
+ Kelvin
+ Farbtemperatur
+ (wechsle|wende)
+ setze
+ wechsle
+ (ändere|schalte um)
+ (wechsle|schalte um)
+ mache
+ :
+ Du wurdest in Kanal {display_name} {mentioned} mal erwähnt.
+ Kanal {channel} ist nicht erkannt
+ Kanal {channel} ist unbekannt
+ Kanal {display_name} hat {msg_count} ungelesene Nachrichten
+ Mattermost ungelesen: {unread} Erwähnungen: {mentions}
+ (beende|stoppe) Überwachung von {service}
+ deaktiviere {service} Überwachung
+ nenne {service} Kanäle mit ungelesenen Nachrichten
+ Mattermost Fehler: {exception}
+ Du wurdest auf {service} {mentions} mal erwähnt.
+ {create_at}, Benutzer {user_name} schrieb: {message}
+ Hier sind die neuen Nachrichten von Kanal {display_name}
+ Das sind die neuen Nachrichten von Kanal {display_name}
+ {service} Überwachung ist aktiviert
+ {service} Überwachung ist deaktiviert
+ Mattermost Überwachung noch nicht implementiert
+ Es gibt keine ungelesenen Nachrichten in Kanal {channel}.
+ keine unglesenen Nachrichten auf {service}.
+ (lies) Nachrichten für Kanal {channel}
+ lies alle ungelesenen {service} Nachrichten
+ Mattermost
+ Mycroft Chat
+ Minecraft Chat
+ beginne Überwachung von {service}
+ aktiviere {service} Überwachung
+ Es gibt {unreadmsg} ungelesene Nachrichten auf {service}
+ gibt es ungelesene Nachrichten auf {service}
+ Es scheint Mittag zu sein, ich passe die Helligkeit an.
+ Okay, die Sonne kommt heraus, ich passe die Helligkeit an
+ Okay, die Sonne ist draußen, ich stelle die Helligkeit ein
+ Okay, es wird dunkel, ich passe die Helligkeit an.
+ (stelle|setze) (die|) Helligkeit (auf|) automatisch
+ automatische Helligkeit
+ #
+ ##
+ ###
+ #%
+ ##%
+ ###%
+ voll
+ hell
+ halb
+ dunkel
+ niedrig
+ automatisch
+ automatisch
+ dimme (die|deine) Augen auf {brightness} (Prozent|)
+ dimme runter auf {brightness} (Prozent|)
+ (ein wenig|) heller auf {brightness} (Prozent|)
+ Du bist (zu|) (hell|dunkel)
+ Du bist (zu|) (hell|dunkel)
+ etwas heller
+ etwas dunkler
+ # name, percentage
+ # NOTE: Auch zu vocab/xx-xx/brightness.entity hinzufügen
+ voll,
+ hell,
+ Halb,
+ dunkel,
+ schwach,
+ auto,-
+ automatic,-
+ Nenne mir die Helligkeit für mein Gesicht in Prozent oder als Stufe
+ Welche Helligkeitswert oder Prozentsatz wünscht Du?
+ Entschuldigung, ich verstehe diesen Helligkeitswert nicht.
+ ich verstehe nur sachen wie, 'voll' oder %
+ Okay, setze Helligkeit auf {val}.
+ Klingt gut, setze Helligkeit auf {val}
+ Standardeinstellung
+ alice blau
+ aliceblau
+ antikweiß
+ Wasser
+ aquamarin
+ azurblau
+ Beige
+ biskuit
+ schwarz
+ blanchierte Mandel
+ blau
+ baluviolett
+ braun
+ kräftiges Holz
+ kräftiges Holz
+ matrosenblau
+ grüngelb
+ Schokolade
+ korall
+ Kornblumenblau
+ Kornblume blau
+ Maisgelb
+ Mais Gelb
+ purpur
+ zyan
+ dunkelblau
+ dunkles zyan
+ Dunkle Goldrute
+ Dunkle Goldrute
+ dunkelgrau
+ dunkles grau
+ dunkelgrün
+ dunkles khaki
+ dunkles magenta
+ dunkles olivgrün
+ dunkelorange
+ dunkle orchidee
+ dunkelrot
+ dunkles lachsrosa
+ dunkles Meergrün
+ dunkles Schieferblau
+ dunkles Schiefergrau
+ dunkles Schiefgrau
+ dunkles Türkis
+ dunkelviolett
+ kräftiges Pink
+ kräftiges Himmerblau
+ dunkles Grau
+ dunkles Grau
+ Dodgerblau
+ Feuerstein
+ Feuerrot
+ Blütenweiß
+ waldgrün
+ Fuchsia
+ Fuchsie
+ hellgrau
+ Weiß mit Blaustich
+ Gold
+ Goldrute
+ grau
+ grau
+ grün
+ grüngelb
+ Honigmelone
+ Honigmelone
+ leuchtendes Pink
+ Indianerrot
+ Indigo
+ elfenbein
+ khaki
+ lavendel
+ Heller Flieder
+ grasgrün
+ Zartes Zitronengelb
+ hellblau
+ Helles Korallrot
+ Helly Zyan
+ Helles blasses Gelb
+ Helles Blassgelb
+ hellgrau
+ hellgrau
+ hellgrün
+ hellpink
+ Helles Lachrosa
+ Helles Meergrün
+ Helles Himmelblau
+ Helles Schiefergrau
+ Helles Schiefergrau
+ Helles Stahlblau
+ hellgelb
+ neongrün
+ neongrün
+ leinen
+ magenta
+ marone
+ mittleres Aquamarin
+ Mittelblau
+ Mittlere Orchidee
+ Mittellila
+ Mittelmeergrün
+ Mittleres Schieferblau
+ Mittleres Frühlingsgrün
+ Mittleres Türkis
+ Mittleres Violettrot
+ Mitternachtsblau
+ Mintgrün
+ Helles Rosa
+ Helles Orange
+ Blasses Orangegelb
+ marineblau
+ Möhrengelb
+ olive
+ Graugrün
+ orange
+ orangerot
+ Orchidee
+ Blasse Goldrute
+ Blasse Goldrute
+ blassgrün
+ Blasses Türkis
+ Blasses Violettrot
+ Helles Orangegelb
+ Pfirsichrosa
+ Perubraun
+ pink
+ pflaume
+ Puderblau
+ lila
+ Rebeccalila
+ rot
+ Dunkles Rosa
+ königsblau
+ Umbra
+ lachs
+ Sandbraun
+ Meergrün
+ Muschelschale
+ Muschelschale
+ Siennabraun
+ silber
+ himmelblau
+ Schieferblau
+ Schiefergrau
+ Schiefergrau
+ schneeweiß
+ Frühlingsgrün
+ stahlblau
+ tan
+ Blaugrün
+ Distelblau
+ tomate
+ türkis
+ violet
+ weizen
+ weiß
+ weißer Rauch
+ gelb
+ gelbgrün
+ Welche Farbe sollen meine Augen haben?
+ Welche Farbe möchtest Du für meine Augen?
+ Nenne eine Farbe zum ausprobieren.
+ Das ist keine Farbe mit der ich vertraut bin.
+ normal,#AF
+ Aliceblau,#FFFF
+ Altweiß,#FAEBD
+ Aquamarinblau,#FFFF
+ aquamarin,#FFFD
+ azur,#FFFFF
+ beige,#FFDC
+ biskuit,#FFEC
+ schwarz,#
+ Mandelfarben,#FFEBCD
+ blau,#FF
+ blauviolett,#ABE
+ Braun,#AAA
+ Blasses Orange,#DEB
+ Kadettblau,#FEA
+ Helles Gelbgrün,#FFF
+ schokolade,#DE
+ Korallrot,#FFF
+ Kornblumenblau,#ED
+ Helles Maisgelb,#FFFDC
+ purpur,#DCC
+ zyan,#FFFF
+ dunkelblau,#B
+ Dunkles Zyan,#BB
+ Dunkle Goldrute,#BB
+ dunkelgrau,#AAA
+ dunkles grau,#AAA
+ Dunkles Grün,#
+ Dunkles Khaki﻿,#BDBB
+ dunkel magenta,#BB
+ Dunkles Olivgrün,#BF
+ dunkel orange,#FFC
+ Dunkle Orchidee,#CC
+ dunkelrot,#B
+ Dunkles Lachsrosa,#EA
+ Dunkles Meergrün,#FBCF
+ Dunkles Schieferblau,#DB
+ Dunkles Schiefergrau,#FFF
+ Dunkles Schiefer Grau,#FFF
+ Dunkles Türkis,#CED
+ dunkelviolett,#D
+ Kräftiges Pink,#FF
+ Tiefes Himmelblau,#BFFF
+ Dunnkelgrau,#
+ Dunkel Grau,#
+ Dodgerblau,#EFF
+ Feuerrot,#B
+ Blütenweiß,#FFFAF
+ Waldgrün,#B
+ fuchsia,#FFFF
+ Hellgrau,#DCDCDC
+ Weiß mit Blaustich,#FFFF
+ gold,#FFD
+ Goldrute,#DAA
+ grau,#
+ grau,#
+ grün,#
+ grüngelb,#ADFFF
+ Honigmelone,#FFFF
+ Kräftiges Pink,#FFB
+ Indianerrot,#CDCC
+ indigo,#B
+ elfenbein,#FFFFF
+ khaki,#FEC
+ lavendel,#EEFA
+ Heller Flieder,#FFFF
+ grasgrün,#CFC
+ Zartes Zitronengelb,#FFFACD
+ hellblau,#ADDE
+ Helles Korallrot,#F
+ Helles Zyan,#EFFFF
+ Helles blasses Gelb,#FAFAD
+ hellgrau,#DDD
+ helles grau,#DDD
+ hellgrün,#EE
+ Helles Pink,#FFBC
+ Helles Lachsrosa,#FFAA
+ Helles Meergrün,#BAA
+ Helles Himmelblau,#CEFA
+ Helles Schiefergrau,#
+ Helles Schiefer Grau,#
+ Helles Stahlblau,#BCDE
+ hellgelb,#FFFFE
+ neongrün,#FF
+ neongrün,#CD
+ leinen,#FAFE
+ magenta,#FFFF
+ marone,#
+ Mittleres Aquamarin,#CDAA
+ mittelblau,#CD
+ Mittlere Orchidee,#BAD
+ Mittleres Lila,#DB
+ Mittelmeergrün,#CB
+ Mittleres Schieferblau,#BEE
+ Mittleres Frühlingsgrün,#FAA
+ MIttleres Türkis,#DCC
+ MIttleres Violettrot,#C
+ mitternachtsblau,#
+ Mintgrün,#FFFFA
+ Helles Rosa,#FFEE
+ Helles Orange,#FFEB
+ Blasses Orangegelb,#FFDEAD
+ marineblau,#
+ Helles Orange,#FDFE
+ olive,#
+ Graugrün,#BE
+ orange,#FFA
+ orangerot,#FF
+ orchidee,#DAD
+ Blasse Goldrute,#EEEAA
+ Blasses Grün,#FB
+ Blasses Türkis,#AFEEEE
+ Blasses Violettrot,#DB
+ Helles Orangegelb,#FFEFD
+ Pfirsichrosa,#FFDAB
+ Perubraun,#CDF
+ pink,#FFCCB
+ pflaume,#DDADD
+ Puderblau,#BEE
+ lila,#
+ Rebeccalila,#
+ rot,#FF
+ Dunkles Rosa,#BCFF
+ königsblau,#E
+ sattelbraun,#B
+ lachs,#FA
+ sandigbraun,#FA
+ Meergrün,#EB
+ Muschelschale,#FFFEE
+ Siennabraun,#AD
+ silber,#CCC
+ himmelblau,#CEEB
+ Schieferblau,#AACD
+ Schiefergrau,#
+ Schiefer Grau,#
+ schneeweiß,#FFFAFA
+ Frühlingsgrün,#FFF
+ stahlblau,#B
+ Hautfarben,#DBC
+ Blaugrün,#
+ Distelblau,#DBFD
+ tomate,#FF
+ türkis,#ED
+ violett,#EEEE
+ weizen,#FDEB
+ weiß,#FFFFFF
+ Zartes Hellgrau,#FFF
+ gelb,#FFFF
+ gelbgrün,#ACD
+ setze benutzerdefinierte (Farbe|Farben)
+ (setze|ändere) benutzerdefinierte (Augen|Augenfarbe)
+ Ich benötige eine Zahl zwischen  und 
+ Der Wert muss zwischen  und  sein
+ Entschuldigung, es gab einen Fehler mit dem Einstellen der Farbe.
+ Es gab einen Fehler beim Setzen der Farbe.
+ (ändere|setze) (die|deine|) (Auge|Augen) (Farbe|Farben|) auf {color}
+ (ändere|setze) (Auge|Augen) (Farbe|Farben|) auf {color}
+ (ändere|setze) Auge (Farbe|Farben) zu {color}
+ (ändere|setze) (deine|) Augen in (ein|eine) {color} (Farbe|Farbton|)
+ (änder|setze) (Auge|Augen) in (eine|einen) {color} Farbe
+ (ändere|setze) Augen (Farbe|Farben)
+ Fast fertig.  Was ist mit dem Blauwert?
+ Ein letzter Wert zwischen  und  für blau
+ Jetzt benötige ich noch einen Wert für grün
+ Als nächstes brauche ich den Grünwert
+ Bitte gib mir einen Wert zwischen  und  für den Rotanteil
+ Nenne mir einen Wert von  bis  für Rot
+ Keine Augenfarbe wurde da gesetzt
+ Ich habe keine Web-Einstellung für die Augenfarbe gefunden
+ Cool. Schau dir meine Augen an.
+ Okay. Sehe ich jetzt besser aus?
+ Das ist eine gute Farbe. Schau mich nun an.
+ Mein Gehirn ist verdrahtet um Farben in R G B zu verstehen.
+ Test bestanden für ...
+ rufe Test auf
+ rufe Test auf
+ rufe Freigabe Test auf
+ gib Test frei
+ Test veröffentlicht
+ alle
+ führe aus
+ breche ab
+ schalte aus
+ beende
+ lösche
+ (stop|stoppe)
+ leere
+ schalte stumm
+ Ruhe
+ leise
+ beenden
+ beenden
+ hör auf
+ sei still
+ Timer
+ Timer
+ beide
+ Möchtest du den aktiven Timer abbrechen?
+ Möchtest du den laufenden Timer anhalten?
+ Möchtest du die aktiven Timer abbrechen?
+ Möchtest du die aktiven Timer anhalten?
+ Wie lange soll der Timer sein?
+ Momentan laufen {{count}} Timer.  Welchen möchtest du abbrechen?
+ Es laufen {{count}} Timer {{names}}.  Welchen meinst du?
+ {{count}} Timer wurden abgebrochen
+ {{count}} Timer abgebrochen
+ Timer angehalten
+ Timer abgebrochen
+ (#|##|###) (Minuten|Sekunden|Stunden) (und|)
+ (#|##|###) (Minute|Sekunde|Stunde) (und|)
+ Stunde
+ Stunden
+ Stunde
+ Stunden
+ Minute
+ Minuten
+ Minute
+ Minuten
+ Es werden gerade keine Timer ausgeführt
+ Kein Timer wurde gesetzt
+ Nein
+ Ne
+ näh
+ negativ
+ (ein|einen) Tag
+ Tage
+ eine Stunde
+ eine Minute
+ eine Sekunde
+ Sekunden
+ Sekunde
+ Sekunde
+ Sekunden
+ Timer für {duration}.
+ Timer für {duration} (genannt|mit Namen|für) {name}.
+ {duration} Timer.
+ {duration} Timer (genannt|mit Namenn|für) {name}.
+ Zähle {duration} für mich.
+ Stoppe {duration} für mich.
+ Ein (anderer|weiterer) Timer wurde gestartet für {{duration}}
+ Ich starte einen (anderen|weiteren) Timer für {{duration}}
+ Timer für {{duration}} gestartet
+ In Ordnung, ich habe einen Timer für {{duration}} gestartet
+ Ich starte einen Timer für {{duration}}
+ Wie viel Zeit ist auf (allen|jedem) der ({duration} Timer) übrig
+ (Sage mir|) wie viel Zeit (ist|) auf den Timern übrig?
+ (Sage mir|) wie viel Zeit (ist|) übrig?
+ Wie ist der Status (des Timers|der Timer)
+ Wie ist der Timer status
+ Wie ist der Status (aller|von jedem) der ({duration} timer|timer)
+ Wie viel Zeit ist auf (dem {duration} Timer|dem Timer|den Timern) übrig
+ Wie viel Zeit ist übrig?
+ Zähle alle Timer auf
+ Gibt es (aktive|laufende|) Timer
+ (Habe ich|Hast du) irgendwelche (aktive|laufende|) Timer
+ Wann endet (der|mein|dein|) Timer
+ Wie viele Timer
+ (stoppe|beende|lösche) (alle|den) Timer
+ Der Timer für {{name}} ist vor {{passed_time}} abgelaufen
+ Der timer für {{name}} hat {{remaining}} übrig
+ Der Timer für {{name}} ist abgelaufen
+ :
+ : :
+ : : :
+ ja
+ ja
+ jep
+ sicher
+ bitte
+ In welchem Bundesland befindet sich {{park}}?
+ Wenn ich in {{park}} wäre, in welchem Bundesland wäre ich dann?
+ beschreibe
+ Erzähl mir von
+ Liste
+ (in) (?P<Location>.*)
+ Nationalpark 
+ Nationalparks 
+ Ich konnte keine Parks in {{location}} finden
+ Ich konnte keine Parks mit dem Namen {{park}} finden
+ hier sind die Nationalparks in {{location}} {{parks}}
+ Nationalparks in {{location}} enthalten {{parks}}
+ {{park}} befindet sich in {{location}} 
+ (?P<ParkName>.*) (Nationalpark)
+ Das ist korrekt.
+ Du kennst deine Nationalparks.
+ Du hast es.
+ Ich kann die zuletzt gestellte Frage nicht finden
+ Nein, {{park}} befindet sich in {{location}}
+ Das ist nicht richtig, {{park}} befindet sich in {{location}}
+ wiederhole das Nationalparkquiz 
+ stelle mir Quizfragen zu den Nationalparks
+ Wo ist
+ Entschuldigung. Es gab Probleme mit dem Befehl.
+ setze
+ dimme
+ hell
+ Ich weiß nicht was zu tun ist
+ Ich habe es nicht verstanden
+ Ich bin verloren
+ Die folgenden Items wurden gefunden: {{items}}
+ Entschuldige, die Element-Liste konnte nicht geladen werden.
+ Entschuldige. Das Element wurde nicht in Open Hab gefunden.
+ liste Open Hab Elemente auf
+ liste Openhab Elemente auf
+ drehe
+ schalte um
+ setze
+ Ok. I habe {{number_item}} Elemente gefunden.
+ aktualisiere Open Hab Elemente
+ aktualisiere Openhab Elemente
+ Helligkeit gewechselt für {{item}}
+ setze {{command}} {{item}}
+ schalte {{command}} {{item}}
+ drehe {{command}} {{item}}
+ (der|die|das|) {{item}} wurde auf {{temp_val}} reguliert
+ (der|die|das|) {{item}} wurde auf {{temp_val}} Grad geregelt
+ (der|die|das|) {{item}} wurde auf {{temp_val}} abgestimmt
+ (reguliere|stelle|stimme) (ein|ab|)
+ (erhöhe|reduziere)
+ was ist
+ was ist
+ (setze) (?P<Item>.*) (auf) (?P<BrigthPercentage>\\d*)(?: Prozent)?
+ (wechsle|schalte|stelle) (?P<Command>on|off) (?P<Item>.*)
+ (erhöhe|reduziere) (?P<Item>.*) (um) (?P<TempValue>\\d*) (Grad)
+ Entschuldigung. Es gibt Probleme mit dem Befehl.
+ setze
+ dimme
+ erhelle
+ Ich weiß nicht, was ich tun soll
+ Ich verstehe nicht
+ Ich weiß nicht mehr weiter
+ Folgende Elemente gefunden: {{items}}
+ Entschuldigung, ich kann die Element-Liste nicht bekommen.
+ Entschuldigung. Element in Openhab nicht gefunden.
+ liste Openhab Elemente auf
+ liste Openhab Elemente auf
+ schalte
+ schalte
+ mach
+ In Ordnung. Ich fand {{number_item}} Items.
+ Aktualisiere Openhab Elemente
+ Aktualisiere Openhab Elemente
+ Helligkeit für {{item}} geändert
+ schalte {{item}} {{command}}
+ schalte {{item}} {{command}}
+ schalte {{item}} {{command}}
+ {{item}} auf {{temp_val}} Grad reguliert
+ {{item}} auf {{temp_val}} Grad eingestellt
+ {{item}} auf {{temp_val}} Grad angepasst
+ (reguliere|stell|passe) (|ein|an)
+ erhöhe|reduziere
+ was ist
+ was ist
+ (setz) (?P<Item>.*) (auf) (?P<BrightPercentage>\\d*)(?: Prozent)?
+ (schalte|mache|tue) (?P<Command>on|off) (?P<Item>.*)
+ (erhöhe|reduziere) (?P<Item>.*) (um) (?P<TempValue>\\d*) (Grad)
+ wechsle
+ umschalten
+ spiele
+ beseitige Fehler
+ Fehler beseitigen
+ überspringe
+ nächster
+ aus
+ an
+ Pandora
+ Pandoras
+ Pianobar
+ Pianobar
+ Pause
+ Liste
+ was
+ wiederholen
+ Song
+ Spur
+ Song
+ Stationen
+ Station
+ Kanal
+ Kanäle
+ Radio
+ und
+ Betrete Fehlersuche für Pandora
+ verlasse Felersuche für Pandora
+ Ich kann keine Pandora Station mit diesem Namen finden
+ Es gibt keine Pandora Station, die mit diesem Namen übereinstimmt
+ Du hast bisher keine Pandora Stationen aboniert.
+ Spiele {{station}} auf Pandora
+ Starte {{station}} auf Pandora
+ Spiele die letzte Station, {station} auf Pandora
+ Nehme die {station} Station auf Pandora wieder auf
+ Deine Pandora Stationen heißen {{stations}}
+ Du hast die Pandora Station {{station}} abonniert
+ und
+ bis
+ und
+ zwei
+ zwischen
+ von
+ Zahl
+ Wert
+ wähle (aus|)
+ wähle (aus|)
+ wähle (aus|)
+ Die Zahl, die ich gewählt habe, ist, {{number}}
+ Ich habe, {{number}}, als meine Zahl gewählt
+ Ich wähle, {{number}}
+ Ich wähle, {{number}}
+ Ich wähle, {{number}}
+ Ich habe, {{number}} gewählt
+ Ich habe, {{number}} gewählt
+ Eine neue Aktivität erstellen
+ Neue Aktivität erstellen
+ Aktivität erstellen
+ Starte eine neue Aktivität
+ Erstelle neue Aktivitäten
+ starte neue Aktivitäten
+ erstelle Aktivitäten
+ neue Aktivität
+ neue Aktivitäten
+ entferne Aktivität
+ entferne die Aktivität
+ lösche Aktivität
+ Lösche die Aktivität
+ zeige aktuelle Aktivitäten
+ zeige Aktivitäten
+ Aktivitäten
+ Zeige mir die aktuellen Aktivitäten an
+ zeige Aktivitäten an
+ beende momentane Aktivität
+ beende Aktivität
+ wechsle momentane Aktivität
+ wechsle zur Aktivität
+ wechsle Aktivität
+ Deine Aktivität {{ ActivityName }} wurde erstellt
+ Aktivität wurde entfernt
+ Aktivitäten anzeigen
+ {{ StopActivityName }}-Aktivität wurde gestoppt
+ Wechsle zur Aktivität {{ SwitchActivityName }} 
+ Besorge den Link des Nachrichtenartikels
+ Zeige (mir eine|) Liste installierbarer Skills
+ zeige dich
+ zeige Widget
+ zeige die (besten|beliebtesten) Fähigkeiten
+ Fähigkeiten zeigen
+ Kontrollleiste hinzufügen zu
+ Widget zu Desktop hinzufügen
+ Widget zu Kontrollleiste hinzufügen
+ leere Zwischenablage
+ reinige klipper
+ Verringere die Helligkeit
+ Helligkeit verringern
+ Verringere die Lautstärke
+ Lautstärke verringern
+ Erhöhe die Helligkeit
+ Helligkeit erhöhen
+ die Lautstärke erhöhen
+ Lautstärke erhöhen
+ Abmeldung von der aktuellen Sitzung
+ logge aus Sitzung aus
+ erhöhe auf maximale Helligkeit
+ maximale Helligkeit
+ Erhöhe auf maximale Lautstärke
+ Maximale Lautstärke
+ vermindere zur minimalen Helligkeit
+ minimale Helligkeit
+ vermindere zur minimalen Lautstärke
+ minimale Lautstärke
+ bewege die Standard-Kontrollleiste nach
+ wechseln Kontrollleiste zu Standardeinstellung
+ Verschiebe Bereich nach
+ nächster Schreibtisch
+ nächster Arbeitsbereich
+ vorheriger Schreibtisch
+ vorheriger Arbeitsbereich
+ compositing wiederaufnehmen
+ Compositing aussetzen
+ wechsle momentanen Benutzer
+ wechsle Benutzer
+ Gib mir Informationen über diesen Computer
+ Zeige Zwischenablage 
+ zeige Clipper
+ zeige Klipper
+ Touchpad 
+ sperre den Bildschirm
+ sperre Bildschirm
+ Ort geändert
+ Helligkeit reduziert
+ Helligkeit erhöht
+ Bildschirm gesperrt
+ Abmelden
+ Helligkeit auf Maximum gesetzt
+ Helligkeit auf Minimum gesetzt
+ Benutzerdialog wechseln anzeigen
+ Widget hinzugefügt 
+ AVMusik
+ AV Zeigen
+ A V Zeigen
+ AV Musik
+ A V Musik
+ A VMusik
+ Spiel etwas
+ av spiel
+ av spiel etwas
+ av finde dieses Lied
+ AV finde mir etwas
+ av finde diese Musik
+ av finde dieses Video
+ av finde dieses Musikvideo
+ av suche nach dieser Band
+ av suche nach diesem Lied
+ av spiel diese Musik
+ AV Video
+ AV Musikvideo
+ AV Lied
+ AV dieses Lied
+ A V Musik Spielen
+ A V Musik Spiele etwas
+ A V Musik finde dieses Lied
+ A V Musik finde mir etwas
+ A V Musik finde diese Musik
+ A V Musik finde dieses Video
+ A V Musik finde dieses Musik Video
+ A V Musik suche nach dieser Gruppe
+ A V Musik suche nach dem Lied
+ A V Musik Spiele diese Musik
+ Ja
+ Sicher
+ fortfahren
+ fortsetzen
+ beginnen
+ Start
+ vorangehen
+ lass es uns angehen
+ mach es
+ Na Sicher
+ Wirklich machen
+ ändere meine Meinung
+ Lass es mich wissen falls du deine Meinung änderst
+ Nein
+ nicht
+ nicht
+ nicht machen
+ Stop
+ Halt
+ Verlassen
+ beenden
+ Ende
+ nicht jetzt
+ Das ist genug
+ genug
+ Soll ich es jetzt spielen?
+ Musik ist pausiert, sage wiederaufnehmen um das Abspielen fortzusetzen
+ Sage anhalten, wenn du fertig bist
+ Alle
+ tat
+ vergiss
+ Phrase
+ Phrasen
+ erinnere
+ (Phrase) (?P<RememberPhrase>.*)
+ (Phrasen) (?P<RememberPhrase>.*)
+ (erinnere) (?P<WhatToRemember>.*)
+ du
+ Soll ich die Phrase {{PHRASE}} löschen?
+ Soll ich alles vergessen was ich mir für dich gemerkt habe?
+ Es ist vergessen.
+ Ich werde mir \{{REMEMBER}}\ für dich merken.
+ Ich werde an dieser Phrase festhalten.
+ Ich erinnere mich an: {{REMEMBER}}.
+ Entschuldige bitte, ich kann mich an keine Phrase erinnern!
+ Entschuldige bitte, es gab einen Fehler, ich konnte nichts vergessen!
+ ja
+ Jo
+ jepp
+ sicher
+ Ok, hier ist dein zufälliger Ratten Fakt {{ Fakt }}
+ Gib mir einen Nagetier Fakt
+ Erzähl mir einen Nagetier Fakt
+ Gib mir einen Ratten Fakt
+ abbrechen
+ erstellen
+ neu
+ Initialisieren
+ Montag
+ Dienstag
+ Mittwoch
+ Donnerstag
+ Freitag
+ Samstag
+ Sonntag
+ löschen
+ entfernen
+ zerstören
+ beschreiben
+ deaktivieren
+ aktivieren
+ Liste
+ Routine
+ routine
+ ausführen
+ auslösen
+ starten
+ anfangen
+ Planung
+ Das ist alles
+ Das ist es
+ das ist alles
+ das ist es
+ {{name}} wurde erstellt.
+ Logik {{name}} wurde gelöscht
+ {{name}} führt die folgenden Aufgaben durch.
+ {{name}} wurde deaktiviert.
+ {{name}} wurde aktiviert.
+ Was ist die erste Aufgabe?
+ Roger, das sind deine Routinen
+ Wie möchtest du es benennen?
+ Was nun?
+ Du hast keine Routinen definiert.
+ {{name}} wurde geplant.
+ Um welche Uhrzeit?
+ An welchen Tagen der Woche möchtest du, dass es läuft?
+ Nach neuen Feeds suchen
+ Entschuldigung, ich konnte deine Wahl nicht verstehen.
+ #Schlüsselwert
+ stop,anhalten
+ next,nächste
+ author,autor
+ E-Mail,E-Mail
+ repeat,wiederholen
+ summary,zusammenfassung
+ syncen,synchronisieren
+ Was sollte ich jetzt tun?
+ der Feed {{name}} hat {{number}} {{article}} zum lesen.
+ Die E-Mail wurde wie angewiesen gesendet.
+ Die E-Mail wurde gerade gesendet.
+ Ich lese jetzt deine {{name}} feed.
+ Singular, neuer Artikel
+ Plural, neue Artikel
+ lies meine neuen Feeds
+ Klient
+ Klienten
+ Verbindung
+ Verbindungen
+ knacken
+ hacken
+ deauth
+ deauthenticate
+ trennen
+ dee auturisieren
+ dee authentifizieren
+ Geräte
+ Schnittstellen
+ Gerät
+ Schnittstelle
+ Liste
+ suche
+ Monitor
+ Überwachen
+ Auszug
+ laden
+ drahtlose Netzwerke
+ Netzwerke
+ drahtloses Netzwerk
+ Netzwerk
+ WiFi-Netzwerk
+ WiFi-Netzwerke
+ Passwort
+ Passwort
+ auswählen
+ benutzen
+ starte
+ beginne
+ anhalten
+ ende
+ Captured Handshake
+ Folgende Schnittstellen sind verfügbar: {{available_interfaces}}
+ Hier sind die verfügbaren Schnittstellen: {{available_interfaces}}
+ {{available_interfaces}} stehen zur Verfügung.
+ Der Monitor wurde angehalten, bevor der Handshake aufgezeichnet wurde.
+ (name) (?P<Named>.*)
+ (genannt) (?P<Named>.*)
+ Folgende Netzwerke sind verfügbar: {{available_networks}}
+ Es gibt keine verfügbaren Schnittstellen.
+ Es sind keine Netzwerke verfügbar.
+ Kein Passwort gefunden.
+ Keine solche Schnittstelle gefunden.
+ Kein solches Netzwerk gefunden.
+ (nummer) (?P<Number>.*)
+ Das folgende Passwort wurde wiederhergestellt: {{password}}
+ Bitte wähle zuerst die Schnittstelle.
+ {{selected_interface}} interface Ausgewählt.
+ wähle {{selected_network}}als Netzwerk.
+ Starte den Monitor
+ stoppe Monitor
+ ja
+ Alarm
+ Alarme
+ alle
+ beide
+ außer
+ ausschließend
+ ausschließen
+ Montag
+ Dienstag
+ Mittwoch
+ Donnerstag
+ Freitag
+ Samstag
+ Sonntag
+ wiederkehrend
+ wiederholend
+ jeden
+ täglich
+ wochentags
+ Wochenenden
+ montags
+ dienstags
+ mittwochs
+ donnerstags
+ freitags
+ samstags
+ sonntags
+ wochentags
+ wochentags
+ (füge hinzu|hinzufügen)
+ setze
+ starte
+ erstelle
+ # Einzelne Wörter, die den Alarm ausschalten
+ stop
+ schließen
+ beenden
+ abbrechen
+ beenden
+ beenden
+ lösche
+ töten
+ aus
+ deaktivieren
+ ok
+ okay
+ alles klar
+ weck mich
+ weck mich auf
+ Dieser Alarm existiert bereits.
+ Du hast bereits einen Alarm für diese Zeit.
+ Es ist bereits ein Alarm für diese Zeit gesetzt.
+ Ich habe den Alarm für {{desc}} abgebrochen
+ Ich habe den wiederkehrenden Alarm für {{desc}} abgebrochen
+ abgebrochen
+ Erledigt
+ Die sich wiederholende Alarmreihe wurde abgebrochen.
+ Entschuldigung, ich konnte nicht feststellen, welchen Alarm du meintest
+ Der Alarm wurde ausgeschaltet
+ Der Alarm wurde deaktiviert
+ Der Alarm wurde gestoppt
+ Alarm gesetzt
+ Alles klar, Alarm gesetzt
+ Alarm gesetzt für {{time}}, in {{rel}}
+ Ich habe einen Alarm für {{time}} erstellt, {{rel}} von jetzt
+ Du hast {{amount}} Aktiv {{plural}}. {{string}}
+ Welche (Alarme|Wecker) sind vorhanden
+ Welche (Alarme|Wecker) sind aktiv
+ (wann|was) (ist|sind) (mein|meine) (Alarm|Alarme|Wecker)
+ Habe ich (einen|) (Alarme|Wecker) (gestellt|)
+ Status der (Alarme|Wecker)
+ liste (meine|) (Alarme|Wecker) auf
+ Ist (da|) ein (Alarm|Wecker) gestellt
+ sind (irgendwelche|aktive) Alarme (gestellt|)
+ wann ist mein (nächster|) (Alarm|Wecker)
+ wann wird (mein|der) (Alarm|Wecker) klingeln
+ wann wird (mein|der) (Alarm|Wecker) (los gehen|losgehen|klingeln)
+ wann geht (mein|der) (Alarm|Wecker) los
+ Sag, schalte den Alarm aus, um den Alarm auszuschalten
+ Es wurden keine Alarme eingestellt
+ Keine aktiven Alarme
+ Du hast {{count}} Alarme: {{item}} und {{itemAnd}}
+ Du hast einen Alarm gesetzt für {{item}}
+ Ein Alarm ist gesetzt für {{item}}
+ Bestätige:  Möchtest du den Alarm wirklich abbrechen?
+ Bestätige:  Möchtest du {{count}} Alarme abbrechen?
+ Bestätige:  Möchtest du den wiederkehrenden Alarm wirklich abbrechen?
+ Bestätige:  Möchtest du den Alarm für {{desc}} abbrechen?
+ Welchen Alarm möchtest du löschen?
+ Welchen Alarm möchtest du stoppen?
+ Ich setze einen Alarm für {{time}}, habe ich dich Richtig verstanden?
+ Ich erstelle einen neuen Alarm für {{time}}, richtig?
+ Okay, lösche {{name}} Alarm
+ Okay, lösche den wiederkehrenden {{name}} Alarm
+ (lösche|entferne|deaktiviere|stoppe|) alle (meine|) (Alarme|Wecker)
+ (lösche|entferne|deaktiviere|stoppe) (meine|die) (Alarme|Wecker)
+ für einmalige Alarme: {{alarms}}
+ für wiederkehrende Alarme: {{alarms}}
+ mehrere Übereinstimmungen wurden gefunden.
+ meintest du den einmaligen Alarm oder den sich wiederholenden Alarm.
+ Ich konnte keinen passenden Alarm zum löschen finden.
+ Konnte die Antwort zum Löschen von Alarmen nicht verstehen.
+ (Tag | Wochentag | Wochenende)
+ Dein nächster Alarm ist um {when}, in {duration} ab jetzt
+ Der nächste Alarm ist für {when}, in {duration} ab jetzt
+ einmalig
+ für wann?
+ zu welcher Uhrzeit?
+ (was|wann) (klingelt|ist) (mein|der|) (nächste|nächster) (Alarm|Wecker)
+ wann wird (mein|der) (Alarm|Wecker) klingeln
+ Wann ist (der|mein|der nächste) (morgentliche|tägliche) (Alarm|Wecker)
+ an welchen Tagen?
+ für welche Tage?
+ {{time}} von {{recurrence}}
+ Alarm für {{time}} gesetzt, beginnt in {{rel}}
+ # Übersetzter Name, Tag(e) der Woche
+ montags,
+ Montag,
+ dienstags,
+ Dienstag,
+ mittwochs,
+ Mittwoch,
+ donnerstags,
+ Donnerstag,
+ freitags,
+ Freitag,
+ samstags,
+ Samstag,
+ sonntags,
+ Sonntag,
+ Wochentage,    
+ Wochentag,    
+ Wochenende, 
+ Wochenende, 
+ jeden Tag,      
+ jeden Tag,      
+ täglich,      
+ Arbeit,    
+ Schlummer
+ Schlummeralarm
+ Schlummeralarm für {{time}} (Minuten|Stunden)
+ Alarm pausieren
+ lösche
+ entferne
+ leere
+ lösche
+ spiele
+ wiederhole
+ Wiedergabe
+ Spiele ab
+ spielen
+ wiederholen
+ Spiele (die|das|) (Aufnahme|Audio)
+ spiele (die|das|) (Aufnahme|Audio) ab
+ spiele (die|das|) (Aufnahme|Audio) ab
+ Aufnahme
+ aufgezeichnet
+ aufnehmen
+ Audio
+ starte (die|) Aufnahme
+ zeichne (mich|) auf (für|bis) {time}
+ starte die Aufzeichnung (von|vom) (mir|Audio|) für {time}
+ zeichne (Audio|mich) auf
+ Aufnahme gelöscht
+ Aufnahme verworfen
+ Aufnahme von Audio für {{duration}}
+ Starte Aufnahme für {{duration}}
+ Aufnahme für {{duration}}
+ Konfiguration
+ Konfiguration
+ Einstellung
+ aktualisiere
+ (neuladen|lade neu)
+ synchronisiere
+ synchronisiere
+ was
+ was ist
+ zeige mir
+ nenne mir
+ Zuhörer
+ wake word listener
+ wake word engine
+ Aktivierungswort
+ Schlüsselwort programm
+ pocketsphinx
+ precise
+ snow boy
+ snowboy
+ standard
+ Name
+ mycroft precise
+ precise model
+ model
+ setze
+ mache
+ (zuordnen|ordne zu)
+ wechsle
+ nutze
+ wo
+ wo bist du
+ (sag mir|was ist) (dein|deine|deinen) (Stadt|Staat|Land|Position)
+ Die Konfiguration hat sich nicht verändert
+ Keine zutreffenden Änderungen
+ Konfiguration konnte nicht abgerufen werden, Gerät ist nicht gekoppelt.
+ Konfiguration aktualisiert.
+ Deine Gerätekonfiguration wurde aktualisiert.
+ Dein Gerät wurde konfiguriert.
+ Der aktuelle Zuhörer ist {{listener}}.
+ Der Zuhörer ist auf {{listener}} eingestellt.
+ ich bin in {{city}} {{state}} {{country}}
+ Der Zuhörer {{listener}} ist bereits eingestellt.
+ Das aktuelle precise Modell nennt sich {{name}}.
+ Das aktuelle model nennt sich {{name}}.
+ Ich konnte keine Modelldateien zum Aktualisieren finden.
+ Ich habe die Precise-Modelle aktualisiert.
+ Bitte aktualisiere zuerst deine Software.
+ Mein Gerätename lautet {{name}}
+ ich heiße {{name}}
+ Der Zuhörer ist nicht auf Precise eingestellt.
+ Ich habe den Zuhörer auf {{listener}} eingestellt.
+ Kristallkugel
+ Spieglein Spieglein
+ Zukunft
+ morgen
+ Sag mir
+ Was
+ Ja
+ Nein
+ Versuch später nocheinmal zu fragen
+ definitiv
+ selbstverständlich nicht
+ Sicher
+ Nee
+ Warum nicht?
+ Ich würde nicht drauf wetten
+ Logo!
+ Das kann dauern
+ Datum
+ Tag
+ heute
+ Bildschirm
+ zeige
+ welche
+ nenne
+ Zeit
+ {{date}}
+ Es ist {{date}}
+ Es ist {{date}}
+ Meintest du die Zeitzone {zone_name}?
+ \\b(bei|in|für) (?P<Location>.*)
+ {{time}}
+ Es ist {{time}} Uhr
+ Es ist {{time}}
+ Aktuell {{time}}
+ Ich konnte die Zeitzone für {{location}} nicht finden
+ # Dies ist eine übersetzbare Liste mit Werten und Zeitzonen
+ China, Etc/GMT+
+ Kansas City, US/Central
+ Central time zone, US/Central
+ Central time, US/Central
+ Pacific time, US/Pacific-New
+ Pacific time zone, US/Pacific-New
+ Eastern time, US/Eastern
+ Eastern time zone, US/Eastern
+ East coast, US/Eastern
+ East coast time zone, US/Eastern
+ (die|) Zeit
+ Uhrzeit bitte
+ Hast du die (aktuelle|) Uhrzeit
+ aktuelle Zeit
+ Ich habe jetzt den Bootvorgang beendet.
+ Ich bin jetzt bereit.
+ Hi, ich bin Mycroft und bereit zu arbeiten.
+ Du kannst mit Mycroft beginnen.
+ Hallo Welt
+ schöne Grüße
+ wie geht es dir
+ wie ist es dir gegangen
+ wie war dein Tag
+ danke
+ danke
+ Hallo Welt
+ Hallo
+ Dir ebenfalls guten Tag
+ mir geht es gut
+ ziemlich gut
+ Nicht schlecht
+ mir geht es ausgezeichnet
+ Mir könnte es besser gehen
+ mir geht es sehr gut
+ jeder Zeit.
+ Stehe gerne zur verfügung.
+ Ich bin froh, dass ich helfen kann.
+ Gern geschehen.
+ Kein Problem.
+ Bitte schön.
+ installiere
+ entfernen
+ Abgebrochen.
+ Aktion abgebrochen.
+ Mehrere Skills wurden gefunden, welchen möchtest du... {{skills}}
+ Die Vorschauversion von {{skill}} wurde bereits installiert.
+ {{skill}} wurde bereits installiert
+ {{skill}} ist nicht installiert
+ {{skill}} konnte nicht auf diesem Gerät gefunden werden
+ Ihre Anfrage hatte mehrere Übereinstimmungen, bitte seien Sie genauer.
+ Ich habe keinen Skill namens {{skill}} gefunden.
+ Bei {{action}} Systempaketen für {{skill}} ist ein Fehler aufgetreten.
+ installiere {skill} (Version|) beta.
+ installiere {skill} (beta|preview) version
+ install (die |) (beta | preview) (version |) (von|) {skill}.
+ {{skill}} ist nun installiert und bereit zur nutzung
+ Bestätigen: Soll ich den {{skill}} von {{author}} installieren.
+ Herunterladen eines angepasst Skills
+ installiere {skill}.
+ installiere {skill} (Version|) (stabil|offiziell).
+ installire (die|) (offizielle | stable) (Version|von|) {skill}.
+ offizielle Version (Version|) von {skill} installieren.
+ ja, {skill} ist installiert
+ ist {skill} installiert
+ Zeige die (verfügbaren|installierbaren) Skills an.
+ Welche Skills kann ich installieren?
+ Welche Skills kann ich installieren?
+ nein, {skill} ist nicht installiert
+ nein, {skill} ist nicht installiert
+ oder
+ {{skill}} wurde entfernt
+ Bestätigung:  Soll ich den {{skill}} von {{author}} deinstallieren.
+ deinstallieren (skill |) {skill}
+ deinstalliere (skill|) {skill}
+ Hier sind ein paar skills die du installieren kannst:... {{skills}}
+ erwachsenen
+ sexy
+ Geschlecht
+ schmutzigen
+ dreckigen
+ ungezogenen
+ Chuck
+ Chuck Norris
+ Witz
+ bring mich zum Lachen
+ erhelle meinen Tag
+ erzähl mir einen Witz
+ neutralen
+ nicht beleidigenden
+ dämlichen
+ Geh schlafen
+ Schlafenszeit
+ Okay.
+ Gehe schlafen.
+ ich bin wieder wach
+ Was ist
+ zu letzt
+ (sag|erzähl) mir
+ Neuigkeiten
+ Hier sind die letzten Neuigkeiten.
+ Hier sind die Stündlichen Neuigkeiten.
+ errate Zahl
+ Zahl Ratespiel
+ Spiele
+ starte ein Spiel
+ Lass uns
+ Lass uns
+ Warum nicht
+ Wie wäre es mit uns
+ Wir sollten
+ Stimmt!
+ Du hast es erraten!
+ Richtig!
+ Das ist die Nummer!
+ Gut gemacht!
+ Du gewinnst!
+ Was soll die Untergrenze sein?
+ Was soll die Obergrenze sein?
+ Errate die Zahl
+ Was denkst du, wie die Nummer lautet
+ Rate
+ Ich konnte nicht verstehen, was du gesagt hast
+ Etwas lief schief, als ich das zu verstehen versuchte
+ Ein Eingabefehler ist aufgetreten
+ Könntest du das noch einmal sagen?
+ Diese Antwort war ungültig. Ich brauche eine Nummer
+ Bitte antworte mit einer Nummer
+ Du musst mit einer Nummer antworten
+ Das ist keine Nummer
+ OK, lass uns spielen
+ Lasst das Spiel beginnen
+ starte Spiel
+ Lass uns beginnen
+ Mal sehen, was du hast
+ In Ordung. Lass uns Zahl erraten spielen
+ Zu hoch
+ Zu niedrig
+ Einheit
+ Gerät
+ Mycroft
+ Mark eins
+ Mark zwei
+ paaren
+ paarung
+ registrieren
+ A,'A' wie Anton
+ B,'B' wie Berta
+ C,'C' wie Cäsar
+ D,'D' wie Dora
+ E,'E' wie Emil
+ F,'F' wie Friedrich
+ G,'G' wie Gustav
+ H,'H' wie Heinrich
+ I,'I' wie Ida
+ J,'J' wie Julius
+ K,'K' wie Kaufmann
+ L,'L' wie Ludwig
+ M,'M' wie Martha
+ N,'N' wie Nordpol
+ O,'O' wie Otto
+ P,'P' wie Paula
+ Q,'Q' wie Quelle
+ R,'R' wie Richard
+ S,'S' wie Samuel
+ T,'T' wie Theodor
+ U,'U' wie Ulrich
+ V,'V' wie Viktor
+ W,'W' wie Wilhelm
+ X,'X' wie Xanthippe
+ Y,'Y' wie Ypsilon
+ Z,'Z' wie Zacharias
+ ,die Nummer Eins
+ ,die Nummer Zwei
+ ,die Nummer Drei
+ ,die Nummer Vier
+ ,die Nummer Fünf
+ ,die Nummer Sechs
+ ,die Nummer Sieben
+ ,die Nummer Acht
+ ,die Zahl Neun
+ ,die Zahl Null
+ Registriere dieses Gerät mit dem Code {{code}}
+ Gib den Code {{code}} ein
+ Dein gerät ist momentan nicht registriert
+ Dein gerät ist derzeit nicht gekoppelt
+ reime mal
+ Kannst du reimen
+ was bist du
+ Wann wurdest du geboren
+ wann wurdest du erschaffen
+ Wo bist du geboren
+ wo wurdest du erschaffen
+ wer bist du
+ wer hat dich gemacht
+ von wem wurdest du gemacht
+ wer hat dich erschaffen
+ wer hat dich gebaut
+ Ich bin eine Open-Source-Künstliche Intelligenz.
+ Ich bin eine intelligente Software für die Kommunikation mit Maschinen
+ Ich wurde  geboren.
+  wurde ich geboren.
+ Das Lawrence Center für Unternehmertum.
+ Ich wurde in Lawrence, Kansas, geboren.
+ Ich bin {{name}}, eine Open-Source-A.I.
+ Die wunderbare Mycroft A.I. community mit team.
+ Jeder im Mycroft A.I. community und Team.
+ Musik
+ Melodien
+ Song
+ Radio
+ nächster
+ überspringe
+ pausiere
+ spiele
+ starte
+ wiedergabe
+ wieder abspielen
+ wiederaufnehmen
+ vorheriger
+ gehe zurück
+ gehe eins zurück
+ setze
+ pause aufheben
+ Titel
+ Entschuldigung, ich weiß nicht, wie man {{phrase}} spielt
+ Ich bin nicht sicher wie man {{phrase}} spielt
+ fortsetzen
+ starte neu
+ Starte Musik neu
+ Setze Musik fort
+ Einen Moment bitte während ich nachsehe
+ Gib mir einen Moment um das zu prüfen
+ Eine Sekunde bitte
+ spiele (?P<Phrase>.*)
+ starte (?P<Phrase>.*)
+ wiedergabe (?P<Phrase>.*)
+ Test für .. bestanden
+ Rufe Test auf
+ Test aufrufen
+ Freigegebener Test aufrufen
+ Test freigeben
+ freigegebener Test
+ Worüber?
+ Klar, woran soll ich dich erinnern?
+ bist du sicher
+ willst du wirklich zu dieser Zeit daran erinnert werden
+ Oh, übrigens, {{reminder}}
+ Ein Ereignis steht an: {{reminder}}
+ Willst du alle gespeicherten Erinnerungen entfernen
+ Willst du die ganze Erinnerungs-Liste leeren
+ (leere|entferne|lösche) alle Erinnerungen
+ Alle Erinnerungen wurden entfernt
+ Alle Erinnerungen wurden gelöscht
+ Bist du sicher dass du alle Erinnerungen für {date} löschen möchtest.?
+ (breche|entferne|lösche) alle Erinnerungen für {date} (ab|)
+ breche die (heutigen|morgigen) Erinnerungen ab
+ breche alle Erinnerungen für (heute|morgen) ab
+ Was ist (die|meine) nächste Erinnerung
+ zeige (die|alle) Erinnerungen für {date}
+ Was sind (die|meine) Erinnerungen für {date}
+ Habe ich (irgendwelche|) Erinnerungen( an|) {date}
+ Das ist mitten in der Nacht
+ Das ist sehr spät
+ {reminder} um {time} {date}
+ Deine nächste Erinnerung ist {reminder} um {time}
+ Du hast {reminder} morgen um {time}
+ Es gibt keine aktiven Erinnerungen
+ Entschuldigung, ich habe die Zeit nicht verstanden.
+ Kannst du die Zeit anders sagen.
+ Du hast keine Erinnerungen für {date}
+ Es scheint als hättest du keine Erinnerungen für {date}
+ Es gibt keine bevorstehenden Erinnerungen
+ Du hast keine bevorstehenden Erinnerungen
+ Okay, willst du zu einer bestimmten Zeit erinnert werden?
+ (könntest du mich|erinnere mich) an {reminder} (erinnern|)
+ füge (eine|) neue Erinnerung {reminder} (um|für) {timedate} hinzu
+ füge eine Erinnerung (für|zu) {reminder} (um|für) {timedate} hinzu
+ (erinner|benachrichtige) mich über {reminder} (um|am) {timedate}
+ (erinner|benachrichtige) mich zu {reminder} am {timedate}
+ Füge (eine|) neue Erinnerung {reminder} in {timedate} hinzu
+ füge (eine|) erinnerung {reminder} am {timedate} (hinzu|)
+ Die Erinnerung wurde abgebrochen.
+ Breche Erinnerung ab.
+ die erinnerung wurde deaktiviert
+ die erinnerung wurde abgeschaltet
+ die erinnerung wurde gestoppt
+ Erinnerung, {{reminder}} .
+ Es gibt eine Erinnerung, {{reminder}} .
+ Okay, ich werde dich in fünfzehn Minuten (daran|) erinnern
+ Klar, ich werde dich in fünfzehn Minuten (daran|) erinnern
+ Sehr gut, ich werde dich bald (daran|) erinnern
+ Klar, speichere eine Erinnerung für {{timedate}}
+ Ich habe eine Erinnerung für {{timedate}} gesetzt
+ Erinnerung eingestellt für {{timedate}}
+ Klar, speichere eine Erinnerung für {{date}} um {{time}}
+ Ich habe eine Erinnerung für {{date}} {{time}} gesetzt
+ Erinnerung gesetzt für {{time}} (an|am) {{date}}
+ Klar, speichere eine Erinnerung für morgen um {{timedate}}
+ Ich habe für {{timedate}} morgen eine Erinnerung gesetzt
+ Erinnerung gesetzt für morgen um {{timedate}}
+ lege (die|) erinnerung schlafen
+ {anything} erinnere mich später
+ (könntest du |) (mich|uns) etwas erinnern
+ (könntest du |) eine Erinnerung (|für mich|für uns) einstellen
+ Okay wann?
+ Zu welcher Zeit?
+ Wann möchtest du erinnert werden?
+ Zum Abbrechen sage \Erinnerung abbrechen\
+ (könntest du |) mich am {timedate} erinnern
+ (könntest du |) eine Erinnerung am {timedate} (einrichten|einstellen|)
+ singe
+ sing mir ein Lied
+ Ich würde gerne für dich singen. 
+ Hier komme ich.
+ Danke fürs Zuhören
+ Ich hoffe, dir hat meine Stimme gefallen
+ Versuch du es jetzt
+ sprich
+ sage
+ wiederhole
+ sage (?P<Words>.*)
+ spreche (?P<Words>.*)
+ wiederhole (?P<Words>.*)
+ buchstabiere
+ buchstabiere das Wort
+ Aussprache von
+ Aussprache von dem wort
+ Aktienkurs
+ Handel bei
+ Preis der(?P<Company>.*)
+ ist (?P<Company>.*) gehandelt bei
+ Entschuldigung, ich konnte keinen Aktienkurs für {{company}} finden.
+ {{company}} existiert nicht oder hat keinen Aktienkurs.
+ Stop
+ Ruhe
+ halt den Mund
+ sei leise
+ Bitte beschreibe kurz das Problem war, das du erlebt hast
+ Was ist eine kurze Beschreibung von dem Problem, das du hast?
+ In Ordnung
+ Erstellen einer Fehlerbehebungsanforderung
+ Fehlerbehebung meines Gerätes
+ kontaktiere Support
+ erstelle ein Support Ticket
+ Ein Moment.
+ Unterstützung
+ <ul><tt>
+ <p><b>Geräte Name:</b> {{device_name}}</p>
+ <p><b>Beschreibung:</b> {{description}}</p>
+ <a href='{{url}}'>{{url}}</a>
+ </tt></ul>
+ <p>
+ </p>
+ Mycroft Fehlerbehebungs Assistenten
+ ja
+ ja
+ ja
+ sicher
+ bitte
+ überprüfen
+ finden
+ laufend
+ was ist
+ Hardware Plattform
+ Plattform Version
+ Firmware Version
+ Version
+ Code
+ veröffentlichen
+ System software
+ Kein Problem, ich werde meinen aktuellen Software Stand behalten.
+ Meine Platform Version ist {{build}}.
+ Ich laufe auf einem Gerät was keine Offizielle Plattform Version ist.
+ Verstanden, Ich werde auf der älteren Version bleiben
+ Du hast die aktuellste Version.
+ leiser
+ reduziere
+ verringere
+ runterdrehen
+ leiser
+ anheben
+ erhöhen
+ steigern
+ erhöhen
+ aufdrehen
+ lauter
+ leise
+ standard
+ laut
+ stumm
+ still
+ Prozent
+ %
+ was
+ sagen
+ zurücksetzen
+ aufheben
+ wiederherstellen
+ Lautstärke
+ Lautsprecher
+ ton
+ die Lautstärke ist bereits auf Maximum
+ Ich kann nicht lauter werden
+ Lautstärke auf {{volume}} reduziert
+ Lautstärke auf {{volume}} reduziert
+ Lautstärke ist jetzt {{volume}}
+ Lautstärke auf {{volume}} erhöht
+ Audio wird gedämpft
+ Der Ton wird gedämpft
+ Lautstärke auf {{volume}} zurückgesetzt
+ Lautstärke auf {{volume}} wiederhergestellt
+ Lautstärke auf {{volume}} eingestellt
+ Lautstärke auf {{volume}} aktualisiert
+ Lautstärke auf {{volume}} geändert
+ Lautstärke gesetzt auf {{level}} Prozent
+ Lautstärke aktualisiert auf {{level}} Prozent
+ Lautstärke auf {{level}} Prozent geändert
+ Die Lautstärke ist auf {{volume}} gesetzt
+ Die Lautstärke ist bei {{volume}}
+ Osten
+ Vorhersage
+ feucht
+ Luftfeuchtigkeit
+ dunstig
+ nächsten Stunde
+ nächsten Stunden
+ einigen Stunden
+ nächsten paar Stunden
+ einige Stunden
+ nächsten Stunden
+ später
+ Seattle
+ Los Angeles
+ Lawrence kansas
+ Portland
+ Spokane
+ New York
+ Chicago
+ Houston
+ Austin
+ San Diego
+ San Francisco
+ San Jose
+ Boston
+ Washington D C
+ Atlanta
+ Norden
+ Nordosten
+ Nordwesten
+ nächste
+ wieder
+ wann
+ wird
+ wird es
+ regnerisch
+ verschneit
+ regnet
+ regnerisch
+ verschneit
+ nass
+ winterlich
+ wie
+ was ist
+ sage
+ Süden
+ Südosten
+ Südwesten
+ Sonnenaufgang
+ Sonne aufgehen
+ Dämmerung
+ Tagesanbruch
+ Tag bricht an
+ Sonnenuntergang
+ Abenddämmerung
+ Dämmerung
+ Westen
+ Wetter
+ Temperatur
+ wie kalt
+ wie kühl
+ wie kühl
+ wie warm
+ wie heiß
+ regnen|regnet
+ schneien|schneit
+ Schneeregen
+ Hagel|hageln
+ sonnig|Sonne
+ heiß|warm
+ kalt|kühl
+ Wind
+ windig
+ windig
+ böig
+ wehen
+ Celsius
+ Es ist im Moment {{condition}} und {{temp}} Grad {{scale}}.
+ Es ist im Moment {{condition}} und {{temp}} Grad.
+ Im Moment ist es {{condition}} und {{temp}} Grad.
+ Ich fürchte, dass weiß ich nicht
+ Diese Information habe ich nicht
+ Fahrenheit
+ schwerer
+ Es wird {{condition}}, mit Temperatur um {{temp_max}} Grad
+ Später wird es {{condition}} und um die {{temp_max}} Grad
+ Später wird es {{condition}} und {{temp_max}} Grad
+ Um die {{temp_max}} Grad bei {{condition}}
+ In {{location}} wird es um die {{temp_max}} Grad bei {{condition}}
+ In {{location}} wird es {{temp_max}} Grad bei {{condition}}
+ leichter
+ Ich bin mir nicht sicher, wo das ist
+ Ich kenne diesen Ort nicht
+ Ich kenne diesen Ort nicht
+ (bei|in) (?P<Location>.*)
+ Meter pro Sekunde
+ Meilen pro Stunde
+ Entschuldigung, ich kenne die Vorhersage für {{day}} nicht
+ Ich habe keine Vorhersage für {{day}}
+ Es wird kein Niederschlag vorhergesagt
+ Es wird nichts vorhergesagt
+ {{modifier}} {{precip}} wird für {{day}} erwartet
+ Die Vorhersage für {{day}} ist {{modifier}} {{precip}}
+ {{condition}} ist {{value}}
+ {{condition}} am {{day}} wird {{value}} sein
+ Am {{day}} wird für {{condition}} {{value}} vorhergesagt
+ klarer
+ {{speed}} {{unit}}
+ {{speed}} {{unit}} aus Richtung {{dir}}
+ aus Richtung {{dir}} mit {{speed}} {{unit}}
+ der Wind
+ Suche nach (meinen|we mo|wemo) (Geräten|Schaltern|Steckdosen|Sensoren)
+ Welche (my|wemo|we mo) (Geräte|Schalter|Steckdosen|Sensoren) habe ich
+ Schalte {device} aus
+ Schalte {device} an
+ (umschalten|schalte|wechsele) {device}
+ mehr
+ setze fort
+ Erzähle mir irgendwas
+ Erzähle mir einen zufälligen Fakt
+ Bringe mir einen zufälligen Fakt bei
+ bringe mir irgendwas bei
+ Bringe mir etwas Zufälliges bei
+ Erzähle mir eine zufällige Sache
+ wiki
+ wikipedia
+ erzähl mir von
+ erzähl uns von
+ was sagt wikipedia über
+ suche
+ .*(wiki|zu|über|wikipedia)(?! (zu|über)) (?P<ArticleTitle>.+)
+ meinst du {{options}}
+ möchtest du etwas über {{options}} hören
+ Ich kann keinen passenden Wikipedia artikel finden
+ Ich fürchte, darüber es gibt keinen Artikel
+ oder
+ Einen moment bitte, während ich nach {{query}} schaue
+ Lass mich nach {{query}} schauen
+ Ich prüfe Wikipedia auf {{query}}
+ Das ist alles was ich darüber weiß
+ Das ist alles was ich finden kann
+ code,de
+ laufen
+ Geschwindigkeitstest
+ Geschwindigkeitstest
+ und
+ Ich sehe die Spotify Geräte mit den Namen: {{devices}}
+ Ich fand die Spotify Geräte mit dem Namen: {{devices}}
+ Gerät
+ Gerät
+ Geräte
+ Geräte
+ Ich konnte das Gerät {name} nicht finden
+ Es gibt kein Spotify Gerät namens {name}
+ nach
+ nach Album
+ nach dem Album
+ den Künstler
+ nach dem Künstler
+  nach Künstler 
+ Höre das {{album}} von {{artist}}.
+ Jetzt läuft das {{album}} von {{artist}}.
+ Jetzt hörst du {{artist}}
+ Dem {{artist}} zuhören
+ Spiele Lieder von {{artist}}
+ Lass uns etwas {{genre}} hörnen. Starten mit {{track}} von {{artist}}
+ Lass uns etwas {{genre}} Musik hörne. Das ist {{track}} von {{artist}}
+ Spiele {{genre}} Musik. Beginnen mit {{track}} von {{artist}}
+ Höre die Playlist {{playlist}}
+ Jetzt spielt die Playlist {{playlist}}
+ Okay, Lass uns deine Playlist hören {{playlist}}
+ Roger. Als nächstes deine Playlist {{playlist}}
+ Lausche dem Lied {{tracks}} von {{artist}}.
+ Jetzt läuft das Lied {{tracks}} von {{artist}}.
+ Spiele {{tracks}} von {{artist}}
+ Hmm, Ich kann den Künstler nicht finden.
+ Entschuldigung, Ich kann den Künstler nicht finden.
+ Es scheint als könnte ich nichts finden zu dem Künstler.
+ Ich bekomme kein Ergebnis für den Künstler.
+ Entschuldigung, Ich bekomme kein Ergebnis für den Künstler.
+ Uh-oh, Ich finde nichts zu dem Künstler nach dem wir gucken.
+ Ich konnte keine Spotify Geräte finden.
+ Es sind keine Spotify Geräte verfügbar.
+ Hmm, Ich kann das nicht finden.
+ Entschuldigung, Ich kann das nicht finden.
+ Ich kann es leider nicht finden.
+ Ich bekomme keine Ergebnisse dafür.
+ Entschuldigung, ich bekomme keine Ergebnisse dafür.
+ Uh-oh, Ich konnte leider nicht finden, wonach du suchst.
+ Momentan wird nichts abgespielt
+ Ich spiele nichts ab
+ Spotify konnte Wiedergebe nicht starten: {reason}
+ Playlist wurde nicht gefunden
+ Es wurde keine übereinstimmende Playlist gefunden
+ suche
+ suche nach
+ schalte Spotify (Shuffle|Zufallswiedergabe) aus
+ (schalte|aktiviere) Spotify (Shuffle|Zufallswiedergabe) (| an)
+ Spotify
+ Benutze Spotify
+ mit Spotify
+ auf Spotify
+ auf (?P<ToDevice>.+)
+ übertrage
+ bewege
+ (das|die) (Album|Aufnahme) (?P<album>.+)
+ (der Künstler|die Gruppe|die Band|etwas von) (?P<artist>.+)
+ durch
+ \\s*(auf|mit|nutze) spotify\\s*
+ (die|meine) (Spotify |)Playlist (?P<playlist>.+)
+ (der|das) (Titel|Lied) (?P<track>.+)
+ welches geschichtliche Ereignis passierte an diesem Tag
+ an diesem Tag in der Vergangenheit
+ heute in der Vergangenheit
+ wie verwende
+ wie
+ Hilf mit
+ Hilfe
+ Hilf mir bei
+ was sagen mit
+ Sprache
+ Sprachen
+ en|Englisch
+ es|Spanisch
+ it|Italienisch
+ fr|Französisch
+ nl|Niederländisch
+ de|Deutsch
+ pl|Polnisch
+ pt|portugisisch
+ da|Dänisch
+ hu|ungarisch
+ sv|schwedisch
+ no|norwegisch
+ ca|katalanisch
+ ro|romänisch
+ sk|slovakisch
+ zh-TW|chinesisch
+ ja|japanisch
+ ko|koreanisch
+ el|griechisch
+ vi|vietnamesisch
+ tr|türkisch
+ fi|finnisch
+ ar|arabisch
+ wiederhole
+ übersetzung skill
+ übersetzungsskill
+ übersetze
+ kannst du sprechen
+ kennst du (andere|weitere)
+ kennst du auch (andere|weitere)
+ du kennst (andere|weitere)
+ du kennst (andere|weitere)
+ Kannst du sprechen
+ sprichst du
+ sprichst du (andere|weitere)
+ sprechen andere
+ sprich (andere|weitere)
+ zu
+ spreche
+ auf {{Sprache}}
+ Was hältst du von meiner Fähigkeit, Sprachen zu sprechen!
+ Was denkst du, was du ausprobieren möchtest!
+ einfach, wenn du übst, wirst du es auch erreichen!
+ Übung und Übung, das wird erreicht!
+ Ja, ich kann andere Sprachen sprechen, was soll ich sagen?
+ {quote}
+ Was hat Tronald Dump (zu dem|zur|zum|zu den) {topic} zu sagen
+ Was hat Tronald (zu dem|zur|zum|zu den) {topic} zu sagen
+ Was denkt Tronald Dump über (den|die|das) {topic}
+ Was denkt Tronald über (den|die|das) {topic}
+ Was denkt Tronald Dump über {topic}
+ Was denkt Tronald über {topic}
+ Tronald Dump, was denkst du über (den|die|das) {topic}
+ Tronald, was denkst du über (den|die|das) {topic}
+ Tronald Dump, erzähl mir (vom|von dem|von der|von den) {topic}
+ Tronald, erzähl mir (vom|von dem|von der|von den) {topic}
+ Tronald Dump, was denkst du über {topic}
+ Tronald, was denkst du über {topic}
+ Tronald Dump, erzähl mir von {topic}
+ Tronald, erzähl mir von {topic}
+ Tronald Dump, erzähl mir über (den|die|das) {topic}
+ Tronald, erzähl mir (vom|von dem|von der|von den) {topic}
+ Tronald Dump, erzähl mir von {topic}
+ Tronald, erzähl mir von {topic}
+ Sie sagen, Tronald weiß nichts über {topic}. Fake News! Frag mich was!
+ Ich konnte keine Zitate zu {{subject}} finden
+ nenne mir (ein|eine) (Zitat|Weisheit)
+ gib mir (ein|eine) (Zitat|Weisheit)
+ Ich brauche eine Weisheit
+ nenne mir (ein|eine) {subject} (Zitat|Weisheit)
+ gib mir (ein|eine) {subject} (Zitat|Weisheit)
+ Ich brauche {subject} (Zitat(e)|Weisheit(en))
+ nenne mir ein Zitat (von|über) {subject}
+ gib mir ein Zitat (von|über) {subject}
+ Ich brauche ein Zitat (von|über) {subject}
+ Mehr Info
+ Mehr Informationen
+ nächstes Restaurant
+ nächstes Ergebnis
+ vorheriges Restaurant
+ vorheriges Ergebnis
+ Infos senden
+ sende Informationen
+ schicke es mir
+ Schick mir die Ergebnisse
+ Platz (zum|für)? (?P<place>.*)
+ Restaurant (zum|für)? (?P<place>.*)
+ yelp (?P<place>.*)
+ yelp mich (?P<place>.*)
+ (?P<place>.*) bei mir
+ (?P<place>.*) in meiner nähe
+ (?P<place>.*) in der Nähe
+ Restaurant
+ Ort zum Essen
+ Platz zum Abendessen
+ Restaurant in der Nähe
+ yelp
+ in meiner Nähe
+ von mir
+ in der Nähe
+ Es gibt keine weiteren Ergebnisse, möchtest du sie noch einmal hören?
+
