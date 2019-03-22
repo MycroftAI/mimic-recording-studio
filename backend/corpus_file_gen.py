@@ -99,7 +99,7 @@ class Name:
         summary = summary.replace('\n', '')
         summary = summary.replace('  ', ' ')
         # sentences are detected and extracted #8 and 200 is the length of the sentences
-        receive = re.findall(r"[\s\w,„“':-]{14,200}[a-z][?!.]", summary)
+        receive = re.findall(r"[^.?!=]{14,195}[a-z]{2}[?!.]", summary)
         #print("receive: "+"\n"+ str(receive))
         result = "\n".join(receive)
         x = 0
@@ -132,17 +132,18 @@ class Name:
         if args.disable_num_worker is "False":
             num = ""
             number = ""
+            # print("line bevor"+"\n"+line)
             num = extract_numbers(line, short_scale=True, ordinals=False,
-                        lang=lang)
-            print("nummer: "+str(num))
-            num = " ".join(num)
-            print("nummer: "+(num))
+                        lang="en-us")
+            num = re.sub(r'(\.0)', '', str(num))
+            num = re.findall(r'\d+', num)
             if not num is False:
-            #    number = pronounce_number(num, lang=lang, places=2, short_scale=True,
-            #                 scientific=False)
-                line = line.replace(str(num), number)
-                # print("line after"+"\n"+line)
-                # print(num)
+                for item in num:
+                    print("item #"+item)
+                    number = pronounce_number(int(item), lang=lang, places=2,
+                            short_scale=True, scientific=False)
+                    line = line.replace(str(item), number)
+            # print("line after"+"\n"+line)
         return line
 
     def poodle_loader(self, lang, args):
