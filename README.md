@@ -130,8 +130,9 @@ can be found in `backend/prompt/`. To use your own corpus follow these steps.
 
 1. Create a csv file in the same format as `english_corpus.csv` using tabs
    (`\t`) as the delimiter.
-2. Add your corpus to the `backend/prompt` directory.
-3. Change the `CORPUS` environment variable in `docker-compose.yml` to your
+2. Make sure there are no empty lines in the corpus
+3. Add your corpus to the `backend/prompt` directory.
+4. Change the `CORPUS` environment variable in `docker-compose.yml` to your
    corpus name.
    
 #### Corpora in other languages
