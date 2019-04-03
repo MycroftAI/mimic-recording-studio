@@ -87,7 +87,11 @@ class Record extends Component {
           <a
             id="btn_Play"
             className={`btn btn-play ${
-              this.state.shouldRecord ? "btn-disabled" : ""
+              this.state.shouldRecord
+                ? "btn-disabled"
+                : this.state.blob === undefined
+                ? "btn-disabled"
+                : null
             } `}
             onClick={this.state.shouldRecord ? () => null : this.playWav}
           >
