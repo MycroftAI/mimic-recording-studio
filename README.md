@@ -143,6 +143,8 @@ If you wish to develop a corpus in a language other than English, then Mimic Rec
 * have a variety of string lengths
 * cover a wide variety of _phonemes_ (basic sounds)
 
+To create automatically a corpus file in your language, you can use the [corpus-file-gen](https://github.com/gras64/corpus-file-gen.git) tool from Gras64. in it all [poodle data](https://translate.mycroft.ai/projects/mycroft-skills/), [mozilla voice](https://github.com/mozilla/voice-web/tree/master/server/data) data and extracted randomly from wikipedia. Numbers can be converted into words and converted into the correct format.
+
 **IMPORTANT:**
 For now, you must reset the `sqlite` database to use a new corpus. If you've
 recorded on another corpus and would like to save that data, you can simply
