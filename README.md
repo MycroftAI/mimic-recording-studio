@@ -29,7 +29,7 @@
       - [Functions](#functions-1)
     + [Docker](#docker)
 - [Recording Tips](#recording-tips)
-- [Advanced possibilities](#advanced-possibilities)
+- [Advanced](#advanced)
   * [Query database structure](#query-database-structure)
   * [Modify recorder uuid](#modify-recorder-uuid)
 - [Providing your recording to Mycroft for training](#providing-your-recording-to-mycroft-for-training)
@@ -207,8 +207,9 @@ Creating a voice requires an achievable, but significant effort. An individual w
   is always the same distance from the mic.
 * Avoid vocal fatigue.
   Record a maximum of 4 hours a day, taking a break every half hour.
+* Backup your Mimic-Recording-Studio directory on a regular basis to avoid data loss.
 
-# Advanced possibilities
+# Advanced
 
 ## Query database structure
 Mimic-Recording-Studio writes all recordings in a sqlite database file located under /backend/db/. This can be opened with database tools like DBeaver.
@@ -245,24 +246,23 @@ ORDER BY DATE(created_date)
 SELECT AVG(LENGTH(prompt)) AS avgLength FROM audiomodel
 ```
 
-There are many ways more on how query sqlite database might help you but these should be enough to show the possibilities.
-> E.g. Looking for recordings in a specific timerange might help to remove recordings made in a bad environment.
+There are many ways that querying the sqlite database might be useful. For example, looking for recordings in a specific time range might help to remove recordings made in a bad environment.
 
 ### Table "usermodel"
-Even if Mimic-Recording-Studio just uses one sqlite database it can be used by more than one speaker.
+Mimic-Recording-Studio can be used by more than one speaker using the same sqlite database file.
 
 This tables provides following informations per speaker:
 * Unique identifier of speaker (uuid)
 * Name of speaker (user_name)
-* Newest recorded line number of corpus (propmpt_num)
+* Newest recorded line number of corpus (prompt_num)
 * Total recording time (total_time_spoken)
 * How many chars have been recorded (len_char_spoken)
 
-These values are e.g. used to calculate the speaking pace to show if the recorded phrase is too fast or slow compared to previous recordings.
+These values are used to calculate metrics. For example, the speaking pace may show if the recorded phrase is too fast or slow compared to previous recordings.
 
 Query table "usermodel" to get a list of speakers and some recording statistics on them.
 
-## Modify recorder uuid in browser
+## Modify recorder uuid
 The browser used to record your phrases persists the user uuid and user_name in it's local storage.
 
 > Values in browsers local storage, file system structure and sqlite database should always match!
