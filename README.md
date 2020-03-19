@@ -263,20 +263,17 @@ These values are used to calculate metrics. For example, the speaking pace may s
 Query table "usermodel" to get a list of speakers and some recording statistics on them.
 
 ## Modify recorder uuid
-The browser used to record your phrases persists the user uuid and user_name in it's local storage.
-
-> Values in browsers local storage, file system structure and sqlite database should always match!
+The browser used to record your phrases persists the user uuid and user_name in it's localStorage to keep it synchron with sqlite and filesystem.
 
 If a problem occurs and your browser looses/changes uuid mapping for Mimic-Recording-Studio you could have difficulties to continue a previous recording session.
-
-If this happens it seems easiest to update local storage of your browser. For that you need the following two informations:
+Then update localStorage of your browser. For that you need the following two informations:
 
 * uuid (query "usermodel" in sqlite or check filesystem path under /backend/audio_files/)
 * user_name (query "usermodel")
 
-Open Mimic-Recording-Studio in your browser, jump to web-developer options, local Storage and set name and uuid to the original values.
+Open Mimic-Recording-Studio in your browser, jump to web-developer options, localStorage and set name and uuid to the original values.
 
-![browser_local_storage](./img/browser_local_storage.png)
+![browser_local_storage](./img/browser_localStorage.png)
 
 After that you should be able to continue your previous recording session without further problems.
 
