@@ -269,7 +269,8 @@ If a problem occurs and your browser looses/changes uuid mapping for Mimic-Recor
 Then update localStorage of your browser. For that you need the following two informations:
 
 * uuid (query "usermodel" in sqlite or check filesystem path under /backend/audio_files/)
-* name (query "usermodel")
+* name (query "usermodel" in sqlite: `SELECT user_name AS [user] FROM usermodel;`)
+
 
 Open Mimic-Recording-Studio in your browser, jump to web-developer options, localStorage and set name and uuid to the original values.
 
