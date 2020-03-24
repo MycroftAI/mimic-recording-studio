@@ -1,6 +1,6 @@
 # Mimic Recording Studio
 
-![demo](demo.gif)
+![demo](./img/demo.gif)
 
 - [Mimic Recording Studio](#mimic-recording-studio)
   * [Software Quick Start](#software-quick-start)
@@ -29,6 +29,11 @@
       - [Functions](#functions-1)
     + [Docker](#docker)
 - [Recording Tips](#recording-tips)
+- [Advanced](#advanced)
+  * [Query database structure](#query-database-structure)
+    * [Table "audiomodel"](#table-"audiomodel")
+    * [Table "usermodel"](#table-"usermodel")
+  * [Modify recorder uuid](#modify-recorder-uuid)
 - [Providing your recording to Mycroft for training](#providing-your-recording-to-mycroft-for-training)
 - [Contributions](#contributions)
 - [Where to get support and assistance](#where-to-get-support-and-assistance)
@@ -204,7 +209,84 @@ Creating a voice requires an achievable, but significant effort. An individual w
   is always the same distance from the mic.
 * Avoid vocal fatigue.
   Record a maximum of 4 hours a day, taking a break every half hour.
-  
+* Backup your Mimic-Recording-Studio directory on a regular basis to avoid data loss.
+
+# Advanced
+
+## Query database structure
+Mimic-Recording-Studio writes all recordings in a sqlite database file located under /backend/db/. This can be opened with database tools like DBeaver.
+
+The database includes two tables.
+
+![database_table_overview](./img/database_table_overview.png)
+
+### Table "audiomodel"
+All recordings are persisted in this table with 
+* recording timestamp (created_date)
+* uuid of speaker (matches the filesystem path under /backend/audio_files/id)
+* wav filename in filesystem (audio_id)
+* text of recorded phrase (phrase)
+
+The database can be used to query your recordings.
+
+Here are some example queries:
+
+```sql
+-- List all recordings
+SELECT * FROM audiomodel;
+
+-- Lists recordings from january 2020 order by phrase
+SELECT * FROM audiomodel WHERE created_date BETWEEN '2020-01-01' AND '2020-01-31' ORDER BY prompt;
+
+-- Lists number of recordings per day
+SELECT DATE(created_date), COUNT(*) AS RecordingsPerDay
+FROM audiomodel
+GROUP BY DATE(created_date )
+ORDER BY DATE(created_date)
+
+-- Shows average text length of recordings
+SELECT AVG(LENGTH(prompt)) AS avgLength FROM audiomodel
+```
+
+There are many ways that querying the sqlite database might be useful. For example, looking for recordings in a specific time range might help to remove recordings made in a bad environment.
+
+### Table "usermodel"
+Mimic-Recording-Studio can be used by more than one speaker using the same sqlite database file.
+
+This tables provides following informations per speaker:
+* Unique identifier of speaker (uuid)
+* Name of speaker (user_name)
+* Newest recorded line number of corpus (prompt_num)
+* Total recording time (total_time_spoken)
+* How many chars have been recorded (len_char_spoken)
+
+These values are used to calculate metrics. For example, the speaking pace may show if the recorded phrase is too fast or slow compared to previous recordings.
+
+Query table "usermodel" to get a list of speakers including uuid and some recording statistics on them.
+
+```sql
+SELECT user_name AS [name], uuid FROM usermodel;
+```
+
+![database_table_usermodel](./img/database_table_usermodel.png)
+
+
+## Modify recorder uuid
+The browser used to record your phrases persists the users `uuid` and `name` in it's localStorage to keep it synchronous with sqlite and filesystem.
+
+If a problem occurs and your browser looses/changes uuid mapping for Mimic-Recording-Studio you could have difficulties to continue a previous recording session.
+Then update the following two attributes in localStorage of your browser:
+
+* uuid ([Query table "usermodel"](#table-"usermodel") or check filesystem path under /backend/audio_files/)
+* name ([Query table "usermodel"](#table-"usermodel"))
+
+
+Open Mimic-Recording-Studio in your browser, jump to web-developer options, localStorage and set name and uuid to the original values.
+
+![browser_local_storage](./img/browser_localStorage.png)
+
+After that you should be able to continue your previous recording session without further problems.
+
 # Providing your recording to Mycroft for training
 
 We welcome your voice donations to Mycroft for use in Text-to-Speech applications. If you would like to provide your voice recordings, you _must_ license them to us under the Creative Commons [CC0 Public Domain license](https://creativecommons.org/share-your-work/public-domain/cc0/) so that we can utilise them in TTS voices - which are derivative works. If you're ready to donate your voice recordings, email us at hello@mycroft.ai. 
