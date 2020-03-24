@@ -31,6 +31,8 @@
 - [Recording Tips](#recording-tips)
 - [Advanced](#advanced)
   * [Query database structure](#query-database-structure)
+    * [Table "audiomodel"](#table-"audiomodel")
+    * [Table "usermodel"](#table-"usermodel")
   * [Modify recorder uuid](#modify-recorder-uuid)
 - [Providing your recording to Mycroft for training](#providing-your-recording-to-mycroft-for-training)
 - [Contributions](#contributions)
@@ -260,16 +262,23 @@ This tables provides following informations per speaker:
 
 These values are used to calculate metrics. For example, the speaking pace may show if the recorded phrase is too fast or slow compared to previous recordings.
 
-Query table "usermodel" to get a list of speakers and some recording statistics on them.
+Query table "usermodel" to get a list of speakers including uuid and some recording statistics on them.
+
+```sql
+SELECT user_name AS [name], uuid FROM usermodel;
+```
+
+![database_table_usermodel](./img/database_table_usermodel.png)
+
 
 ## Modify recorder uuid
 The browser used to record your phrases persists the users `uuid` and `name` in it's localStorage to keep it synchronous with sqlite and filesystem.
 
 If a problem occurs and your browser looses/changes uuid mapping for Mimic-Recording-Studio you could have difficulties to continue a previous recording session.
-Then update localStorage of your browser. For that you need the following two informations:
+Then update the following two attributes in localStorage of your browser:
 
-* uuid (query "usermodel" in sqlite or check filesystem path under /backend/audio_files/)
-* name (query "usermodel" in sqlite: `SELECT user_name AS [user] FROM usermodel;`)
+* uuid ([Query table "usermodel"](#table-"usermodel") or check filesystem path under /backend/audio_files/)
+* name ([Query table "usermodel"](#table-"usermodel"))
 
 
 Open Mimic-Recording-Studio in your browser, jump to web-developer options, localStorage and set name and uuid to the original values.
