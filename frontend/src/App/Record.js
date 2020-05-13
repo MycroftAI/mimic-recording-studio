@@ -87,9 +87,15 @@ class Record extends Component {
           <a
             id="btn_Play"
             className={`btn btn-play ${
-              this.state.shouldRecord ? "btn-disabled" : ""
+              this.state.shouldRecord
+                ? "btn-disabled"
+                : this.state.blob === undefined
+                ? "btn-disabled"
+                : this.state.play
+                ? "btn-disabled"
+                : null
             } `}
-            onClick={this.state.shouldRecord ? () => null : this.playWav}
+            onClick={this.state.shouldRecord ? () => null : this.state.play ? () => null : this.playWav}
           >
             <i className="fas fa-play ibutton" />
             Review
@@ -101,9 +107,11 @@ class Record extends Component {
                 ? "btn-disabled"
                 : this.state.blob === undefined
                 ? "btn-disabled"
+                : this.state.play
+                ? "btn-disabled"
                 : null
             }`}
-            onClick={this.state.shouldRecord ? () => null : this.onNext}
+            onClick={this.state.shouldRecord ? () => null : this.state.play ? () => null : this.onNext}
           >
             <i className="fas fa-forward ibutton-next" />
             Next
@@ -236,8 +244,10 @@ class Record extends Component {
 
     // next prompt
     if (event.keyCode === 39) {
-      this.onNext();
-    }
+        if (!this.state.play) {
+          this.onNext();
+        }
+     }
   };
 
   recordHandler = () => {
