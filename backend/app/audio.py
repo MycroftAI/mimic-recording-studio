@@ -1,28 +1,28 @@
 """audio processing, etc"""
 from pydub import AudioSegment
+import pandas as pd
+import numpy as np
+import soundfile as sf
 
 
 class Audio:
     silence_threshold = -50.0
-    chunk_size = 10
+    threshold_value = 0.0007  # Tweak the value of threshold to get the aggressive trimming
 
     @staticmethod
-    def _detect_leading_silence(sound: AudioSegment) -> int:
-        trim_ms = 0
-        assert Audio.chunk_size > 0  # to avoid infinite loop
-        while sound[trim_ms:trim_ms + Audio.chunk_size].dBFS \
-                < Audio.silence_threshold and trim_ms < len(sound):
-            trim_ms += Audio.chunk_size
+    def _detect_leading_silence(sound: bytearray, sample_rate: int) -> list:
+        y = pd.Series(sound).apply(np.abs)
+        y_mean = y.rolling(window=int(sample_rate / 20),
+                           min_periods=1,
+                           center=True).max()
 
-        return trim_ms
+        return [True if mean > Audio.threshold_value else False for mean in y_mean]
 
     @staticmethod
     def trim_silence(path: str) -> AudioSegment:
-        sound = AudioSegment.from_wav(path + ".wav")
-        start_trim = Audio._detect_leading_silence(sound)
-        end_trim = Audio._detect_leading_silence(sound.reverse())
-        duration = len(sound)
-        trimmed_sound = sound[start_trim:duration - end_trim]
+        sound, rate = sf.read(path + ".wav")
+        mask = Audio._detect_leading_silence(sound, rate)
+        trimmed_sound = sound[mask]
         return trimmed_sound
 
     @staticmethod
@@ -31,4 +31,4 @@ class Audio:
 
     @staticmethod
     def get_audio_len(audio: AudioSegment) -> float:
-        return len(audio)/1000.0
+        return len(audio) / 1000.0
