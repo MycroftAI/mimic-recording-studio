@@ -13,7 +13,10 @@ class Audio:
         while sound[trim_ms:trim_ms + Audio.chunk_size].dBFS \
                 < Audio.silence_threshold and trim_ms < len(sound):
             trim_ms += Audio.chunk_size
-
+        trim_buffer = 300  # buffer to prevent first sound getting cut
+        trim_ms -= trim_buffer
+        if trim_ms < 0:
+            trim_ms = 0
         return trim_ms
 
     @staticmethod
