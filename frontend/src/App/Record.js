@@ -101,11 +101,21 @@ class Record extends Component {
             Review
           </a>
           <a
-            id="btn_Play"
+            id="btn-speak"
+            className = " btn btn-speak"
             onClick={this.handleKeyDown}
           >
-            <i className="fas fa-play ibutton" />
-            Speak
+            <i
+            className={`fas  ibutton ${
+              !this.state.shouldRecord
+                ? "fa-play"
+                : "fa-pause"
+            } `}
+            />
+            { !this.state.shouldRecord
+                ? "Speak"
+                : "Stop"}
+
           </a>
           <a
             id="btn_Next"
@@ -221,6 +231,7 @@ class Record extends Component {
   stopWav = () => this.setState({ play: false });
 
   handleKeyDown = event => {
+
     // space bar code
     // if (event.keyCode === 32) {
     // if (this.speak === true) {
@@ -246,7 +257,6 @@ class Record extends Component {
         play: false
       });
     // }
-
     // play wav
     if (event.keyCode === 82) {
       this.playWav();

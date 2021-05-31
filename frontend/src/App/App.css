@@ -105,7 +105,7 @@ hr {
   /* margin-top: 10px; */
 }
 
-.top-container {  
+.top-container {
   display: flex;
   justify-content: center;
   flex-wrap: wrap;
@@ -135,7 +135,7 @@ hr {
 
 .key-icon {
   height: 20px;
-  position: relative; 
+  position: relative;
   bottom: -5px;
 }
 
@@ -294,6 +294,23 @@ hr {
 
 .btn-play {
   margin-right: 10px;
+  cursor: pointer;
+}
+
+.btn-speak {
+  border-radius: 4px;
+  / margin: 10px 0; /
+  padding: 0.75em 1.75em;
+  font-size: 1em;
+  / text-decoration: none; /
+  color: #fff;
+  font-weight: 500;
+  font-variant: small-caps;
+  / height: 2.7em; /
+  background-color: #19d267;
+  max-width: 150px;
+  text-align: center;
+  margin-left: 10px;
   cursor: pointer;
 }
 
