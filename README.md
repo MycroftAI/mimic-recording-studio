@@ -111,6 +111,14 @@ The first execution of `docker-compose up` will take a while as this command wil
 ### Coming soon!
 Online, http://mimic.mycroft.ai hosted version requiring zero setup.
 
+### use on a remote system
+
+firefox and chrome only allow microphone from https sites. an easy way to get around this is the autossh tool:
+
+autossh -L 3000:localhost:3000 DestinationIPFrontend
+autossh -L 5000:localhost:5000 DestinationIPBackend
+
+Then recording with http://localhost:3000 in your local browser should work.
 
 ## Data
 
@@ -147,6 +155,8 @@ If you wish to develop a corpus in a language other than English, then Mimic Rec
 * occur in natural, everyday speech in the target language
 * have a variety of string lengths
 * cover a wide variety of _phonemes_ (basic sounds)
+
+To create automatically a corpus file in your language, you can use the [corpus-file-gen](https://github.com/gras64/corpus-file-gen.git) tool from Gras64. it download all [poodle data](https://translate.mycroft.ai/projects/mycroft-skills/), [mozilla voice](https://github.com/mozilla/voice-web/tree/master/server/data) data and extract the rest randomly from wikipedia. Numbers can be converted into words and all into the correct format.
 
 **IMPORTANT:**
 For now, you must reset the `sqlite` database to use a new corpus. If you've
