@@ -59,9 +59,9 @@ rem set ffmpeg_path="C:\Custom\Path"
 rem Download and install Yarn
 if not exist backend\ffmpeg.exe (
    echo "Installing FFMPEG..."
-   powershell -command "[Net.ServicePointManager]::SecurityProtocol = [Net.ServicePointManager]::SecurityProtocol -bor [Net.SecurityProtocolType]::Tls12 ; wget https://ffmpeg.zeranoe.com/builds/win64/static/ffmpeg-20181114-1096614-win64-static.zip -outfile ffmpeg.zip"
+   powershell -command "[Net.ServicePointManager]::SecurityProtocol = [Net.ServicePointManager]::SecurityProtocol -bor [Net.SecurityProtocolType]::Tls12 ; wget https://ffmpeg.zeranoe.com/builds/win64/static/ffmpeg-20200831-4a11a6f-win64-static.zip -outfile ffmpeg.zip"
    powershell -command "Expand-Archive -Path "ffmpeg.zip" -DestinationPath "ffmpeg"
-   copy ffmpeg\ffmpeg-20181114-1096614-win64-static\bin\ffmpeg.exe backend\ffmpeg.exe
+   copy ffmpeg\ffmpeg-20200831-4a11a6f-win64-static\bin\ffmpeg.exe backend\ffmpeg.exe
 )
 
 rem ======================================================================
