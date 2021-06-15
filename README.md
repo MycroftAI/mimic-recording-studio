@@ -5,7 +5,7 @@
 - [Mimic Recording Studio](#mimic-recording-studio)
   * [Software Quick Start](#software-quick-start)
     + [Windows self-hosted Quick Start](#windows-self-hosted-quick-start)
-    + [Linux/Mac self-hosted Quick Start](#linux-mac-self-hosted-quick-start)
+    + [Linux/Mac self-hosted Quick Start](#linuxmac-self-hosted-quick-start)
       - [Install Dependencies](#install-dependencies)
       - [Build and Run](#build-and-run)
     + [Manual Install, Build and Start](#manual-install--build-and-start)
