@@ -42,7 +42,7 @@ class AudioFS:
         with open(webm_file_name, 'wb+') as f:
             f.write(audio)
         subprocess.call(
-            'ffmpeg -i {} -ab 160k -ac 2 -ar 44100 -vn {}.wav -y'.format(
+            'ffmpeg -i {} -ab 160k -ac 1 -ar 44100 -vn {}.wav -y'.format(
                 webm_file_name, path
             ),
             shell=True
