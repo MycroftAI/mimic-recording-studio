@@ -125,6 +125,20 @@ class DB:
             response(False)
 
     @staticmethod
+    def skipPhrase(uuid: str) -> response:
+        try:
+            query = UserModel \
+                .update(
+                    prompt_num=UserModel.prompt_num + 1,
+                ) \
+                .where(uuid == uuid)
+            query.execute()
+            return response(True)
+        except Exception as e:
+            print(e)
+            response(False)
+
+    @staticmethod
     def save_audio(audio_id: str, prompt: str,
                    language: str, uuid: str) -> response:
         try:

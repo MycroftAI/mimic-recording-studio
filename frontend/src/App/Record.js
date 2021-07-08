@@ -81,7 +81,7 @@ class Record extends Component {
         <div className="indicator-container">
           {this.state.shouldRecord
             ? "Read Now [Esc] to cancel"
-            : "[Spacebar] to Start Recording [R] to review [->] for next"}
+            : "[Spacebar] to Start Recording [R] to review [S] to skip [->] for next"}
         </div>
         <div id="controls">
           <a
@@ -237,6 +237,11 @@ class Record extends Component {
       });
     }
 
+    // skip current phrase (S)
+    if (event.keyCode === 83) {
+      this.skipCurrent();
+    }
+
     // play wav
     if (event.keyCode === 82) {
       this.playWav();
@@ -280,6 +285,26 @@ class Record extends Component {
         })
         .catch(err => console.log(err));
     }
+  };
+
+  skipCurrent = () => {
+    // prompt_num in DB um 1 erhöhen und Textfile <uuid>-skipped.txt anlegen und Sätze dort protokollieren
+    postAudio("", "___SKIPPED___" + this.state.prompt, this.uuid)
+    .then(res => res.json())
+    .then(res => {
+      if (res.success) {
+        this.setState({ displayWav: false });
+        this.requestPrompts(this.uuid);
+        this.requestUserDetails(this.uuid);
+        this.setState({
+          blob: undefined,
+          audioLen: 0
+        });
+      } else {
+        alert("There was an error in saving that audio");
+      }
+    })
+    .catch(err => console.log(err));
   };
 
   silenceDetection = stream => {
