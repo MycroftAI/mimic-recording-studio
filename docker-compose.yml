@@ -9,7 +9,7 @@ services:
     volumes: 
      - ./backend/:/src
     environment:
-    - CORPUS=english_corpus.csv
+    - CORPUS=word_corpus.csv
     - APIPORT=5000
     - WEBWORKERS=1
   frontend:
@@ -17,6 +17,6 @@ services:
     build:
       context: ./frontend/
     ports:
-     - "3000:3000"
+     - "80:3000"
     volumes:
      - ./frontend/:/src

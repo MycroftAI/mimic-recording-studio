@@ -23,9 +23,9 @@ class Audio:
     def trim_silence(path: str) -> AudioSegment:
         sound = AudioSegment.from_wav(path + ".wav")
         start_trim = Audio._detect_leading_silence(sound)
-        end_trim = Audio._detect_leading_silence(sound.reverse())
+        # end_trim = Audio._detect_leading_silence(sound.reverse())
         duration = len(sound)
-        trimmed_sound = sound[start_trim:duration - end_trim]
+        trimmed_sound = sound[int(start_trim/2):duration]
         return trimmed_sound
 
     @staticmethod
