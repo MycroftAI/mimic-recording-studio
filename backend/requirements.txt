@@ -3,3 +3,4 @@ flask-cors
 peewee
 pydub
 gunicorn
+pocketsphinx
