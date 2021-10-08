@@ -79,7 +79,6 @@ rem Start web server
 rem ======================================================================
 
 cd frontend
-"%python3_dir%\Scripts\pip.exe" install -r requirements.txt
 cmd /c yarn install
 yarn start
 
