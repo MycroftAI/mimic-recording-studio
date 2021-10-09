@@ -59,10 +59,11 @@ rem set ffmpeg_path="C:\Custom\Path"
 rem Download and install Yarn
 if not exist backend\ffmpeg.exe (
    echo "Installing FFMPEG..."
-   powershell -command "[Net.ServicePointManager]::SecurityProtocol = [Net.ServicePointManager]::SecurityProtocol -bor [Net.SecurityProtocolType]::Tls12 ; wget https://ffmpeg.zeranoe.com/builds/win64/static/ffmpeg-20181114-1096614-win64-static.zip -outfile ffmpeg.zip"
+   powershell -command "[Net.ServicePointManager]::SecurityProtocol = [Net.ServicePointManager]::SecurityProtocol -bor [Net.SecurityProtocolType]::Tls12 ; wget https://www.gyan.dev/ffmpeg/builds/ffmpeg-release-essentials.zip -outfile ffmpeg.zip"
    powershell -command "Expand-Archive -Path "ffmpeg.zip" -DestinationPath "ffmpeg"
-   copy ffmpeg\ffmpeg-20181114-1096614-win64-static\bin\ffmpeg.exe backend\ffmpeg.exe
+   copy ffmpeg\ffmpeg-4.4-essentials_build\bin\ffmpeg.exe backend\ffmpeg.exe
 )
+
 
 rem ======================================================================
 rem Start Python backend
@@ -78,7 +79,6 @@ rem Start web server
 rem ======================================================================
 
 cd frontend
-"%python3_dir%\Scripts\pip.exe" install -r requirements.txt
 cmd /c yarn install
 yarn start
 
