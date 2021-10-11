@@ -69,8 +69,9 @@ class AudioFS:
 
     @staticmethod
     def save_skipped_data(user_audio_dir, uuid, prompt):
+        '''Save skipped phrase in file <uuid>-skipped.txt.'''
         path = os.path.join(user_audio_dir, '%s-skipped.txt' % uuid)
-        data = "{}\n".format(prompt[13:len(prompt)+13])
+        data = "{}\n".format(prompt.lstrip('___SKIPPED___'))
 
         with open(path, 'a') as f:
             f.write(data)

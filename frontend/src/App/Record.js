@@ -288,7 +288,7 @@ class Record extends Component {
   };
 
   skipCurrent = () => {
-    // prompt_num in DB um 1 erhöhen und Textfile <uuid>-skipped.txt anlegen und Sätze dort protokollieren
+    // Send static text '___SKIPPED___' as prefix to original phrase to backend API for being filtered out.
     postAudio("", "___SKIPPED___" + this.state.prompt, this.uuid)
     .then(res => res.json())
     .then(res => {

@@ -34,7 +34,7 @@ class AudioAPI:
     def save_audio(self, audio: bytes, uuid: str, prompt: str):
         user_audio_dir = AudioFS.get_audio_path(uuid)
         
-        if prompt[0:13] == "___SKIPPED___":
+        if prompt[:13] == "___SKIPPED___":
             res = DB.skipPhrase(uuid)
 
             # Save skipped phrase to textfile
