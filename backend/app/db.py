@@ -29,6 +29,7 @@ mimic_studio_db = SqliteDatabase(mimic_studio_db_path)
 
 
 class UserModel(Model):
+    """Maps Sqlite database table "usermodel" to object."""
     uuid = CharField(primary_key=True)
     mycroft_uuid = CharField(default="")
     user_name = CharField()
@@ -52,6 +53,7 @@ class UserModel(Model):
 
 # TODO: use this for language support
 class AudioModel(Model):
+    """Maps Sqlite database table "audiomodel" to object."""
     id = AutoField()
     audio_id = CharField()
     prompt = CharField()
