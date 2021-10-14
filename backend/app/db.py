@@ -128,7 +128,8 @@ class DB:
     def skipPhrase(uuid: str) -> response:
         """Skip phrase when 'S' pressed in frontend app.
         
-        Increase value of prompted phrase number by one in database table 'usermodel' for recording uuid to skip this phrase.
+        Increase value of prompted phrase number by one in database table
+        'usermodel' for recording uuid to skip this phrase.
         This will not affect average speech speed calculation.
 
         Args:
