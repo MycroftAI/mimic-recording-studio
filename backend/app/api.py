@@ -33,31 +33,39 @@ class AudioAPI:
 
     def save_audio(self, audio: bytes, uuid: str, prompt: str):
         user_audio_dir = AudioFS.get_audio_path(uuid)
-        os.makedirs(user_audio_dir, exist_ok=True)
-        wav_file_id = AudioFS.create_file_name(prompt)
-        path = os.path.join(user_audio_dir, wav_file_id)
+        
+        if prompt[:13] == "___SKIPPED___":
+            res = DB.skipPhrase(uuid)
 
-        try:
-            # save wav file. This step is needed before trimming.
-            AudioFS.save_audio(path, audio)
-            AudioFS.save_meta_data(user_audio_dir, uuid, wav_file_id, prompt)
+            # Save skipped phrase to textfile
+            AudioFS.save_skipped_data(user_audio_dir,uuid,prompt)
+            return response(True)
+        else:
+            os.makedirs(user_audio_dir, exist_ok=True)
+            wav_file_id = AudioFS.create_file_name(prompt)
+            path = os.path.join(user_audio_dir, wav_file_id)
 
-            # trim silence and save
-            trimmed_sound = Audio.trim_silence(path)
-            Audio.save_audio(path, trimmed_sound)
+            try:
+                # save wav file. This step is needed before trimming.
+                AudioFS.save_audio(path, audio)
+                AudioFS.save_meta_data(user_audio_dir, uuid, wav_file_id, prompt)
 
-            res = DB.save_audio(wav_file_id, prompt, 'english', uuid)
-            if res.success:
-                audio_len = Audio.get_audio_len(trimmed_sound)
-                char_len = len(prompt)
-                res = DB.update_user_metrics(uuid, audio_len, char_len)
+                # trim silence and save
+                trimmed_sound = Audio.trim_silence(path)
+                Audio.save_audio(path, trimmed_sound)
+
+                res = DB.save_audio(wav_file_id, prompt, 'english', uuid)
                 if res.success:
-                    return response(True)
-            return response(False)
-        except Exception as e:
-            # TODO: log Exception
-            print(e)
-            return response(False)
+                    audio_len = Audio.get_audio_len(trimmed_sound)
+                    char_len = len(prompt)
+                    res = DB.update_user_metrics(uuid, audio_len, char_len)
+                    if res.success:
+                        return response(True)
+                return response(False)
+            except Exception as e:
+                # TODO: log Exception
+                print(e)
+                return response(False)
 
     def get_audio_len(self, audio: bytes):
         try:

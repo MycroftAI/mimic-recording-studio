@@ -39,8 +39,10 @@ class AudioFS:
     @staticmethod
     def save_audio(path: str, audio: bytes):
         webm_file_name = path + ".webm"
+
         with open(webm_file_name, 'wb+') as f:
             f.write(audio)
+        
         subprocess.call(
             'ffmpeg -i {} -ab 160k -ac 2 -ar 44100 -vn {}.wav -y'.format(
                 webm_file_name, path
@@ -64,6 +66,16 @@ class AudioFS:
         if not same:
             with open(path, 'a') as f:
                 f.write(data)
+
+    @staticmethod
+    def save_skipped_data(user_audio_dir, uuid, prompt):
+        """Save skipped phrase in file <uuid>-skipped.txt."""
+        path = os.path.join(user_audio_dir, '%s-skipped.txt' % uuid)
+        data = "{}\n".format(prompt.lstrip('___SKIPPED___'))
+
+        with open(path, 'a') as f:
+            f.write(data)
+
 
     @staticmethod
     def get_audio_path(uuid: str) -> str:

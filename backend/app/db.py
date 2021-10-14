@@ -125,6 +125,30 @@ class DB:
             response(False)
 
     @staticmethod
+    def skipPhrase(uuid: str) -> response:
+        """Skip phrase when 'S' pressed in frontend app.
+        
+        Increase value of prompted phrase number by one in database table
+        'usermodel' for recording uuid to skip this phrase.
+        This will not affect average speech speed calculation.
+
+        Args:
+            uuid (str): UUID of recording session to skip phrase in.
+
+        """
+        try:
+            query = UserModel \
+                .update(
+                    prompt_num=UserModel.prompt_num + 1,
+                ) \
+                .where(uuid == uuid)
+            query.execute()
+            return response(True)
+        except Exception as e:
+            print(e)
+            response(False)
+
+    @staticmethod
     def save_audio(audio_id: str, prompt: str,
                    language: str, uuid: str) -> response:
         try:
