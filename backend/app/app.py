@@ -18,7 +18,7 @@ class Users(MethodView):
         """Get user details based on object instance user-id.
 
         Returns:
-            User object with data from Sqlite datase table "usermodel".
+            User object with data from SQLite datase table "usermodel".
         """
         uuid = request.args.get('uuid')
         user = user_api.get_user(uuid)
@@ -28,7 +28,7 @@ class Users(MethodView):
             return jsonify(success=False, message=user.message)
 
     def post(self):
-        """Save user object to Sqlite database.
+        """Save user object to SQLite database.
 
         Returns:
             (bool): 'true' when saving to database is successful or 'false' in any other case.
