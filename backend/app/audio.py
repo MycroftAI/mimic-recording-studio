@@ -16,7 +16,7 @@ class Audio:
             sound (AudioSegment): Audio segment to be checked for silence. 
 
         Returns:
-            int: Milliseconds to be trimmed of.
+            int: Milliseconds to be trimmed off.
         """
         trim_ms = 0
         assert Audio.chunk_size > 0  # to avoid infinite loop
@@ -48,7 +48,7 @@ class Audio:
 
     @staticmethod
     def save_audio(path: str, audio: AudioSegment):
-        """Saving audio data as wave file.
+        """Saving audio data as wav file.
 
         Args:
             path (str): Location for wav file.
