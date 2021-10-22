@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   width="113px"
+   height="113px"
+   viewBox="0 0 113 113"
+   version="1.1"
+   id="svg3561"
+   sodipodi:docname="S.svg"
+   inkscape:version="1.1.1 (c3084ef, 2021-09-22)"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:dc="http://purl.org/dc/elements/1.1/">
+  <sodipodi:namedview
+     id="namedview3563"
+     pagecolor="#ffffff"
+     bordercolor="#999999"
+     borderopacity="1"
+     inkscape:pageshadow="0"
+     inkscape:pageopacity="0"
+     inkscape:pagecheckerboard="0"
+     showgrid="false"
+     showguides="true"
+     inkscape:guide-bbox="true"
+     inkscape:zoom="5.0884956"
+     inkscape:cx="56.401739"
+     inkscape:cy="56.401739"
+     inkscape:window-width="1440"
+     inkscape:window-height="900"
+     inkscape:window-x="0"
+     inkscape:window-y="0"
+     inkscape:window-maximized="0"
+     inkscape:current-layer="svg3561">
+    <sodipodi:guide
+       position="42.841739,78.608696"
+       orientation="0,-1"
+       id="guide10941" />
+    <sodipodi:guide
+       position="37.535652,33.015652"
+       orientation="0,-1"
+       id="guide10943" />
+    <sodipodi:guide
+       position="39.304348,46.968696"
+       orientation="1,0"
+       id="guide10945" />
+    <sodipodi:guide
+       position="75.66087,47.558261"
+       orientation="1,0"
+       id="guide10947" />
+  </sodipodi:namedview>
+  <!-- Generator: Sketch 51.3 (57544) - http://www.bohemiancoding.com/sketch -->
+  <title
+     id="title3547">P</title>
+  <desc
+     id="desc3549">Created with Sketch.</desc>
+  <defs
+     id="defs3551" />
+  <g
+     id="Page-1"
+     stroke="none"
+     stroke-width="1"
+     fill="none"
+     fill-rule="evenodd">
+    <g
+       id="Artboard"
+       transform="translate(-157.000000, -144.000000)">
+      <g
+         id="P"
+         transform="translate(157.000000, 144.000000)">
+        <rect
+           id="Rectangle"
+           stroke="#979797"
+           stroke-width="7"
+           x="3.5"
+           y="3.5"
+           width="106"
+           height="106"
+           rx="8" />
+        <text
+           font-family="HelveticaNeue-Bold, Helvetica Neue"
+           font-size="64"
+           font-weight="bold"
+           letter-spacing="0.04666667"
+           fill="#979797"
+           id="text3556"><tspan
+             x="35.1326667"
+             y="80"
+             id="tspan3554">P</tspan></text>
+      </g>
+    </g>
+  </g>
+  <metadata
+     id="metadata3622">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:title>P</dc:title>
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <text
+     xml:space="preserve"
+     style="font-style:normal;font-weight:normal;font-size:40px;line-height:1.25;font-family:sans-serif;fill:#000000;fill-opacity:1;stroke:none"
+     x="44.806957"
+     y="53.846958"
+     id="text4524"><tspan
+       sodipodi:role="line"
+       id="tspan4522"
+       x="44.806957"
+       y="53.846958" /></text>
+  <rect
+     style="fill:#ffffff;fill-opacity:1"
+     id="rect11255"
+     width="43.234783"
+     height="57.580872"
+     x="32.426083"
+     y="22.403475" />
+  <text
+     xml:space="preserve"
+     style="font-style:normal;font-weight:normal;font-size:58.6991px;line-height:1.25;font-family:sans-serif;fill:#979797;fill-opacity:1;stroke:none;stroke-width:1.46748"
+     x="40.207409"
+     y="76.364777"
+     id="text5508"
+     transform="scale(0.95618384,1.045824)"><tspan
+       sodipodi:role="line"
+       id="tspan5506"
+       x="40.207409"
+       y="76.364777"
+       style="stroke-width:1.46748">S</tspan></text>
+</svg>
