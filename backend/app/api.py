@@ -10,9 +10,28 @@ class UserAPI:
     """API that queries and transform data from DB"""
 
     def get_user(self, uuid: str) -> response:
+        """Get user object from SQLite database.
+
+        Args:
+            uuid (str): Unique identifier for user from database.
+
+        Returns:
+            response: Response object containing success bool, data, additional text as message.
+        """
+
         return DB.get_user(uuid)
 
     def save_user(self, user) -> response:
+        """Adds a new user in the SQLite database.
+
+        This function does not update an existing user.
+
+        Args:
+            user (user): User object
+
+        Returns:
+            response: Response object with success (bool) and an additional response message.
+        """
         if not DB.UserModel.validate(user):
             return response(False, message="user model is missing fields")
         elif self.get_user(user.get("user_name")).success:
@@ -29,9 +48,24 @@ class UserAPI:
 
 
 class AudioAPI:
-    """API that to save, get, and extract all audio as zip"""
+    """API to save, get, and extract all audio as zip"""
 
     def save_audio(self, audio: bytes, uuid: str, prompt: str):
+        """Save frontend submitted audio recording to filesystem and database.
+
+        All files are save with their unique id as the filename.
+
+        If '___SKIPPED___' is transmitted as phrase from frontend no audiofile is saved.
+        Audio is trimmed of excess silence before it is saved on disk.
+
+        Args:
+            audio (bytes): Audio data of recording
+            uuid (str): unique id of user
+            prompt (str): recorded phrase
+
+        Returns:
+            response: Response object containing success or failure as bool
+        """
         user_audio_dir = AudioFS.get_audio_path(uuid)
         
         if prompt[:13] == "___SKIPPED___":
@@ -68,6 +102,15 @@ class AudioAPI:
                 return response(False)
 
     def get_audio_len(self, audio: bytes):
+        """Returns length of audio waveform in seconds.
+
+        Args:
+            audio (bytes): Raw audio data
+
+        Returns:
+            response: Response object containing success or failure as bool.
+                      If successful, audio length in seconds provided in data object.
+        """
         try:
             name = random.getrandbits(64)  # get random num
             path = os.path.join(temp_path, str(name))
@@ -94,6 +137,18 @@ class PromptAPI:
         self.user_api = UserAPI()
 
     def get_prompt(self, uuid: str) -> response:
+        """Get next prompt to be recorded.
+
+        Based on uuid argument (user) the 'prompt_num' value from SQLite is selected.
+        The matching phrase from 'prompt_num' is queried in PromptAPI.
+
+        Args:
+            uuid (str): Unique ID of user.
+
+        Returns:
+            response: Response object containing success or failure as bool.
+                      If successful, next phrase to be recorded provided as data object.
+        """
         user = self.user_api.get_user(uuid)
         if user.success:
             prompt_num = user.data["prompt_num"]

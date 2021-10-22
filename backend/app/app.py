@@ -12,8 +12,14 @@ prompt_api = PromptAPI()
 
 
 class Users(MethodView):
+    """User class reading/writing user object data."""
 
     def get(self):
+        """Get user details based on object instance user-id.
+
+        Returns:
+            User object with data from SQLite datase table "usermodel".
+        """
         uuid = request.args.get('uuid')
         user = user_api.get_user(uuid)
         if user.success:
@@ -22,6 +28,11 @@ class Users(MethodView):
             return jsonify(success=False, message=user.message)
 
     def post(self):
+        """Save user object to SQLite database.
+
+        Returns:
+            (bool): 'true' when saving to database is successful or 'false' in any other case.
+        """
         user = request.get_json(force=True)
         res = user_api.save_user(user)
         if res.success:
@@ -31,6 +42,7 @@ class Users(MethodView):
 
 
 class Audio(MethodView):
+    """Audio class saving audio data or getting audio length."""
 
     def save_audio(self, uuid: str, prompt: str, data: bytes) -> jsonify:
         res = audio_api.save_audio(data, uuid, prompt)

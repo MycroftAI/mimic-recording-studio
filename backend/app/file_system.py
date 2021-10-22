@@ -35,9 +35,16 @@ os.makedirs(temp_path, exist_ok=True)
 
 
 class AudioFS:
+    """API Class for audio handling."""
 
     @staticmethod
     def save_audio(path: str, audio: bytes):
+        """Save audio after ffmpeg conversion (stereo, samplerate 44.100Hz) to disk.
+
+        Args:
+            path (str): Directory where recordings are saved (./backend/audio_files/<user-id>).
+            audio (bytes): Raw audio data.
+        """
         webm_file_name = path + ".webm"
 
         with open(webm_file_name, 'wb+') as f:
@@ -53,6 +60,16 @@ class AudioFS:
 
     @staticmethod
     def save_meta_data(user_audio_dir, uuid, wav_file_id, prompt):
+        """Write a line for every saved recording in metadata.csv file.
+
+        CSV file format is <uuid of recording>.wav|Recorded phrase|Length of phrase.
+
+        Args:
+            user_audio_dir: Base directory for recordings (./backend/audio_files/<user-id>/).
+            uuid: user-id.
+            wav_file_id (str): unique id of wavefile.
+            prompt (str): Text of recorded phrase.
+        """
         path = os.path.join(user_audio_dir, '%s-metadata.txt' % uuid)
         data = "{}|{}|{}\n".format(wav_file_id + ".wav", prompt, len(prompt))
 
@@ -69,7 +86,13 @@ class AudioFS:
 
     @staticmethod
     def save_skipped_data(user_audio_dir, uuid, prompt):
-        """Save skipped phrase in file <uuid>-skipped.txt."""
+        """Write text phrase for every skipped recording in userid-skipped.txt file.
+
+        Args:
+            user_audio_dir (str): Base directory for user recordings.
+            uuid (str): user-id.
+            prompt (str): Text phrase that has been skipped.
+        """
         path = os.path.join(user_audio_dir, '%s-skipped.txt' % uuid)
         data = "{}\n".format(prompt.lstrip('___SKIPPED___'))
 
@@ -87,6 +110,7 @@ class AudioFS:
 
 
 class PromptsFS:
+    """API Class for Prompt handling."""
     def __init__(self):
         self.data = []
         with open(prompts_path, 'r') as f:
@@ -95,6 +119,14 @@ class PromptsFS:
                 self.data.append(p[0])
 
     def get(self, prompt_number: int) -> response:
+        """Get text from corpus by prompt number.
+
+        Args:
+            prompt_number (int): Number of requested prompt from corpus.
+
+        Returns:
+            response: Text phrase from corpus, length of prompt.
+        """
         try:
             d = {
                 "prompt": self.data[prompt_number],
