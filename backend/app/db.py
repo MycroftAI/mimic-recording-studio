@@ -29,6 +29,7 @@ mimic_studio_db = SqliteDatabase(mimic_studio_db_path)
 
 
 class UserModel(Model):
+    """Maps SQLite database table "usermodel" to object."""
     uuid = CharField(primary_key=True)
     mycroft_uuid = CharField(default="")
     user_name = CharField()
@@ -44,6 +45,14 @@ class UserModel(Model):
 
     @staticmethod
     def validate(user):
+        """Check if a user exists in SQLite database.
+
+        Args:
+            user ([type]): User object.
+
+        Returns:
+            bool: True, if uuid and username are found in SQLite database.
+        """
         if user.get("uuid") and user.get("user_name"):
             return True
         else:
@@ -52,6 +61,7 @@ class UserModel(Model):
 
 # TODO: use this for language support
 class AudioModel(Model):
+    """Maps SQLite database table "audiomodel" to object."""
     id = AutoField()
     audio_id = CharField()
     prompt = CharField()
@@ -81,6 +91,14 @@ class DB:
 
     @staticmethod
     def save_user(user: dict) -> response:
+        """Create a new user entity in SQLite datase. 
+
+        Args:
+            user (dict): User object
+
+        Returns:
+            response: True, if user was created successfully in SQLite database.
+        """
         try:
             DB.UserModel.create(uuid=user["uuid"], user_name=user["user_name"])
             return response(True)
@@ -91,6 +109,14 @@ class DB:
 
     @staticmethod
     def get_user(uuid: str) -> response:
+        """Return user object from SQLite database based on uuid.
+
+        Args:
+            uuid (str): Unique id of user.
+
+        Returns:
+            response: Entities from "usermodel" table in SQLite database.
+        """
         try:
             user = DB.UserModel.get(UserModel.uuid == uuid)
             data = {
@@ -110,6 +136,19 @@ class DB:
 
     @staticmethod
     def update_user_metrics(uuid: str, time: float, char_len: int) -> response:
+        """Update recording metrics for specific user.
+
+        Will be called after every recording to update metrics
+        (number of recordings, total time and characters recorded).
+
+        Args:
+            uuid (str): Unique user id to be updated.
+            time (float): Duration of last recording.
+            char_len (int): Character length of last recorded phrase.
+
+        Returns:
+            response: True, if user metrics could be updated successfully.
+        """
         try:
             query = UserModel \
                 .update(
@@ -151,6 +190,17 @@ class DB:
     @staticmethod
     def save_audio(audio_id: str, prompt: str,
                    language: str, uuid: str) -> response:
+        """Save new recording to SQLite database (table audiomodel)
+
+        Args:
+            audio_id (str): GUID of recording.
+            prompt (str): Recorded phrase from text corpus.
+            language (str): 'English' as static value by October 2021. (TODO)
+            uuid (str): Unique id of user who recorded the audio.
+
+        Returns:
+            response: [description]
+        """
         try:
             user = DB.UserModel.get(UserModel.uuid == uuid)
             if user:
