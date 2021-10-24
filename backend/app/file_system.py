@@ -132,8 +132,9 @@ class PromptsFS:
                 "prompt": self.data[prompt_number],
                 "total_prompt": len(self.data)
             }
-            return response(True, data=d)
         except IndexError as e:
-            # TODO: loggin
-            print(e)
-            return None
+            d = {
+                "prompt": "___CORPUS_END___",
+                "total_prompt": 0
+            }            
+        return response(True, data=d)

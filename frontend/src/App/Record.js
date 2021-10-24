@@ -131,11 +131,18 @@ class Record extends Component {
     getPrompt(uuid)
       .then(res => res.json())
       .then(res => {
-        if (res.success) {
-          this.setState({
-            prompt: res.data.prompt,
-            totalPrompt: res.data.total_prompt
-          });
+        if (res.data.prompt === "___CORPUS_END___") {
+            this.setState({
+              shouldRecord: false,
+              prompt: "*no more phrases in corpus to record*",
+              totalPrompt: res.data.total_prompt
+            })
+          }
+        if (res.success && res.data.prompt !== "___CORPUS_END___") {
+        this.setState({
+          prompt: res.data.prompt,
+          totalPrompt: res.data.total_prompt
+        });
         }
       });
   };
