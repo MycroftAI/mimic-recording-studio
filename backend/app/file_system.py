@@ -120,6 +120,7 @@ class PromptsFS:
 
     def get(self, prompt_number: int) -> response:
         """Get text from corpus by prompt number.
+        If end of corpus file is reached then '___CORPUS_END___' is returned as phrase.
 
         Args:
             prompt_number (int): Number of requested prompt from corpus.
