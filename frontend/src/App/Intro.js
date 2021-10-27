@@ -83,6 +83,24 @@ class Intro extends Component {
                 pace, similar to what you might hear from a news anchor.
               </li>
             </ul>
+
+            <hr></hr>
+            <p>
+              In addition please follow these advices for your voice recordings:
+            </p>
+            <ul className="persona-desc">
+              <li><b>Use a good microphone and a quiet recording room setup</b> (no computers fans, air conditioning, ...).</li>
+              <li>Use a text corpus with cleaned numbers/abbreviations and good phoneme coverage.</li>
+              <li>Read neutral, but with a natural speech flow and do not swallow up letters.</li>
+              <li>Adjust tone and pitch with punctuations.</li>
+              <li>Use a constant recording speed.</li>
+              <li>Check your recordings regularly in high volume for background noise.</li>
+              <li>Make breaks regualarly and do not record more than four hours a day.</li>
+              <li>Record error free.</li>
+              </ul>
+
+              <span className="li-title">Happy recording :-)</span>
+
           </div>
           {getName() ? this.renderWelcomeBackMsg() : this.renderInput()}
           <div className="btn_PageIntro">
