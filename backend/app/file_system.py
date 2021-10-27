@@ -120,6 +120,7 @@ class PromptsFS:
 
     def get(self, prompt_number: int) -> response:
         """Get text from corpus by prompt number.
+        If end of corpus file is reached then '___CORPUS_END___' is returned as phrase.
 
         Args:
             prompt_number (int): Number of requested prompt from corpus.
@@ -132,8 +133,9 @@ class PromptsFS:
                 "prompt": self.data[prompt_number],
                 "total_prompt": len(self.data)
             }
-            return response(True, data=d)
         except IndexError as e:
-            # TODO: loggin
-            print(e)
-            return None
+            d = {
+                "prompt": "___CORPUS_END___",
+                "total_prompt": 0
+            }            
+        return response(True, data=d)
