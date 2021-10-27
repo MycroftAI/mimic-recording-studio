@@ -10,6 +10,7 @@ import Wave from "./components/Wave";
 import spacebarSVG from "./assets/space.svg";
 import PSVG from "./assets/P.svg";
 import rightSVG from "./assets/right.svg";
+import SSVG from "./assets/S.svg";
 
 import { postAudio, getPrompt, getUser, createUser, getAudioLen } from "./api";
 import { getUUID, getName } from "./api/localstorage";
@@ -354,6 +355,9 @@ class TopContainer extends Component {
               <li>
                 <img src={rightSVG} className="key-icon" alt="->" /> will go to
                 next prompt
+              </li>
+              <li>
+                <img src={SSVG} className="key-icon" alt="->" /> skip current prompt
               </li>
             </ul>
           </div>

@@ -4,6 +4,7 @@ import { ReactMic as Visualizer } from "react-mic";
 import spacebarSVG from "./assets/space.svg";
 import PSVG from "./assets/P.svg";
 import rightSVG from "./assets/right.svg";
+import SSVG from "./assets/S.svg";
 
 class Tutorial extends Component {
   render() {
@@ -42,8 +43,9 @@ class Tutorial extends Component {
                 that same phrase as many times as you like. <b>It is essential that the
                 recorded words match the text in the script exactly. </b> If you
                 accidentally deviate from the script or are unsure, please record
-                the prompt again. Once saved you may not be able to go back. Press
-                the &nbsp;
+                the prompt again. Once saved you may not be able to go back. To skip a prompt
+                press <img src={SSVG} className="key-icon" alt="s" /> and the next prompt will
+                be shown. Press the &nbsp;
                 <img src={rightSVG} className="key-icon" alt="->" />&nbsp;
                 key to keep the recording and move on to the next phrase.
             </p>
