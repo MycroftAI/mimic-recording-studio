@@ -113,7 +113,7 @@ class PromptsFS:
     """API Class for Prompt handling."""
     def __init__(self):
         self.data = []
-        with open(prompts_path, 'r') as f:
+        with open(prompts_path, 'r', encoding='utf8') as f:
             prompts = csv.reader(f, delimiter="\t")
             for p in prompts:
                 self.data.append(p[0])
