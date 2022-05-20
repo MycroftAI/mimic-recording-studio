@@ -55,7 +55,13 @@ class Recorder extends React.Component {
 			navigator.webkitGetUserMedia);
 
 		if (navigator.getUserMedia && window.MediaRecorder) {
-			const constraints = {audio: true};
+			const constraints = {
+				audio: {
+					echoCancellation: false,
+					autoGainControl: false,
+					noiseSuppression: false,
+				}
+			};
 			this.chunks = [];
 			const { blobOpts, onStop, onError, mediaOpts, onPause, onResume, onStart, gotStream } = this.props;
 
