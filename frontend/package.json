@@ -3,7 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "devDependencies": {
-    "react-scripts": "1.1.5"
+    "react-scripts": "5.0.1"
   },
   "dependencies": {
     "hark": "^1.2.3",
